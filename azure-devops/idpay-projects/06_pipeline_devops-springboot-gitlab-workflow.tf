@@ -36,16 +36,16 @@ locals {
   }
   # deploy vars
   devops-springboot-gitlab-workflow-variables_deploy = {
-    K8S_IMAGE_REPOSITORY_NAME            = replace(var.devops-springboot-gitlab-workflow.repository.name, "-", "")
-    DEPLOY_NAMESPACE                     = local.domain
-    SETTINGS_XML_RW_SECURE_FILE_NAME     = "settings-rw.xml"
-    SETTINGS_XML_RO_SECURE_FILE_NAME     = "settings-ro.xml"
-    HELM_RELEASE_NAME = var.devops-springboot-gitlab-workflow.repository.name
+    K8S_IMAGE_REPOSITORY_NAME        = replace(var.devops-springboot-gitlab-workflow.repository.name, "-", "")
+    DEPLOY_NAMESPACE                 = local.domain
+    SETTINGS_XML_RW_SECURE_FILE_NAME = "settings-rw.xml"
+    SETTINGS_XML_RO_SECURE_FILE_NAME = "settings-ro.xml"
+    HELM_RELEASE_NAME                = var.devops-springboot-gitlab-workflow.repository.name
 
-    DEV_CONTAINER_REGISTRY_SERVICE_CONN  = local.service_endpoint_azure_devops_acr_aks_dev_name
-    DEV_KUBERNETES_SERVICE_CONN          = local.srv_endpoint_name_aks_dev
-    DEV_CONTAINER_REGISTRY_NAME          = local.aks_cr_name_dev
-    DEV_AGENT_POOL                       = local.azdo_agent_pool_dev
+    DEV_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_acr_aks_dev_name
+    DEV_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_dev
+    DEV_CONTAINER_REGISTRY_NAME         = local.aks_cr_name_dev
+    DEV_AGENT_POOL                      = local.azdo_agent_pool_dev
     # UAT_CONTAINER_REGISTRY_SERVICE_CONN  = azuredevops_serviceendpoint_azurecr.cstar-azurecr-uat.service_endpoint_name
     # UAT_KUBERNETES_SERVICE_CONN          = azuredevops_serviceendpoint_kubernetes.cstar-aks-uat.service_endpoint_name
     # UAT_CONTAINER_REGISTRY_NAME          = "cstaruacr.azurecr.io"

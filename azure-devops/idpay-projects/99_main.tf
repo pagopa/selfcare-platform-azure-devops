@@ -13,36 +13,40 @@ terraform {
 }
 
 provider "azurerm" {
-  features {}
-}
-
-provider "azurerm" {
   features {
     key_vault {
       purge_soft_delete_on_destroy = false
     }
   }
-  alias           = "dev"
+}
+
+provider "azurerm" {
+  alias = "dev"
+  features {
+    key_vault {
+      purge_soft_delete_on_destroy = false
+    }
+  }
   subscription_id = module.secret_azdo.values["PAGOPAIT-DEV-CSTAR-SUBSCRIPTION-ID"].value
 }
 
 provider "azurerm" {
+  alias = "uat"
   features {
     key_vault {
       purge_soft_delete_on_destroy = false
     }
   }
-  alias           = "uat"
   subscription_id = module.secret_azdo.values["PAGOPAIT-UAT-CSTAR-SUBSCRIPTION-ID"].value
 }
 
 provider "azurerm" {
+  alias = "prod"
   features {
     key_vault {
       purge_soft_delete_on_destroy = false
     }
   }
-  alias           = "prod"
   subscription_id = module.secret_azdo.values["PAGOPAIT-PROD-CSTAR-SUBSCRIPTION-ID"].value
 }
 
