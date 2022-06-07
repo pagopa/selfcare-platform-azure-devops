@@ -18,12 +18,12 @@ module "iac_code_review" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.0.5"
   count  = var.iac.pipeline.enable_code_review == true ? 1 : 0
 
-  project_id = azuredevops_project.project.id
+  project_id = data.azuredevops_project.project.id
   repository = merge(
     var.iac.repository,
     {
       organization = local.github_org
-      name         = "${var.project_name_prefix}-infra"
+      name         = "${var.project_name}-infra"
     }
   )
   github_service_connection_id = azuredevops_serviceendpoint_github.azure-devops-github-pr.id
@@ -52,12 +52,12 @@ module "iac_deploy" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.0.5"
   count  = var.iac.pipeline.enable_deploy == true ? 1 : 0
 
-  project_id = azuredevops_project.project.id
+  project_id = data.azuredevops_project.project.id
   repository = merge(
     var.iac.repository,
     {
       organization = local.github_org
-      name         = "${var.project_name_prefix}-infra"
+      name         = "${var.project_name}-infra"
     }
   )
   github_service_connection_id = azuredevops_serviceendpoint_github.azure-devops-github-pr.id

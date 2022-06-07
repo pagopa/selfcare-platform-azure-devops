@@ -4,8 +4,8 @@ set -e
 
 #
 # HOW TO USE IT:
-# $ sh terraform.sh apply iac -> to apply terraform file inside iac-projects
-# $ sh terraform.sh apply app -> to apply terraform file inside app-projects
+# $ sh terraform.sh apply core -> to apply terraform file inside core-projects
+# $ sh terraform.sh apply idpay -> to apply terraform file inside idpay-projects
 #
 
 SCRIPT_PATH="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
@@ -42,7 +42,7 @@ az account set -s "${subscription}"
 
 if echo "init plan apply refresh import output state taint destroy" | grep -w "$ACTION" > /dev/null; then
   if [ "$ACTION" = "init" ]; then
-    echo "[INFO] init tf"
+    echo "[INFO] 🧭 init terraform"
     terraform "$ACTION" -backend-config="${BACKEND_CONFIG_PATH}" "$other"
   elif [ "$ACTION" = "output" ] || [ "$ACTION" = "state" ] || [ "$ACTION" = "taint" ]; then
     # init terraform backend
@@ -50,10 +50,10 @@ if echo "init plan apply refresh import output state taint destroy" | grep -w "$
     terraform "$ACTION" "$other"
   else
     # init terraform backend
-    echo "[INFO] init tf"
+    echo "[INFO] 🧭 init terraform"
     terraform init -reconfigure -backend-config="${BACKEND_CONFIG_PATH}"
 
-    echo "[INFO] run tf with: ${ACTION} and other: >${other}<"
+    echo "[INFO] 🧭 run terraform with: ${ACTION} and other: >${other}<"
     terraform "${ACTION}" -var-file="${TF_VAR_FILE_PATH}" $other
   fi
 else

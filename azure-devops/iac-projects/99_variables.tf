@@ -13,9 +13,9 @@ variable "prod_subscription_name" {
   description = "PROD Subscription name"
 }
 
-variable "project_name_prefix" {
+variable "project_name" {
   type        = string
-  description = "Project name prefix (e.g. selc)"
+  description = "Project name project"
 }
 
 locals {
