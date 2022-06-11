@@ -4,7 +4,7 @@ variable "idpay-portal-welfare-frontend" {
       organization    = "pagopa"
       name            = "idpay-portal-welfare-frontend"
       path            = "idpay\\frontend"
-      branch_name     = "main"
+      branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
       yml_prefix_name = null
     }
