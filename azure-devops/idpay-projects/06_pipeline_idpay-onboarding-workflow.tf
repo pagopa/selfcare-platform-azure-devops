@@ -8,7 +8,7 @@ variable "idpay-onboarding-workflow" {
       yml_prefix_name = null
     }
     pipeline = {
-      enable_code_review = false
+      enable_code_review = true
       enable_deploy      = true
       path               = "idpay\\idpay-onboarding-workflow"
     }
