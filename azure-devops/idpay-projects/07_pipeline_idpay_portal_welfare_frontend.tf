@@ -28,6 +28,10 @@ locals {
   # code_review vars
   idpay-portal-welfare-frontend-variables_code_review = {
     danger_github_api_token = "skip"
+    sonarcloud_service_conn = "SONARCLOUD-SERVICE-CONN"
+    sonarcloud_org          = var.idpay-portal-welfare-frontend.repository.organization
+    sonarcloud_project_key  = "${var.idpay-portal-welfare-frontend.repository.organization}_${var.idpay-portal-welfare-frontend.repository.name}"
+    sonarcloud_project_name = var.idpay-portal-welfare-frontend.repository.name
   }
   # code_review secrets
   idpay-portal-welfare-frontend-variables_secret_code_review = {
@@ -81,6 +85,7 @@ module "idpay-fe-welfare_deploy" {
   ci_trigger_use_yaml = true
 
   variables = merge(
+    local.idpay-fe-common-variables_deploy,
     local.idpay-portal-welfare-frontend-variables,
     local.idpay-portal-welfare-frontend-variables_deploy,
   )
