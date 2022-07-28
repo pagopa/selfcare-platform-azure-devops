@@ -40,12 +40,12 @@ locals {
 
     react_app_assistance_email = "selfcare@assistenza.pagopa.it"
 
-    dev_react_app_url_cdn           = "https://welfare.dev.cstar.pagopa.it/"
-    dev_react_app_url_storage       = "https://cstardweuidpayidpaycdnsa.z6.web.core.windows.net/"
-    dev_react_app_url_fe_login      = "https://dev.selfcare.pagopa.it/auth"
-    dev_react_app_url_fe_assistance = "https://dev.selfcare.pagopa.it/assistenza"
-    dev_react_app_url_fe_landing    = "https://dev.selfcare.pagopa.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
-    dev_react_app_url_api_portal    = "TODO"
+    dev_react_app_url_cdn            = "https://welfare.dev.cstar.pagopa.it/"
+    dev_react_app_url_storage        = "https://cstardweuidpayidpaycdnsa.z6.web.core.windows.net/"
+    dev_react_app_url_fe_login       = "https://dev.selfcare.pagopa.it/auth"
+    dev_react_app_url_fe_assistance  = "https://dev.selfcare.pagopa.it/assistenza"
+    dev_react_app_url_fe_landing     = "https://dev.selfcare.pagopa.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
+    dev_react_app_url_api_initiative = "https://api-io.dev.cstar.pagopa.it/idpay/initiative"
 
     uat_react_app_url_cdn           = "https://welfare.uat.cstar.pagopa.it/"
     uat_react_app_url_storage       = "https://cstaruweuidpayidpaycdnsa.z6.web.core.windows.net/"
