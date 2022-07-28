@@ -20,28 +20,36 @@ module "domain_dev_secrets" {
   ]
 }
 
-# module "domain_uat_secrets" {
-#   source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v2.0.4"
+module "domain_uat_secrets" {
+  source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v2.0.4"
 
-#   resource_group = local.uat_domain_key_vault_resource_group
-#   key_vault_name = local.uat_domain_key_vault_name
+  providers = {
+    azurerm = azurerm.uat
+  }
 
-#   secrets = [
-#     "pagopa-u-weu-dev-aks-azure-devops-sa-token",
-#     "pagopa-u-weu-dev-aks-azure-devops-sa-cacrt",
-#     "pagopa-u-weu-dev-aks-apiserver-url"
-#   ]
-# }
+  resource_group = local.uat_domain_key_vault_resource_group
+  key_vault_name = local.uat_domain_key_vault_name
+
+  secrets = [
+    "cstar-u-weu-uat01-aks-azure-devops-sa-token",
+    "cstar-u-weu-uat01-aks-azure-devops-sa-cacrt",
+    "cstar-u-weu-uat01-aks-apiserver-url"
+  ]
+}
 
 # module "domain_prod_secrets" {
 #   source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v2.0.4"
+
+#   providers = {
+#     azurerm = azurerm.prod
+#   }
 
 #   resource_group = local.prod_domain_key_vault_resource_group
 #   key_vault_name = local.prod_domain_key_vault_name
 
 #   secrets = [
-#     "pagopa-p-weu-dev-aks-azure-devops-sa-token",
-#     "pagopa-p-weu-dev-aks-azure-devops-sa-cacrt",
-#     "pagopa-p-weu-dev-aks-apiserver-url"
+#     "cstar-p-weu-prod-aks-azure-devops-sa-token",
+#     "cstar-p-weu-prod-aks-azure-devops-sa-cacrt",
+#     "cstar-p-weu-prod-aks-apiserver-url"
 #   ]
 # }

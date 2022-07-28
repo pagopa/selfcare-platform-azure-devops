@@ -25,6 +25,7 @@
 | Name | Type |
 |------|------|
 | [azuredevops_serviceendpoint_azurecr.cstar-azurecrcommon-dev](https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs/resources/serviceendpoint_azurecr) | resource |
+| [azuredevops_serviceendpoint_azurecr.cstar-azurecrcommon-uat](https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs/resources/serviceendpoint_azurecr) | resource |
 | [azuredevops_serviceendpoint_azurerm.DEV-CSTAR](https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs/resources/serviceendpoint_azurerm) | resource |
 | [azuredevops_serviceendpoint_azurerm.PROD-CSTAR](https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs/resources/serviceendpoint_azurerm) | resource |
 | [azuredevops_serviceendpoint_azurerm.UAT-CSTAR](https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs/resources/serviceendpoint_azurerm) | resource |
@@ -49,7 +50,10 @@
 | <a name="output_service_endpoint_azure_dev_id"></a> [service\_endpoint\_azure\_dev\_id](#output\_service\_endpoint\_azure\_dev\_id) | Azure |
 | <a name="output_service_endpoint_azure_devops_acr_aks_dev_id"></a> [service\_endpoint\_azure\_devops\_acr\_aks\_dev\_id](#output\_service\_endpoint\_azure\_devops\_acr\_aks\_dev\_id) | n/a |
 | <a name="output_service_endpoint_azure_devops_acr_aks_dev_name"></a> [service\_endpoint\_azure\_devops\_acr\_aks\_dev\_name](#output\_service\_endpoint\_azure\_devops\_acr\_aks\_dev\_name) | Docker registry |
+| <a name="output_service_endpoint_azure_devops_acr_aks_uat_id"></a> [service\_endpoint\_azure\_devops\_acr\_aks\_uat\_id](#output\_service\_endpoint\_azure\_devops\_acr\_aks\_uat\_id) | n/a |
+| <a name="output_service_endpoint_azure_devops_acr_aks_uat_name"></a> [service\_endpoint\_azure\_devops\_acr\_aks\_uat\_name](#output\_service\_endpoint\_azure\_devops\_acr\_aks\_uat\_name) | n/a |
 | <a name="output_service_endpoint_azure_devops_github_pr_name"></a> [service\_endpoint\_azure\_devops\_github\_pr\_name](#output\_service\_endpoint\_azure\_devops\_github\_pr\_name) | n/a |
+| <a name="output_service_endpoint_azure_uat_id"></a> [service\_endpoint\_azure\_uat\_id](#output\_service\_endpoint\_azure\_uat\_id) | n/a |
 | <a name="output_service_endpoint_io_azure_devops_github_pr_id"></a> [service\_endpoint\_io\_azure\_devops\_github\_pr\_id](#output\_service\_endpoint\_io\_azure\_devops\_github\_pr\_id) | Github |
 | <a name="output_service_endpoint_io_azure_devops_github_ro_id"></a> [service\_endpoint\_io\_azure\_devops\_github\_ro\_id](#output\_service\_endpoint\_io\_azure\_devops\_github\_ro\_id) | n/a |
 | <a name="output_service_endpoint_io_azure_devops_github_ro_name"></a> [service\_endpoint\_io\_azure\_devops\_github\_ro\_name](#output\_service\_endpoint\_io\_azure\_devops\_github\_ro\_name) | n/a |

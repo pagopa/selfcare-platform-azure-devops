@@ -3,7 +3,7 @@ variable "infra-sftp-test-dev" {
     repository = {
       organization    = "pagopa"
       name            = "infra-sftp-test"
-      branch_name     = "main"
+      branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
       yml_prefix_name = null
     }

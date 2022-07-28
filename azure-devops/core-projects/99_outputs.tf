@@ -28,9 +28,21 @@ output "service_endpoint_azure_devops_acr_aks_dev_id" {
   value = azuredevops_serviceendpoint_azurecr.cstar-azurecrcommon-dev.id
 }
 
+output "service_endpoint_azure_devops_acr_aks_uat_name" {
+  value = azuredevops_serviceendpoint_azurecr.cstar-azurecrcommon-uat.service_endpoint_name
+}
+
+output "service_endpoint_azure_devops_acr_aks_uat_id" {
+  value = azuredevops_serviceendpoint_azurecr.cstar-azurecrcommon-uat.id
+}
+
 #
 # Azure
 #
 output "service_endpoint_azure_dev_id" {
   value = azuredevops_serviceendpoint_azurerm.DEV-CSTAR.id
+}
+
+output "service_endpoint_azure_uat_id" {
+  value = azuredevops_serviceendpoint_azurerm.UAT-CSTAR.id
 }
