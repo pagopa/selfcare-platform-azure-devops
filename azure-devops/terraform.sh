@@ -43,18 +43,18 @@ az account set -s "${subscription}"
 if echo "init plan apply refresh import output state taint destroy" | grep -w "$ACTION" > /dev/null; then
   if [ "$ACTION" = "init" ]; then
     echo "[INFO] 🧭 init terraform"
-    terraform "$ACTION" -backend-config="${BACKEND_CONFIG_PATH}" "$other"
+    terraform "$ACTION" -backend-config="${BACKEND_CONFIG_PATH}" $other
   elif [ "$ACTION" = "output" ] || [ "$ACTION" = "state" ] || [ "$ACTION" = "taint" ]; then
     # init terraform backend
     terraform init -reconfigure -backend-config="${BACKEND_CONFIG_PATH}"
-    terraform "$ACTION" "$other"
+    terraform "$ACTION" $other
   else
     # init terraform backend
     echo "[INFO] 🧭 init terraform"
     terraform init -reconfigure -backend-config="${BACKEND_CONFIG_PATH}"
 
     echo "[INFO] 🧭 run terraform with: ${ACTION} and other: >${other}<"
-    terraform "${ACTION}" -var-file="${TF_VAR_FILE_PATH}" $other
+    terraform "${ACTION}" -var-file="${TF_VAR_FILE_PATH}" -compact-warnings $other
   fi
 else
     echo "[ERROR] ACTION not allowed."
