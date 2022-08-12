@@ -19,11 +19,13 @@ variable "idpay_iac" {
 locals {
   # global vars
   idpay_iac_variables = {
-
+    dev01-aks-apiserver-url         = module.idpay_dev_secrets.values["cstar-d-weu-dev01-aks-apiserver-url"].value,
+    dev01-aks-azure-devops-sa-cacrt = module.idpay_dev_secrets.values["cstar-d-weu-dev01-aks-azure-devops-sa-cacrt"].value,
+    dev01-aks-azure-devops-sa-token = base64decode(module.idpay_dev_secrets.values["cstar-d-weu-dev01-aks-azure-devops-sa-token"].value),
+    aks_dev_name                    = var.aks_dev_platform_name
   }
   # global secrets
   idpay_iac_variables_secret = {
-
   }
 
   # code_review vars
@@ -77,7 +79,7 @@ module "idpay_iac_code_review" {
 }
 
 module "idpay_iac_deploy" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.4.0"
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.6.1"
   count  = var.idpay_iac.pipeline.enable_deploy == true ? 1 : 0
   path   = var.idpay_iac.pipeline.path
 

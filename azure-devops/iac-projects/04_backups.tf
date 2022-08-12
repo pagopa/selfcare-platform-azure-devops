@@ -7,11 +7,6 @@ variable "apim_backup" {
       pipelines_path  = ".devops"
       yml_prefix_name = "backup-apim"
     }
-    pipeline = {
-      enable_code_review = true
-      enable_deploy      = true
-      path               = "cstar-infrastructure"
-    }
   }
 }
 
@@ -24,7 +19,8 @@ module "apim_backup" {
   path                         = "backups"
   pipeline_name                = "backup-apim"
 
-  ci_trigger_use_yaml = false
+  ci_trigger_use_yaml           = false
+  pull_request_trigger_use_yaml = false
 
   variables = {
     apim_name                 = "cstar-p-apim"
