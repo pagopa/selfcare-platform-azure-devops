@@ -11,7 +11,7 @@ variable "idpay_iac" {
       enable_code_review   = true
       enable_deploy        = false
       path                 = "idpay-infrastructure"
-      pipeline_name_prefix = "cstar-idpay-infra"
+      pipeline_name_prefix = "idpay-infra"
     }
   }
 }
@@ -19,10 +19,10 @@ variable "idpay_iac" {
 locals {
   # global vars
   idpay_iac_variables = {
-    dev01-aks-apiserver-url         = module.idpay_dev_secrets.values["cstar-d-weu-dev01-aks-apiserver-url"].value,
-    dev01-aks-azure-devops-sa-cacrt = module.idpay_dev_secrets.values["cstar-d-weu-dev01-aks-azure-devops-sa-cacrt"].value,
-    dev01-aks-azure-devops-sa-token = base64decode(module.idpay_dev_secrets.values["cstar-d-weu-dev01-aks-azure-devops-sa-token"].value),
-    aks_dev_name                    = var.aks_dev_platform_name
+    tf_dev01_aks_apiserver_url         = module.idpay_dev_secrets.values["cstar-d-weu-dev01-aks-apiserver-url"].value,
+    tf_dev01_aks_azure_devops_sa_cacrt = module.idpay_dev_secrets.values["cstar-d-weu-dev01-aks-azure-devops-sa-cacrt"].value,
+    tf_dev01_aks_azure_devops_sa_token = base64decode(module.idpay_dev_secrets.values["cstar-d-weu-dev01-aks-azure-devops-sa-token"].value),
+    tf_aks_dev_name                    = var.aks_dev_platform_name
   }
   # global secrets
   idpay_iac_variables_secret = {
