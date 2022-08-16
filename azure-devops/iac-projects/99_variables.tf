@@ -52,4 +52,13 @@ locals {
   dev_idpay_key_vault_name  = "${local.prefix}-d-idpay-kv"
   uat_idpay_key_vault_name  = "${local.prefix}-u-idpay-kv"
   prod_idpay_key_vault_name = "${local.prefix}-p-idpay-kv"
+
+  # 🔐 KV Domain
+  dev_rtd_key_vault_resource_group  = "${local.prefix}-d-rtd-sec-rg"
+  uat_rtd_key_vault_resource_group  = "${local.prefix}-u-rtd-sec-rg"
+  prod_rtd_key_vault_resource_group = "${local.prefix}-p-rtd-sec-rg"
+
+  dev_rtd_key_vault_name  = "${local.prefix}-d-rtd-kv"
+  uat_rtd_key_vault_name  = "${local.prefix}-u-rtd-kv"
+  prod_rtd_key_vault_name = "${local.prefix}-p-rtd-kv"
 }
