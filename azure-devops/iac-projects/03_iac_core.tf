@@ -1,57 +1,48 @@
-variable "iac" {
+variable "core_iac" {
   default = {
     repository = {
       organization    = "pagopa"
       name            = "cstar-infrastructure"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
-      yml_prefix_name = null
+      yml_prefix_name = "core"
     }
     pipeline = {
-      enable_code_review = true
-      enable_deploy      = true
-      path               = "cstar-infrastructure"
+      enable_code_review   = true
+      enable_deploy        = true
+      path                 = "core-infrastructure"
+      pipeline_name_prefix = "core-infra"
     }
   }
 }
 
 locals {
   # global vars
-  iac-variables = {
-
-  }
+  iac-variables = {}
   # global secrets
-  iac-variables_secret = {
-
-  }
+  iac-variables_secret = {}
 
   # code_review vars
-  iac-variables_code_review = {
-
-  }
+  iac-variables_code_review = {}
   # code_review secrets
-  iac-variables_secret_code_review = {
-
-  }
+  iac-variables_secret_code_review = {}
 
   # deploy vars
-  iac-variables_deploy = {
-
-  }
+  iac-variables_deploy = {}
   # deploy secrets
-  iac-variables_secret_deploy = {
-
-  }
+  iac-variables_secret_deploy = {}
 }
 
 module "iac_code_review" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.6.1"
-  count  = var.iac.pipeline.enable_code_review == true ? 1 : 0
-  path   = var.iac.pipeline.path
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.6.2"
+  count  = var.core_iac.pipeline.enable_code_review == true ? 1 : 0
+  path   = var.core_iac.pipeline.path
 
   project_id                   = data.azuredevops_project.project.id
-  repository                   = var.iac.repository
+  repository                   = var.core_iac.repository
   github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-rw.id
+
+  pipeline_name_prefix = var.core_iac.pipeline.pipeline_name_prefix
 
   pull_request_trigger_use_yaml = true
 
@@ -74,13 +65,15 @@ module "iac_code_review" {
 }
 
 module "iac_deploy" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.6.1"
-  count  = var.iac.pipeline.enable_deploy == true ? 1 : 0
-  path   = var.iac.pipeline.path
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.6.2"
+  count  = var.core_iac.pipeline.enable_deploy == true ? 1 : 0
+  path   = var.core_iac.pipeline.path
 
   project_id                   = data.azuredevops_project.project.id
-  repository                   = var.iac.repository
+  repository                   = var.core_iac.repository
   github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-rw.id
+
+  pipeline_name_prefix = var.core_iac.pipeline.pipeline_name_prefix
 
   ci_trigger_use_yaml           = true
   pull_request_trigger_use_yaml = true
