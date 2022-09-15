@@ -19,10 +19,11 @@ array=(
     'azure-devops::core'
     'azure-devops::iac'
     'azure-devops::idpay'
+    'azure-devops::rtd'
 )
 
 function rm_terraform {
-    find . \( -iname ".terraform*" ! -iname ".terraform-docs*" ! -iname ".terraform-version" \) -print0 | xargs -0 rm -rf 
+    find . \( -iname ".terraform*" ! -iname ".terraform-docs*" ! -iname ".terraform-version" \) -print0 | xargs -0 rm -rf
 }
 
 echo "[INFO] 🪚 Delete all .terraform folders"

@@ -5,12 +5,12 @@ variable "devops-java-springboot-color" {
       name            = "devops-java-springboot-color"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
-      yml_prefix_name = "cstar-idpay"
+      yml_prefix_name = "cstar-rtd"
     }
     pipeline = {
       enable_code_review = true
       enable_deploy      = true
-      path               = "idpay\\devops-java-springboot-color"
+      path               = "rtd\\devops-java-springboot-color"
     }
   }
 }
@@ -113,6 +113,11 @@ module "devops-java-springboot-color_deploy" {
 
     local.service_endpoint_azure_dev_id,
     local.service_endpoint_azure_devops_acr_dev_id,
-    azuredevops_serviceendpoint_kubernetes.aks_dev.id
+    azuredevops_serviceendpoint_kubernetes.aks_dev.id,
+
+
+    local.service_endpoint_azure_uat_id,
+    local.service_endpoint_azure_devops_acr_uat_id,
+    azuredevops_serviceendpoint_kubernetes.aks_uat.id
   ]
 }

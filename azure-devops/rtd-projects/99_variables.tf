@@ -34,7 +34,7 @@ variable "terraform_remote_state_core" {
 locals {
   prefix           = "cstar"
   azure_devops_org = "pagopaspa"
-  domain           = "idpay"
+  domain           = "rtd"
 
   # 🔐 KV AZDO
   dev_key_vault_resource_group  = "${local.prefix}-d-sec-rg"

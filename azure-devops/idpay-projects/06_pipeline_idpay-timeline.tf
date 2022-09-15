@@ -3,7 +3,7 @@ variable "idpay-timeline" {
     repository = {
       organization    = "pagopa"
       name            = "idpay-timeline"
-      branch_name     = "release-dev"
+      branch_name     = "refs/heads/release-dev"
       pipelines_path  = ".devops"
       yml_prefix_name = null
     }
@@ -43,13 +43,13 @@ locals {
     SETTINGS_XML_RO_SECURE_FILE_NAME = "settings-ro.xml"
     HELM_RELEASE_NAME                = var.idpay-timeline.repository.name
 
-    DEV_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_acr_aks_dev_name
+    DEV_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_acr_dev_name
     DEV_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_dev
-    DEV_CONTAINER_REGISTRY_NAME         = local.aks_cr_name_dev
+    DEV_CONTAINER_REGISTRY_NAME         = local.aks_dev_docker_registry_name
     DEV_AGENT_POOL                      = local.azdo_agent_pool_dev
-    UAT_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_acr_aks_uat_name
+    UAT_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_acr_uat_name
     UAT_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_uat
-    UAT_CONTAINER_REGISTRY_NAME         = local.aks_cr_name_uat
+    UAT_CONTAINER_REGISTRY_NAME         = local.aks_uat_docker_registry_name
     UAT_AGENT_POOL                      = local.azdo_agent_pool_uat
     # PROD_CONTAINER_REGISTRY_SERVICE_CONN = azuredevops_serviceendpoint_azurecr.cstar-azurecr-prod.service_endpoint_name
     # PROD_KUBERNETES_SERVICE_CONN         = azuredevops_serviceendpoint_kubernetes.cstar-aks-prod.service_endpoint_name
@@ -113,7 +113,7 @@ module "idpay-timeline_deploy" {
     local.service_endpoint_io_azure_devops_github_pr_id,
 
     local.service_endpoint_azure_dev_id,
-    local.service_endpoint_azure_devops_acr_aks_dev_id,
+    local.service_endpoint_azure_devops_acr_dev_id,
     azuredevops_serviceendpoint_kubernetes.aks_dev.id
   ]
 
