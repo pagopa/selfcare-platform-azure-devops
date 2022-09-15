@@ -1,6 +1,6 @@
-# your-project-name
+# cstar-platform-azure-devops
 
-This repo template allows you to create a repo for your project pipelines
+This project allow to create the pipelines for app (and domains) and IaC
 
 ## How to use this template
 
