@@ -37,19 +37,19 @@ module "idpay_uat_secrets" {
   ]
 }
 
-# module "idpay_prod_secrets" {
-#   source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v2.18.9"
+module "idpay_prod_secrets" {
+  source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v2.18.9"
 
-#   providers = {
-#     azurerm = azurerm.prod
-#   }
+  providers = {
+    azurerm = azurerm.prod
+  }
 
-#   resource_group = local.prod_idpay_key_vault_resource_group
-#   key_vault_name = local.prod_idpay_key_vault_name
+  resource_group = local.prod_idpay_key_vault_resource_group
+  key_vault_name = local.prod_idpay_key_vault_name
 
-#   secrets = [
-#     "cstar-p-weu-prod-aks-azure-devops-sa-token",
-#     "cstar-p-weu-prod-aks-azure-devops-sa-cacrt",
-#     "cstar-p-weu-prod-aks-apiserver-url"
-#   ]
-# }
+  secrets = [
+    "cstar-p-weu-prod01-aks-azure-devops-sa-token",
+    "cstar-p-weu-prod01-aks-azure-devops-sa-cacrt",
+    "cstar-p-weu-prod01-aks-apiserver-url"
+  ]
+}

@@ -23,6 +23,16 @@ locals {
     tf_dev01_aks_azure_devops_sa_cacrt = module.idpay_dev_secrets.values["cstar-d-weu-dev01-aks-azure-devops-sa-cacrt"].value,
     tf_dev01_aks_azure_devops_sa_token = base64decode(module.idpay_dev_secrets.values["cstar-d-weu-dev01-aks-azure-devops-sa-token"].value),
     tf_aks_dev_name                    = var.aks_dev_platform_name
+
+    tf_uat01_aks_apiserver_url         = module.idpay_uat_secrets.values["cstar-u-weu-uat01-aks-apiserver-url"].value,
+    tf_uat01_aks_azure_devops_sa_cacrt = module.idpay_uat_secrets.values["cstar-u-weu-uat01-aks-azure-devops-sa-cacrt"].value,
+    tf_uat01_aks_azure_devops_sa_token = base64decode(module.idpay_uat_secrets.values["cstar-u-weu-uat01-aks-azure-devops-sa-token"].value),
+    tf_aks_uat_name                    = var.aks_uat_platform_name
+
+    tf_prod01_aks_apiserver_url         = module.idpay_prod_secrets.values["cstar-p-weu-prod01-aks-apiserver-url"].value,
+    tf_prod01_aks_azure_devops_sa_cacrt = module.idpay_prod_secrets.values["cstar-p-weu-prod01-aks-azure-devops-sa-cacrt"].value,
+    tf_prod01_aks_azure_devops_sa_token = base64decode(module.idpay_prod_secrets.values["cstar-p-weu-prod01-aks-azure-devops-sa-token"].value),
+    tf_aks_prod_name                    = var.aks_prod_platform_name
   }
   # global secrets
   idpay_iac_variables_secret = {}

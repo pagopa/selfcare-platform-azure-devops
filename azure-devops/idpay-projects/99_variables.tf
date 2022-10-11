@@ -70,19 +70,16 @@ locals {
   prod_dns_zone_name = "cstar.pagopa.it"
 
   # 📦 ACR DEV FOR AKS
-  srv_endpoint_name_aks_dev_docker_registry = "${local.prefix}-aks-cr-dev"
-  aks_dev_docker_registry_rg_name           = "${local.prefix}-d-container-registry-rg"
-  aks_dev_docker_registry_name              = "${local.prefix}dcommonacr"
+  aks_dev_docker_registry_rg_name = "${local.prefix}-d-container-registry-rg"
+  aks_dev_docker_registry_name    = "${local.prefix}dcommonacr"
 
   # 📦 ACR UAT FOR AKS
-  srv_endpoint_name_aks_uat_docker_registry = "${local.prefix}-aks-cr-uat"
-  aks_uat_docker_registry_rg_name           = "${local.prefix}-u-container-registry-rg"
-  aks_uat_docker_registry_name              = "${local.prefix}ucommonacr"
+  aks_uat_docker_registry_rg_name = "${local.prefix}-u-container-registry-rg"
+  aks_uat_docker_registry_name    = "${local.prefix}ucommonacr"
 
   # 📦 ACR PROD FOR AKS
-  srv_endpoint_name_aks_cr_prod = "${local.prefix}-aks-cr-prod"
-  aks_cr_rg_name_prod           = "${local.prefix}-p-container-registry-rg"
-  aks_cr_name_prod              = "${local.prefix}pcommonacr"
+  aks_docker_rg_name_prod       = "${local.prefix}-p-container-registry-rg"
+  aks_prod_docker_registry_name = "${local.prefix}pcommonacr"
 
   # AKS
   srv_endpoint_name_aks_dev  = "${local.prefix}-${local.domain}-aks-dev"
@@ -114,13 +111,18 @@ locals {
   service_endpoint_io_azure_devops_github_ro_id   = data.terraform_remote_state.core.outputs.service_endpoint_io_azure_devops_github_ro_id
 
   # DEV
-  service_endpoint_azure_devops_acr_dev_name = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_acr_dev_name
-  service_endpoint_azure_devops_acr_dev_id   = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_acr_dev_id
-  service_endpoint_azure_dev_id              = data.terraform_remote_state.core.outputs.service_endpoint_azure_dev_id
+  service_endpoint_azure_devops_docker_dev_name = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_docker_dev_name
+  service_endpoint_azure_devops_docker_dev_id   = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_docker_dev_id
+  service_endpoint_azure_dev_id                 = data.terraform_remote_state.core.outputs.service_endpoint_azure_dev_id
 
   # UAT
-  service_endpoint_azure_devops_acr_uat_name = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_acr_uat_name
-  service_endpoint_azure_devops_acr_uat_id   = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_acr_uat_id
-  service_endpoint_azure_uat_id              = data.terraform_remote_state.core.outputs.service_endpoint_azure_uat_id
+  service_endpoint_azure_devops_docker_uat_name = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_docker_uat_name
+  service_endpoint_azure_devops_docker_uat_id   = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_docker_uat_id
+  service_endpoint_azure_uat_id                 = data.terraform_remote_state.core.outputs.service_endpoint_azure_uat_id
+
+  # PROD
+  service_endpoint_azure_devops_docker_prod_name = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_docker_prod_name
+  service_endpoint_azure_devops_docker_prod_id   = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_docker_prod_id
+  service_endpoint_azure_prod_id                 = data.terraform_remote_state.core.outputs.service_endpoint_azure_prod_id
 
 }

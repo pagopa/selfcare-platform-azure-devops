@@ -13,3 +13,11 @@ data "azurerm_key_vault" "domain_kv_uat" {
   resource_group_name = local.uat_domain_key_vault_resource_group
   name                = local.uat_domain_key_vault_name
 }
+
+data "azurerm_key_vault" "domain_kv_prod" {
+
+  provider = azurerm.prod
+
+  resource_group_name = local.prod_domain_key_vault_resource_group
+  name                = local.prod_domain_key_vault_name
+}

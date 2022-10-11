@@ -14,11 +14,7 @@ jobs:
 
       - name: init_terraform_folders
         env:
-          FOLDERS:
-            - core
-            - iac
-            - idpay
-            - rtd
+          FOLDERS: core iac idpay rtd
         run: |
           pids=()
 
