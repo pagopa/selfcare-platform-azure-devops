@@ -23,6 +23,7 @@
 |------|--------|---------|
 | <a name="module_DEV-CSTAR-RTD-TLS-CERT-SERVICE-CONN"></a> [DEV-CSTAR-RTD-TLS-CERT-SERVICE-CONN](#module\_DEV-CSTAR-RTD-TLS-CERT-SERVICE-CONN) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited | v2.1.0 |
 | <a name="module_UAT-CSTAR-RTD-TLS-CERT-SERVICE-CONN"></a> [UAT-CSTAR-RTD-TLS-CERT-SERVICE-CONN](#module\_UAT-CSTAR-RTD-TLS-CERT-SERVICE-CONN) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited | v2.1.0 |
+| <a name="module_cstar-aks-cert-mounter_deploy"></a> [cstar-aks-cert-mounter\_deploy](#module\_cstar-aks-cert-mounter\_deploy) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy | v2.6.5 |
 | <a name="module_devops-java-springboot-color_code_review"></a> [devops-java-springboot-color\_code\_review](#module\_devops-java-springboot-color\_code\_review) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review | v2.2.0 |
 | <a name="module_devops-java-springboot-color_deploy"></a> [devops-java-springboot-color\_deploy](#module\_devops-java-springboot-color\_deploy) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy | v2.2.0 |
 | <a name="module_domain_dev_secrets"></a> [domain\_dev\_secrets](#module\_domain\_dev\_secrets) | git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query | v2.18.9 |
@@ -50,6 +51,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_cstar-aks-cert-mounter"></a> [cstar-aks-cert-mounter](#input\_cstar-aks-cert-mounter) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "enable_code_review": true,<br>    "enable_deploy": true,<br>    "path": "rtd\\cstar-aks-cert-mounter"<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/main",<br>    "name": "cstar-aks-cert-mounter",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": "rtd"<br>  }<br>}</pre> | no |
 | <a name="input_dev_subscription_name"></a> [dev\_subscription\_name](#input\_dev\_subscription\_name) | DEV Subscription name | `string` | n/a | yes |
 | <a name="input_devops-java-springboot-color"></a> [devops-java-springboot-color](#input\_devops-java-springboot-color) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "enable_code_review": true,<br>    "enable_deploy": true,<br>    "path": "rtd\\devops-java-springboot-color"<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/main",<br>    "name": "devops-java-springboot-color",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": "cstar-rtd"<br>  }<br>}</pre> | no |
 | <a name="input_prod_subscription_name"></a> [prod\_subscription\_name](#input\_prod\_subscription\_name) | PROD Subscription name | `string` | n/a | yes |
