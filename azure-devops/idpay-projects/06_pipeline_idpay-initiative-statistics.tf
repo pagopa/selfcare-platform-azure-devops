@@ -43,18 +43,18 @@ locals {
     SETTINGS_XML_RO_SECURE_FILE_NAME = "settings-ro.xml"
     HELM_RELEASE_NAME                = var.idpay-initiative-statistics.repository.name
 
-    DEV_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_dev_name
-    DEV_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_dev
-    DEV_CONTAINER_REGISTRY_NAME         = local.aks_dev_docker_registry_name
-    DEV_AGENT_POOL                      = local.azdo_agent_pool_dev
-    UAT_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_uat_name
-    UAT_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_uat
-    UAT_CONTAINER_REGISTRY_NAME         = local.aks_uat_docker_registry_name
-    UAT_AGENT_POOL                      = local.azdo_agent_pool_uat
-    # PROD_CONTAINER_REGISTRY_SERVICE_CONN = azuredevops_serviceendpoint_azurecr.cstar-azurecr-prod.service_endpoint_name
-    # PROD_KUBERNETES_SERVICE_CONN         = azuredevops_serviceendpoint_kubernetes.cstar-aks-prod.service_endpoint_name
-    # PROD_CONTAINER_REGISTRY_NAME         = "cstarpacr.azurecr.io"
-    # PROD_AGENT_POOL                      = "cstar-prod-linux"
+    DEV_CONTAINER_REGISTRY_SERVICE_CONN  = local.service_endpoint_azure_devops_docker_dev_name
+    DEV_KUBERNETES_SERVICE_CONN          = local.srv_endpoint_name_aks_dev
+    DEV_CONTAINER_REGISTRY_NAME          = local.aks_dev_docker_registry_name
+    DEV_AGENT_POOL                       = local.azdo_agent_pool_dev
+    UAT_CONTAINER_REGISTRY_SERVICE_CONN  = local.service_endpoint_azure_devops_docker_uat_name
+    UAT_KUBERNETES_SERVICE_CONN          = local.srv_endpoint_name_aks_uat
+    UAT_CONTAINER_REGISTRY_NAME          = local.aks_uat_docker_registry_name
+    UAT_AGENT_POOL                       = local.azdo_agent_pool_uat
+    PROD_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_prod_name
+    PROD_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_prod
+    PROD_CONTAINER_REGISTRY_NAME         = local.aks_prod_docker_registry_name
+    PROD_AGENT_POOL                      = local.azdo_agent_pool_prod
   }
   # deploy secrets
   idpay-initiative-statistics-variables_secret_deploy = {

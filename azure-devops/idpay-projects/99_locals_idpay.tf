@@ -8,7 +8,7 @@ locals {
     git_username      = "TODO" //module.secrets.values["io-azure-devops-github-USERNAME"].value
     github_connection = "TODO" //azuredevops_serviceendpoint_github.io-azure-devops-github-rw.service_endpoint_name
 
-    dev_azure_subscription = local.service_endpoint_azure_dev_id #azuredevops_serviceendpoint_azurerm.DEV-SERVICE-CONN.service_endpoint_name
+    dev_azure_subscription = local.service_endpoint_azure_dev_id
     dev_cdn_endpoint       = "cstar-d-weu-idpay-idpaycdn-cdn-endpoint"
     dev_cdn_profile        = "cstar-d-weu-idpay-idpaycdn-cdn-profile"
     dev_resource_group     = "cstar-d-idpay-cdn-rg"
@@ -18,7 +18,7 @@ locals {
     dev_mixpanel_token     = "TODO" //"6e1290bdda5885981a2f443f37444f0f"
     dev_onetrust_domain_id = "TODO" //"a8f58d7a-7f6a-4fe6-ac02-f95bac3876d4-test"
 
-    uat_azure_subscription = local.service_endpoint_azure_uat_id #azuredevops_serviceendpoint_azurerm.UAT-SERVICE-CONN.service_endpoint_name
+    uat_azure_subscription = local.service_endpoint_azure_uat_id
     uat_cdn_endpoint       = "cstar-u-weu-idpay-idpaycdn-cdn-endpoint"
     uat_cdn_profile        = "cstar-u-weu-idpay-idpaycdn-cdn-profile"
     uat_resource_group     = "cstar-u-idpay-cdn-rg"
@@ -28,8 +28,8 @@ locals {
     uat_mixpanel_token     = "TODO" //"1d1b09b008638080ab34fe9b75db84fd"
     uat_onetrust_domain_id = "TODO" //"15a1f042-9257-450f-b9e8-38d019191729"
 
-    prod_azure_subscription = "TODO" #azuredevops_serviceendpoint_azurerm.PROD-SERVICE-CONN.service_endpoint_name
-    prod_cdn_endpoint       = "cstar-P-weu-idpay-idpaycdn-cdn-endpoint"
+    prod_azure_subscription = local.service_endpoint_azure_prod_id
+    prod_cdn_endpoint       = "cstar-p-weu-idpay-idpaycdn-cdn-endpoint"
     prod_cdn_profile        = "cstar-p-weu-idpay-idpaycdn-cdn-profile"
     prod_resource_group     = "cstar-p-idpay-cdn-rg"
     prod_storage_account    = "cstarpweuidpayidpaycdnsa"
