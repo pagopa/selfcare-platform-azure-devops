@@ -31,8 +31,8 @@
 | <a name="module_letsencrypt_dev"></a> [letsencrypt\_dev](#module\_letsencrypt\_dev) | git::https://github.com/pagopa/azurerm.git//letsencrypt_credential | v2.18.0 |
 | <a name="module_letsencrypt_uat"></a> [letsencrypt\_uat](#module\_letsencrypt\_uat) | git::https://github.com/pagopa/azurerm.git//letsencrypt_credential | v2.18.0 |
 | <a name="module_secret_azdo"></a> [secret\_azdo](#module\_secret\_azdo) | git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query | v2.19.0 |
-| <a name="module_tlscert-dev01-rtd-internal-dev-cstar-pagopa-it-cert_az"></a> [tlscert-dev01-rtd-internal-dev-cstar-pagopa-it-cert\_az](#module\_tlscert-dev01-rtd-internal-dev-cstar-pagopa-it-cert\_az) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert | v2.1.0 |
-| <a name="module_tlscert-uat01-rtd-internal-uat-cstar-pagopa-it-cert_az"></a> [tlscert-uat01-rtd-internal-uat-cstar-pagopa-it-cert\_az](#module\_tlscert-uat01-rtd-internal-uat-cstar-pagopa-it-cert\_az) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert | v2.1.0 |
+| <a name="module_tlscert-dev01-rtd-internal-dev-cstar-pagopa-it-cert_az"></a> [tlscert-dev01-rtd-internal-dev-cstar-pagopa-it-cert\_az](#module\_tlscert-dev01-rtd-internal-dev-cstar-pagopa-it-cert\_az) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert | v2.6.5 |
+| <a name="module_tlscert-uat01-rtd-internal-uat-cstar-pagopa-it-cert_az"></a> [tlscert-uat01-rtd-internal-uat-cstar-pagopa-it-cert\_az](#module\_tlscert-uat01-rtd-internal-uat-cstar-pagopa-it-cert\_az) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert | v2.6.5 |
 
 ## Resources
 
