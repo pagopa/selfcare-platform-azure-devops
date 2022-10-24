@@ -123,4 +123,8 @@ locals {
   service_endpoint_azure_devops_docker_uat_id   = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_docker_uat_id
   service_endpoint_azure_uat_id                 = data.terraform_remote_state.core.outputs.service_endpoint_azure_uat_id
 
+  # PROD
+  service_endpoint_azure_devops_docker_prod_name = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_docker_prod_name
+  service_endpoint_azure_devops_docker_prod_id   = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_docker_prod_id
+  service_endpoint_azure_prod_id                 = data.terraform_remote_state.core.outputs.service_endpoint_azure_prod_id
 }

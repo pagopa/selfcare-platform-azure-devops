@@ -85,6 +85,10 @@ module "cstar-aks-cert-mounter_deploy" {
 
     local.service_endpoint_azure_uat_id,
     local.service_endpoint_azure_devops_docker_uat_id,
-    azuredevops_serviceendpoint_kubernetes.aks_uat.id
+    azuredevops_serviceendpoint_kubernetes.aks_uat.id,
+
+    local.service_endpoint_azure_prod_id,
+    local.service_endpoint_azure_devops_docker_prod_id,
+    azuredevops_serviceendpoint_kubernetes.aks_prod.id,
   ]
 }
