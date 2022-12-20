@@ -3,7 +3,7 @@ variable "idpay-recovery-error-topic" {
     repository = {
       organization    = "pagopa"
       name            = "idpay-recovery-error-topic"
-      branch_name     = "refs/heads/refs/heads/release-dev"
+      branch_name     = "refs/heads/release-dev"
       pipelines_path  = ".devops"
       yml_prefix_name = null
     }
