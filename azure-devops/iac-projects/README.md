@@ -31,6 +31,10 @@
 | <a name="module_rtd_iac_deploy"></a> [rtd\_iac\_deploy](#module\_rtd\_iac\_deploy) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy | v2.6.2 |
 | <a name="module_rtd_uat_secrets"></a> [rtd\_uat\_secrets](#module\_rtd\_uat\_secrets) | git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query | v2.18.9 |
 | <a name="module_secret_azdo"></a> [secret\_azdo](#module\_secret\_azdo) | git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query | v2.4.0 |
+| <a name="module_tae_dev_secrets"></a> [tae\_dev\_secrets](#module\_tae\_dev\_secrets) | git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query | v2.18.9 |
+| <a name="module_tae_iac_code_review"></a> [tae\_iac\_code\_review](#module\_tae\_iac\_code\_review) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review | v2.6.2 |
+| <a name="module_tae_iac_deploy"></a> [tae\_iac\_deploy](#module\_tae\_iac\_deploy) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy | v2.6.2 |
+| <a name="module_tae_uat_secrets"></a> [tae\_uat\_secrets](#module\_tae\_uat\_secrets) | git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query | v2.18.9 |
 
 ## Resources
 
@@ -59,6 +63,7 @@
 | <a name="input_prod_subscription_name"></a> [prod\_subscription\_name](#input\_prod\_subscription\_name) | PROD Subscription name | `string` | n/a | yes |
 | <a name="input_project_iac_name"></a> [project\_iac\_name](#input\_project\_iac\_name) | Project name for IaC projects | `string` | n/a | yes |
 | <a name="input_rtd_iac"></a> [rtd\_iac](#input\_rtd\_iac) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "enable_code_review": true,<br>    "enable_deploy": true,<br>    "path": "rtd-infrastructure",<br>    "pipeline_name_prefix": "rtd-infra"<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/main",<br>    "name": "cstar-infrastructure",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": "rtd"<br>  }<br>}</pre> | no |
+| <a name="input_tae_iac"></a> [tae\_iac](#input\_tae\_iac) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "enable_code_review": true,<br>    "enable_deploy": true,<br>    "path": "tae-infrastructure",<br>    "pipeline_name_prefix": "tae-infra"<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/main",<br>    "name": "cstar-infrastructure",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": "tae"<br>  }<br>}</pre> | no |
 | <a name="input_uat_subscription_name"></a> [uat\_subscription\_name](#input\_uat\_subscription\_name) | UAT Subscription name | `string` | n/a | yes |
 
 ## Outputs
