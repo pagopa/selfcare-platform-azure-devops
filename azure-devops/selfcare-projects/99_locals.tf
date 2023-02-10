@@ -1,7 +1,19 @@
 locals {
-  key_vault_name           = "io-p-kv-azuredevops"
-  key_vault_resource_group = "io-p-rg-operations"
-  key_vault_subscription   = "PROD-IO"
+  #CORE
+  core_key_vault_name           = "selc-p-kv"
+  core_key_vault_resource_group = "selc-p-sec-rg"
+
+  #KV
+  dev_key_vault_name           = "selc-d-kv"
+  dev_key_vault_resource_group = "selc-d-sec-rg"
+
+  uat_key_vault_name           = "selc-u-kv"
+  uat_key_vault_resource_group = "selc-u-sec-rg"
+
+  prod_key_vault_name           = "selc-p-kv"
+  prod_key_vault_resource_group = "selc-p-sec-rg"
+
+
   #tfsec:ignore:GEN002
   tlscert_renew_token = "v2"
 
