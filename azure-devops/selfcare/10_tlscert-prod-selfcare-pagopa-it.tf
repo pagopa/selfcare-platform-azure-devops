@@ -56,9 +56,9 @@ module "tlscert-prod-selfcare-pagopa-it-cert_az" {
   subscription_name       = local.tlscert-prod-selfcare-pagopa-it.subscription_name
   subscription_id         = local.tlscert-prod-selfcare-pagopa-it.subscription_id
 
-  credential_subcription              = local.key_vault_subscription
-  credential_key_vault_name           = local.key_vault_name
-  credential_key_vault_resource_group = local.key_vault_resource_group
+  credential_subcription              = local.core_key_vault_subscription_name
+  credential_key_vault_name           = local.core_key_vault_name
+  credential_key_vault_resource_group = local.core_key_vault_resource_group
 
   variables = merge(
     var.tlscert-prod-selfcare-pagopa-it.pipeline.variables,

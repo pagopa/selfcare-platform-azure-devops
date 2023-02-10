@@ -11,7 +11,7 @@ module "DEV-SELFCARE-TLS-CERT-SERVICE-CONN" {
   #tfsec:ignore:GEN003
   renew_token = local.tlscert_renew_token
 
-  credential_subcription              = local.key_vault_subscription
+  credential_subcription              = local.core_key_vault_subscription_name
   credential_key_vault_name           = local.core_key_vault_name
   credential_key_vault_resource_group = local.core_key_vault_resource_group
 }
@@ -28,7 +28,7 @@ module "UAT-SELFCARE-TLS-CERT-SERVICE-CONN" {
   #tfsec:ignore:GEN003
   renew_token = local.tlscert_renew_token
 
-  credential_subcription              = local.key_vault_subscription
+  credential_subcription              = local.core_key_vault_subscription_name
   credential_key_vault_name           = local.core_key_vault_name
   credential_key_vault_resource_group = local.core_key_vault_resource_group
 }
@@ -45,7 +45,7 @@ module "PROD-SELFCARE-TLS-CERT-SERVICE-CONN" {
   #tfsec:ignore:GEN003
   renew_token = local.tlscert_renew_token
 
-  credential_subcription              = local.key_vault_subscription
+  credential_subcription              = local.core_key_vault_subscription_name
   credential_key_vault_name           = local.core_key_vault_name
   credential_key_vault_resource_group = local.core_key_vault_resource_group
 }
