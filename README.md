@@ -1,4 +1,4 @@
-# cstar-platform-azure-devops
+# selfcare-platform-azure-devops
 
 This project allow to create the pipelines for app (and domains) and IaC
 
