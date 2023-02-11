@@ -1,8 +1,8 @@
 # DEV service connection
 resource "azuredevops_serviceendpoint_azurerm" "DEV-SELFCARE" {
-  depends_on = [azuredevops_project.project]
+  depends_on = [data.azuredevops_project.project]
 
-  project_id                = azuredevops_project.project.id
+  project_id                = data.azuredevops_project.project.id
   service_endpoint_name     = "DEV-SELFCARE-SERVICE-CONN"
   description               = "DEV-SelfCare Service connection"
   azurerm_subscription_name = "DEV-SelfCare"
@@ -12,9 +12,9 @@ resource "azuredevops_serviceendpoint_azurerm" "DEV-SELFCARE" {
 
 # UAT service connection
 resource "azuredevops_serviceendpoint_azurerm" "UAT-SELFCARE" {
-  depends_on = [azuredevops_project.project]
+  depends_on = [data.azuredevops_project.project]
 
-  project_id                = azuredevops_project.project.id
+  project_id                = data.azuredevops_project.project.id
   service_endpoint_name     = "UAT-SELFCARE-SERVICE-CONN"
   description               = "UAT-SelfCare Service connection"
   azurerm_subscription_name = "UAT-SelfCare"
@@ -24,9 +24,9 @@ resource "azuredevops_serviceendpoint_azurerm" "UAT-SELFCARE" {
 
 # PROD service connection
 resource "azuredevops_serviceendpoint_azurerm" "PROD-SELFCARE" {
-  depends_on = [azuredevops_project.project]
+  depends_on = [data.azuredevops_project.project]
 
-  project_id                = azuredevops_project.project.id
+  project_id                = data.azuredevops_project.project.id
   service_endpoint_name     = "PROD-SELFCARE-SERVICE-CONN"
   description               = "PROD-SelfCare Service connection"
   azurerm_subscription_name = "PROD-SelfCare"

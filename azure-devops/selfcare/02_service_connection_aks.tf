@@ -1,8 +1,8 @@
 
 # DEV service connection for azure kubernetes service
 resource "azuredevops_serviceendpoint_kubernetes" "selfcare-aks-dev" {
-  depends_on            = [azuredevops_project.project]
-  project_id            = azuredevops_project.project.id
+  depends_on            = [data.azuredevops_project.project]
+  project_id            = data.azuredevops_project.project.id
   service_endpoint_name = "selfcare-aks-dev"
   apiserver_url         = module.dev_secrets.values["dev-selfcare-aks-apiserver-url"].value
   authorization_type    = "ServiceAccount"
@@ -15,8 +15,8 @@ resource "azuredevops_serviceendpoint_kubernetes" "selfcare-aks-dev" {
 
 # UAT service connection for azure kubernetes service
 resource "azuredevops_serviceendpoint_kubernetes" "selfcare-aks-uat" {
-  depends_on            = [azuredevops_project.project]
-  project_id            = azuredevops_project.project.id
+  depends_on            = [data.azuredevops_project.project]
+  project_id            = data.azuredevops_project.project.id
   service_endpoint_name = "selfcare-aks-uat"
   apiserver_url         = module.uat_secrets.values["uat-selfcare-aks-apiserver-url"].value
   authorization_type    = "ServiceAccount"
@@ -29,8 +29,8 @@ resource "azuredevops_serviceendpoint_kubernetes" "selfcare-aks-uat" {
 
 # PROD service connection for azure kubernetes service
 resource "azuredevops_serviceendpoint_kubernetes" "selfcare-aks-prod" {
-  depends_on            = [azuredevops_project.project]
-  project_id            = azuredevops_project.project.id
+  depends_on            = [data.azuredevops_project.project]
+  project_id            = data.azuredevops_project.project.id
   service_endpoint_name = "selfcare-aks-prod"
   apiserver_url         = module.prod_secrets.values["prod-selfcare-aks-apiserver-url"].value
   authorization_type    = "ServiceAccount"

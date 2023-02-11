@@ -1,9 +1,9 @@
 
 module "DEV-SELFCARE-TLS-CERT-SERVICE-CONN" {
-  depends_on = [azuredevops_project.project]
+  depends_on = [data.azuredevops_project.project]
   source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v2.0.4"
 
-  project_id        = azuredevops_project.project.id
+  project_id        = data.azuredevops_project.project.id
   name              = "selc-d-tls-cert"
   tenant_id         = module.secrets.values["PAGOPAIT-TENANTID"].value
   subscription_id   = module.secrets.values["PAGOPAIT-DEV-SELFCARE-SUBSCRIPTION-ID"].value
@@ -17,10 +17,10 @@ module "DEV-SELFCARE-TLS-CERT-SERVICE-CONN" {
 }
 
 module "UAT-SELFCARE-TLS-CERT-SERVICE-CONN" {
-  depends_on = [azuredevops_project.project]
+  depends_on = [data.azuredevops_project.project]
   source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v2.0.4"
 
-  project_id        = azuredevops_project.project.id
+  project_id        = data.azuredevops_project.project.id
   name              = "selc-u-tls-cert"
   tenant_id         = module.secrets.values["PAGOPAIT-TENANTID"].value
   subscription_id   = module.secrets.values["PAGOPAIT-UAT-SELFCARE-SUBSCRIPTION-ID"].value
@@ -34,10 +34,10 @@ module "UAT-SELFCARE-TLS-CERT-SERVICE-CONN" {
 }
 
 module "PROD-SELFCARE-TLS-CERT-SERVICE-CONN" {
-  depends_on = [azuredevops_project.project]
+  depends_on = [data.azuredevops_project.project]
   source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v2.0.4"
 
-  project_id        = azuredevops_project.project.id
+  project_id        = data.azuredevops_project.project.id
   name              = "selc-p-tls-cert"
   tenant_id         = module.secrets.values["PAGOPAIT-TENANTID"].value
   subscription_id   = module.secrets.values["PAGOPAIT-PROD-SELFCARE-SUBSCRIPTION-ID"].value
