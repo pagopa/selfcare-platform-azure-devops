@@ -3,7 +3,7 @@ variable "tlscert-prod-api-selfcare-pagopa-it" {
     repository = {
       organization   = "pagopa"
       name           = "le-azure-acme-tiny"
-      branch_name    = "master"
+      branch_name    = "refs/heads/master"
       pipelines_path = "."
     }
     pipeline = {
@@ -39,13 +39,13 @@ locals {
 }
 
 module "tlscert-prod-api-selfcare-pagopa-it-cert_az" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert?ref=v2.0.4"
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert?ref=v2.6.5"
   count  = var.tlscert-prod-api-selfcare-pagopa-it.pipeline.enable_tls_cert == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.tlscert-prod-api-selfcare-pagopa-it.repository
   name                         = "${var.tlscert-prod-api-selfcare-pagopa-it.pipeline.dns_record_name}.${var.tlscert-prod-api-selfcare-pagopa-it.pipeline.dns_zone_name}"
-  path                         = var.tlscert-prod-api-selfcare-pagopa-it.pipeline.path
+  path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.tlscert-prod-api-selfcare-pagopa-it.pipeline.path}"
   github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-ro.id
   #tfsec:ignore:GEN003
   renew_token = local.tlscert_renew_token
