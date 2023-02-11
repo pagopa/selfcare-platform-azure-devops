@@ -1,4 +1,5 @@
 locals {
+  prefix           = "selc"
   #CORE
   core_key_vault_name           = "selc-p-kv"
   core_key_vault_resource_group = "selc-p-sec-rg"
@@ -13,6 +14,11 @@ locals {
 
   prod_key_vault_name           = "selc-p-kv"
   prod_key_vault_resource_group = "selc-p-sec-rg"
+
+  # Subscription Name
+  dev_selfcare_subscription_name  = "dev-selfcare"
+  uat_selfcare_subscription_name  = "uat-selfcare"
+  prod_selfcare_subscription_name = "prod-selfcare"
 
 
   #tfsec:ignore:GEN002

@@ -16,6 +16,23 @@ module "DEV-SELFCARE-TLS-CERT-SERVICE-CONN" {
   credential_key_vault_resource_group = local.core_key_vault_resource_group
 }
 
+# create let's encrypt credential used to create SSL certificates
+module "letsencrypt_dev" {
+  source = "git::https://github.com/pagopa/azurerm.git//letsencrypt_credential?ref=v3.2.1"
+
+  providers = {
+    azurerm = azurerm.dev
+  }
+  prefix            = local.prefix
+  env               = "d"
+  key_vault_name    = local.dev_key_vault_name
+  subscription_name = local.dev_selfcare_subscription_name
+}
+
+#
+# UAT
+#
+
 module "UAT-SELFCARE-TLS-CERT-SERVICE-CONN" {
   depends_on = [data.azuredevops_project.project]
   source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v2.0.4"
@@ -33,6 +50,22 @@ module "UAT-SELFCARE-TLS-CERT-SERVICE-CONN" {
   credential_key_vault_resource_group = local.core_key_vault_resource_group
 }
 
+module "letsencrypt_uat" {
+  source = "git::https://github.com/pagopa/azurerm.git//letsencrypt_credential?ref=v3.2.1"
+
+  providers = {
+    azurerm = azurerm.uat
+  }
+  prefix            = local.prefix
+  env               = "u"
+  key_vault_name    = local.uat_key_vault_name
+  subscription_name = local.uat_selfcare_subscription_name
+}
+
+#
+# PROD
+#
+
 module "PROD-SELFCARE-TLS-CERT-SERVICE-CONN" {
   depends_on = [data.azuredevops_project.project]
   source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v2.0.4"
@@ -48,4 +81,17 @@ module "PROD-SELFCARE-TLS-CERT-SERVICE-CONN" {
   credential_subcription              = local.core_key_vault_subscription_name
   credential_key_vault_name           = local.core_key_vault_name
   credential_key_vault_resource_group = local.core_key_vault_resource_group
+}
+
+# create let's encrypt credential used to create SSL certificates
+module "letsencrypt_prod" {
+  source = "git::https://github.com/pagopa/azurerm.git//letsencrypt_credential?ref=v3.2.1"
+
+  providers = {
+    azurerm = azurerm.prod
+  }
+  prefix            = local.prefix
+  env               = "p"
+  key_vault_name    = local.prod_key_vault_name
+  subscription_name = local.prod_selfcare_subscription_name
 }
