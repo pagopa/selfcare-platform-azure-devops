@@ -24,6 +24,10 @@ locals {
   #tfsec:ignore:GEN002
   tlscert_renew_token = "v2"
 
+  selfcare_legacy = {
+    pipelines_folder_name = "selfcare_legacy"
+  }
+
   selc-fe-common-variables_deploy = {
     blob_container_name = "$web"
 

@@ -8,11 +8,6 @@ resource "azuredevops_serviceendpoint_dockerregistry" "github_docker_registry_ro
   registry_type         = "Others"
 }
 
-# TODO azure devops terraform provider does not support SonarCloud service endpoint
-locals {
-  azuredevops_serviceendpoint_sonarcloud_id = "4126bdf1-3b2f-4e34-b9e7-4508d8de8ebe"
-}
-
 # npm service connection
 resource "azuredevops_serviceendpoint_npm" "pagopa-npm-bot" {
   depends_on = [data.azuredevops_project.project]
