@@ -54,7 +54,7 @@ module "selc-be-commons_code_review" {
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selc-be-commons.repository
   github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
-  path = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-be-commons.repository.name}"
+  path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-be-commons.repository.name}"
 
   pull_request_trigger_use_yaml = true
 
@@ -81,7 +81,7 @@ module "selc-be-commons_deploy" {
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selc-be-commons.repository
   github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
-  path = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-be-commons.repository.name}"
+  path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-be-commons.repository.name}"
 
   ci_trigger_use_yaml = true
 

@@ -1,9 +1,9 @@
 locals {
-  prefix           = "selc"
+  prefix = "selc"
   #CORE
-  core_key_vault_name           = "selc-p-kv"
-  core_key_vault_resource_group = "selc-p-sec-rg"
-  core_key_vault_subscription_name   = "PROD-SELFCARE"
+  core_key_vault_name              = "selc-p-kv"
+  core_key_vault_resource_group    = "selc-p-sec-rg"
+  core_key_vault_subscription_name = "PROD-SELFCARE"
 
   #KV
   dev_key_vault_name           = "selc-d-kv"
