@@ -20,7 +20,7 @@ locals {
     settings_xml_rw_secure_file_name = "settings-rw.xml"
     settings_xml_ro_secure_file_name = "settings-ro.xml"
     maven_remote_repo_server_id      = "selc"
-    maven_remote_repo                = "https://pkgs.dev.azure.com/pagopaspa/selfcare-projects/_packaging/selfcare/maven/v1"
+    maven_remote_repo                = "https://pkgs.dev.azure.com/pagopaspa/selfcare-platform-app-projects/_packaging/selfcare-platform/maven/v1"
   }
   # global secrets
   selc-be-starter-parent-variables_secret = {
@@ -55,6 +55,7 @@ module "selc-be-starter-parent_code_review" {
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selc-be-starter-parent.repository
   github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
+  path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-be-starter-parent.repository.name}"
 
   pull_request_trigger_use_yaml = true
 
@@ -81,7 +82,8 @@ module "selc-be-starter-parent_deploy" {
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selc-be-starter-parent.repository
   github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
-
+  path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-be-starter-parent.repository.name}"
+  
   ci_trigger_use_yaml = true
 
   variables = merge(
