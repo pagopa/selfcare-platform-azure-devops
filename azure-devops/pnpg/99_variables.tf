@@ -1,3 +1,7 @@
+locals {
+
+}
+
 #
 # Subscription
 #
@@ -32,9 +36,9 @@ variable "terraform_remote_state_core" {
 }
 
 locals {
-  prefix           = "cstar"
+  prefix           = "selc"
   azure_devops_org = "pagopaspa"
-  domain           = "idpay"
+  domain           = "pnpg"
 
   # 🔐 KV AZDO
   dev_key_vault_resource_group  = "${local.prefix}-d-sec-rg"
@@ -61,13 +65,13 @@ locals {
 
   # DNS Zone
 
-  rg_dev_dns_zone_name  = "cstar-d-vnet-rg"
-  rg_uat_dns_zone_name  = "cstar-u-vnet-rg"
-  rg_prod_dns_zone_name = "cstar-p-vnet-rg"
+  rg_dev_dns_zone_name  = "selc-d-vnet-rg"
+  rg_uat_dns_zone_name  = "selc-u-vnet-rg"
+  rg_prod_dns_zone_name = "selc-p-vnet-rg"
 
-  dev_dns_zone_name  = "dev.cstar.pagopa.it"
-  uat_dns_zone_name  = "uat.cstar.pagopa.it"
-  prod_dns_zone_name = "cstar.pagopa.it"
+  dev_dns_zone_name  = "dev.selfcare.pagopa.it"
+  uat_dns_zone_name  = "uat.selfcare.pagopa.it"
+  prod_dns_zone_name = "selfcare.pagopa.it"
 
   # 📦 ACR DEV FOR AKS
   aks_dev_docker_registry_rg_name = "${local.prefix}-d-container-registry-rg"
@@ -87,14 +91,14 @@ locals {
   srv_endpoint_name_aks_prod = "${local.prefix}-${local.domain}-aks-prod"
 
   # Agent Pool
-  azdo_agent_pool_dev  = "cstar-dev-linux"
-  azdo_agent_pool_uat  = "cstar-uat-linux"
-  azdo_agent_pool_prod = "cstar-prod-linux"
+  azdo_agent_pool_dev  = "selc-dev-linux"
+  azdo_agent_pool_uat  = "selc-uat-linux"
+  azdo_agent_pool_prod = "selc-prod-linux"
 
   # Subscription Name
-  dev_cstar_subscription_name  = "dev-cstar"
-  uat_cstar_subscription_name  = "uat-cstar"
-  prod_cstar_subscription_name = "prod-cstar"
+  dev_selc_subscription_name  = "dev-selfcare"
+  uat_selc_subscription_name  = "uat-selfcare"
+  prod_selc_subscription_name = "prod-selfcare"
 
   #tfsec:ignore:general-secrets-no-plaintext-exposure
   #tfsec:ignore:GEN002

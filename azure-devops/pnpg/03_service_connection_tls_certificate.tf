@@ -1,7 +1,7 @@
 #
 # DEV
 #
-module "DEV-CSTAR-IDPAY-TLS-CERT-SERVICE-CONN" {
+module "DEV-CSTAR-PNPG-TLS-CERT-SERVICE-CONN" {
 
   providers = {
     azurerm = azurerm.dev
@@ -23,11 +23,11 @@ module "DEV-CSTAR-IDPAY-TLS-CERT-SERVICE-CONN" {
   credential_key_vault_resource_group = local.dev_domain_key_vault_resource_group
 }
 
-resource "azurerm_key_vault_access_policy" "DEV-CSTAR-IDPAY-TLS-CERT-SERVICE-CONN_kv_access_policy" {
+resource "azurerm_key_vault_access_policy" "DEV-CSTAR-PNPG-TLS-CERT-SERVICE-CONN_kv_access_policy" {
   provider     = azurerm.dev
   key_vault_id = data.azurerm_key_vault.domain_kv_dev.id
   tenant_id    = module.secret_azdo.values["PAGOPAIT-TENANTID"].value
-  object_id    = module.DEV-CSTAR-IDPAY-TLS-CERT-SERVICE-CONN.service_principal_object_id
+  object_id    = module.DEV-CSTAR-PNPG-TLS-CERT-SERVICE-CONN.service_principal_object_id
 
   certificate_permissions = ["Get", "Import"]
 }
@@ -48,7 +48,7 @@ module "letsencrypt_dev" {
 #
 # UAT
 #
-module "UAT-CSTAR-IDPAY-TLS-CERT-SERVICE-CONN" {
+module "UAT-CSTAR-PNPG-TLS-CERT-SERVICE-CONN" {
 
   providers = {
     azurerm = azurerm.uat
@@ -70,11 +70,11 @@ module "UAT-CSTAR-IDPAY-TLS-CERT-SERVICE-CONN" {
   credential_key_vault_resource_group = local.uat_domain_key_vault_resource_group
 }
 
-resource "azurerm_key_vault_access_policy" "UAT-CSTAR-IDPAY-TLS-CERT-SERVICE-CONN_kv_access_policy" {
+resource "azurerm_key_vault_access_policy" "UAT-CSTAR-PNPG-TLS-CERT-SERVICE-CONN_kv_access_policy" {
   provider     = azurerm.uat
   key_vault_id = data.azurerm_key_vault.domain_kv_uat.id
   tenant_id    = module.secret_azdo.values["PAGOPAIT-TENANTID"].value
-  object_id    = module.UAT-CSTAR-IDPAY-TLS-CERT-SERVICE-CONN.service_principal_object_id
+  object_id    = module.UAT-CSTAR-PNPG-TLS-CERT-SERVICE-CONN.service_principal_object_id
 
   certificate_permissions = ["Get", "Import"]
 }
@@ -95,7 +95,7 @@ module "letsencrypt_uat" {
 #
 # PROD
 #
-module "PROD-CSTAR-IDPAY-TLS-CERT-SERVICE-CONN" {
+module "PROD-CSTAR-PNPG-TLS-CERT-SERVICE-CONN" {
 
   providers = {
     azurerm = azurerm.prod
@@ -117,11 +117,11 @@ module "PROD-CSTAR-IDPAY-TLS-CERT-SERVICE-CONN" {
   credential_key_vault_resource_group = local.prod_domain_key_vault_resource_group
 }
 
-resource "azurerm_key_vault_access_policy" "PROD-CSTAR-IDPAY-TLS-CERT-SERVICE-CONN_kv_access_policy" {
+resource "azurerm_key_vault_access_policy" "PROD-CSTAR-PNPG-TLS-CERT-SERVICE-CONN_kv_access_policy" {
   provider     = azurerm.prod
   key_vault_id = data.azurerm_key_vault.domain_kv_prod.id
   tenant_id    = module.secret_azdo.values["PAGOPAIT-TENANTID"].value
-  object_id    = module.PROD-CSTAR-IDPAY-TLS-CERT-SERVICE-CONN.service_principal_object_id
+  object_id    = module.PROD-CSTAR-PNPG-TLS-CERT-SERVICE-CONN.service_principal_object_id
 
   certificate_permissions = ["Get", "Import"]
 }

@@ -5,12 +5,12 @@ variable "devops-java-springboot-color" {
       name            = "devops-java-springboot-color"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
-      yml_prefix_name = "cstar-idpay"
+      yml_prefix_name = "cstar-pnpg"
     }
     pipeline = {
       enable_code_review = true
       enable_deploy      = true
-      path               = "idpay\\devops-java-springboot-color"
+      path               = "pnpg\\devops-java-springboot-color"
     }
   }
 }
