@@ -5,7 +5,7 @@ variable "devops-java-springboot-color" {
       name            = "devops-java-springboot-color"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
-      yml_prefix_name = "cstar-pnpg"
+      yml_prefix_name = "selc-pnpg"
     }
     pipeline = {
       enable_code_review = true

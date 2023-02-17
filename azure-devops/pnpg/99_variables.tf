@@ -1,48 +1,13 @@
 locals {
 
+  prefix           = "selc"
+  azure_devops_org = "pagopaspa"
+  domain           = "pnpg"
+
   #CORE
   core_key_vault_name              = "selc-p-kv"
   core_key_vault_resource_group    = "selc-p-sec-rg"
   core_key_vault_subscription_name = "PROD-SELFCARE"
-}
-
-#
-# Subscription
-#
-
-variable "dev_subscription_name" {
-  type        = string
-  description = "DEV Subscription name"
-}
-
-variable "uat_subscription_name" {
-  type        = string
-  description = "UAT Subscription name"
-}
-
-variable "prod_subscription_name" {
-  type        = string
-  description = "PROD Subscription name"
-}
-
-variable "project_name" {
-  type        = string
-  description = "Project name (e.g. pagoPA platform)"
-}
-
-variable "terraform_remote_state_core" {
-  type = object({
-    resource_group_name  = string,
-    storage_account_name = string,
-    container_name       = string,
-    key                  = string
-  })
-}
-
-locals {
-  prefix           = "selc"
-  azure_devops_org = "pagopaspa"
-  domain           = "pnpg"
 
   # 🔐 KV AZDO
   dev_key_vault_resource_group  = "${local.prefix}-d-sec-rg"
@@ -133,4 +98,37 @@ locals {
   service_endpoint_azure_devops_docker_prod_id   = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_docker_prod_id
   service_endpoint_azure_prod_id                 = data.terraform_remote_state.core.outputs.service_endpoint_azure_prod_id
 
+}
+
+#
+# Subscription
+#
+
+variable "dev_subscription_name" {
+  type        = string
+  description = "DEV Subscription name"
+}
+
+variable "uat_subscription_name" {
+  type        = string
+  description = "UAT Subscription name"
+}
+
+variable "prod_subscription_name" {
+  type        = string
+  description = "PROD Subscription name"
+}
+
+variable "project_name" {
+  type        = string
+  description = "Project name (e.g. pagoPA platform)"
+}
+
+variable "terraform_remote_state_core" {
+  type = object({
+    resource_group_name  = string,
+    storage_account_name = string,
+    container_name       = string,
+    key                  = string
+  })
 }
