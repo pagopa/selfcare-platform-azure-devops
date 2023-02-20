@@ -6,7 +6,7 @@ terraform {
       version = ">= 0.3.0"
     }
     azurerm = {
-      version = "~> 2.90.0"
+      version = ">= 2.99.0"
     }
     time = {
       version = ">= 0.7.0"
@@ -15,6 +15,7 @@ terraform {
       version = ">= 3.2.0"
     }
   }
+  backend "azurerm" {}
 }
 
 provider "azurerm" {
