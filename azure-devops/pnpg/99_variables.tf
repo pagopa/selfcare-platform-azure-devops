@@ -74,29 +74,19 @@ locals {
   tlscert_renew_token = "v1"
 
   # TODO azure devops terraform provider does not support SonarCloud service endpoint
-  azuredevops_serviceendpoint_sonarcloud_id = "9182be64-d387-465d-9acc-e79e802910c8"
-
-  #
-  # Outputs from CORE
-  #
-  service_endpoint_io_azure_devops_github_ro_name = data.terraform_remote_state.core.outputs.service_endpoint_io_azure_devops_github_ro_name
-  service_endpoint_io_azure_devops_github_pr_id   = data.terraform_remote_state.core.outputs.service_endpoint_io_azure_devops_github_pr_id
-  service_endpoint_io_azure_devops_github_ro_id   = data.terraform_remote_state.core.outputs.service_endpoint_io_azure_devops_github_ro_id
+  azuredevops_serviceendpoint_sonarcloud_id = data.terraform_remote_state.core.outputs.service_connection_sonar_cloud_id
 
   # DEV
-  service_endpoint_azure_devops_docker_dev_name = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_docker_dev_name
-  service_endpoint_azure_devops_docker_dev_id   = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_docker_dev_id
-  service_endpoint_azure_dev_id                 = data.terraform_remote_state.core.outputs.service_endpoint_azure_dev_id
+  service_endpoint_azure_devops_docker_dev_name = "selc-docker-common-dev"
+  service_endpoint_azure_devops_docker_dev_id   = data.terraform_remote_state.core.outputs.service_connection_docker_registry_common_dev_id
 
   # UAT
-  service_endpoint_azure_devops_docker_uat_name = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_docker_uat_name
-  service_endpoint_azure_devops_docker_uat_id   = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_docker_uat_id
-  service_endpoint_azure_uat_id                 = data.terraform_remote_state.core.outputs.service_endpoint_azure_uat_id
+  service_endpoint_azure_devops_docker_uat_name = "selc-docker-common-uat"
+  service_endpoint_azure_devops_docker_uat_id   = data.terraform_remote_state.core.outputs.service_connection_docker_registry_common_uat_id
 
   # PROD
-  service_endpoint_azure_devops_docker_prod_name = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_docker_prod_name
-  service_endpoint_azure_devops_docker_prod_id   = data.terraform_remote_state.core.outputs.service_endpoint_azure_devops_docker_prod_id
-  service_endpoint_azure_prod_id                 = data.terraform_remote_state.core.outputs.service_endpoint_azure_prod_id
+  service_endpoint_azure_devops_docker_prod_name = "selc-docker-common-prod"
+  service_endpoint_azure_devops_docker_prod_id   = data.terraform_remote_state.core.outputs.service_connection_docker_registry_common_prod_id
 
 }
 
@@ -131,4 +121,28 @@ variable "terraform_remote_state_core" {
     container_name       = string,
     key                  = string
   })
+}
+
+variable "service_endpoint_io_azure_devops_github_ro_name" {
+type = string
+}
+
+variable "service_endpoint_io_azure_devops_github_rw_name" {
+type = string
+}
+
+variable "service_endpoint_io_azure_devops_github_pr_name" {
+type = string
+}
+
+variable "service_endpoint_azure_dev_name" {
+type=string
+}
+
+variable "service_endpoint_azure_uat_name" {
+type=string
+}
+
+variable "service_endpoint_azure_prod_name" {
+type=string
 }

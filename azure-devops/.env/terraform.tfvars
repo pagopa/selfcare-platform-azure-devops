@@ -2,8 +2,8 @@ dev_subscription_name  = "DEV-SELFCARE"
 uat_subscription_name  = "UAT-SELFCARE"
 prod_subscription_name = "PROD-SELFCARE"
 
-project_name     = "selc-platform-app-projects"
-project_iac_name = "selc-platform-iac-projects"
+project_name     = "selfcare-platform-app-projects"
+project_iac_name = "selfcare-platform-iac-projects"
 
 aks_dev_platform_name  = "selc-d-weu-dev01-aks"
 aks_uat_platform_name  = "selc-u-weu-uat01-aks"
