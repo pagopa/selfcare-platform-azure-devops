@@ -18,7 +18,7 @@ variable "devops-java-springboot-color" {
 locals {
   # global vars
   devops-java-springboot-color-variables = {
-    dockerfile                       = "Dockerfile"
+    dockerfile = "Dockerfile"
   }
   # global secrets
   devops-java-springboot-color-variables_secret = {
@@ -114,7 +114,7 @@ module "devops-java-springboot-color_deploy" {
   )
 
   service_connection_ids_authorization = [
-data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id,
+    data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id,
     data.azuredevops_serviceendpoint_azurerm.azure_dev.service_endpoint_id,
     local.service_endpoint_azure_devops_docker_dev_id,
     azuredevops_serviceendpoint_kubernetes.aks_dev.id

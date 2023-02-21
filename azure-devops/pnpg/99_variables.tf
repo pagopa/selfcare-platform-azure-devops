@@ -124,25 +124,25 @@ variable "terraform_remote_state_core" {
 }
 
 variable "service_endpoint_io_azure_devops_github_ro_name" {
-type = string
+  type = string
 }
 
 variable "service_endpoint_io_azure_devops_github_rw_name" {
-type = string
+  type = string
 }
 
 variable "service_endpoint_io_azure_devops_github_pr_name" {
-type = string
+  type = string
 }
 
 variable "service_endpoint_azure_dev_name" {
-type=string
+  type = string
 }
 
 variable "service_endpoint_azure_uat_name" {
-type=string
+  type = string
 }
 
 variable "service_endpoint_azure_prod_name" {
-type=string
+  type = string
 }

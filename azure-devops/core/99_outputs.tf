@@ -1,5 +1,5 @@
 output "service_connection_sonar_cloud_id" {
-value = azuredevops_serviceendpoint_sonarcloud.sonarcloud.id
+  value = azuredevops_serviceendpoint_sonarcloud.sonarcloud.id
 }
 
 output "service_connection_docker_registry_common_dev_name" {
