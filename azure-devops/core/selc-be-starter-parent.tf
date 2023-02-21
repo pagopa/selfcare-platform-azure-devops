@@ -83,7 +83,7 @@ module "selc-be-starter-parent_deploy" {
   repository                   = var.selc-be-starter-parent.repository
   github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
   path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-be-starter-parent.repository.name}"
-  
+
   ci_trigger_use_yaml = true
 
   variables = merge(

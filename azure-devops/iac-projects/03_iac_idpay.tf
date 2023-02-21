@@ -2,7 +2,7 @@ variable "idpay_iac" {
   default = {
     repository = {
       organization    = "pagopa"
-      name            = "cstar-infrastructure"
+      name            = "selc-infrastructure"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
       yml_prefix_name = "idpay"
@@ -19,19 +19,19 @@ variable "idpay_iac" {
 locals {
   # global vars
   idpay_iac_variables = {
-    tf_dev01_aks_apiserver_url         = module.idpay_dev_secrets.values["cstar-d-weu-dev01-aks-apiserver-url"].value,
-    tf_dev01_aks_azure_devops_sa_cacrt = module.idpay_dev_secrets.values["cstar-d-weu-dev01-aks-azure-devops-sa-cacrt"].value,
-    tf_dev01_aks_azure_devops_sa_token = base64decode(module.idpay_dev_secrets.values["cstar-d-weu-dev01-aks-azure-devops-sa-token"].value),
+    tf_dev01_aks_apiserver_url         = module.idpay_dev_secrets.values["selc-d-weu-dev01-aks-apiserver-url"].value,
+    tf_dev01_aks_azure_devops_sa_cacrt = module.idpay_dev_secrets.values["selc-d-weu-dev01-aks-azure-devops-sa-cacrt"].value,
+    tf_dev01_aks_azure_devops_sa_token = base64decode(module.idpay_dev_secrets.values["selc-d-weu-dev01-aks-azure-devops-sa-token"].value),
     tf_aks_dev_name                    = var.aks_dev_platform_name
 
-    tf_uat01_aks_apiserver_url         = module.idpay_uat_secrets.values["cstar-u-weu-uat01-aks-apiserver-url"].value,
-    tf_uat01_aks_azure_devops_sa_cacrt = module.idpay_uat_secrets.values["cstar-u-weu-uat01-aks-azure-devops-sa-cacrt"].value,
-    tf_uat01_aks_azure_devops_sa_token = base64decode(module.idpay_uat_secrets.values["cstar-u-weu-uat01-aks-azure-devops-sa-token"].value),
+    tf_uat01_aks_apiserver_url         = module.idpay_uat_secrets.values["selc-u-weu-uat01-aks-apiserver-url"].value,
+    tf_uat01_aks_azure_devops_sa_cacrt = module.idpay_uat_secrets.values["selc-u-weu-uat01-aks-azure-devops-sa-cacrt"].value,
+    tf_uat01_aks_azure_devops_sa_token = base64decode(module.idpay_uat_secrets.values["selc-u-weu-uat01-aks-azure-devops-sa-token"].value),
     tf_aks_uat_name                    = var.aks_uat_platform_name
 
-    tf_prod01_aks_apiserver_url         = module.idpay_prod_secrets.values["cstar-p-weu-prod01-aks-apiserver-url"].value,
-    tf_prod01_aks_azure_devops_sa_cacrt = module.idpay_prod_secrets.values["cstar-p-weu-prod01-aks-azure-devops-sa-cacrt"].value,
-    tf_prod01_aks_azure_devops_sa_token = base64decode(module.idpay_prod_secrets.values["cstar-p-weu-prod01-aks-azure-devops-sa-token"].value),
+    tf_prod01_aks_apiserver_url         = module.idpay_prod_secrets.values["selc-p-weu-prod01-aks-apiserver-url"].value,
+    tf_prod01_aks_azure_devops_sa_cacrt = module.idpay_prod_secrets.values["selc-p-weu-prod01-aks-azure-devops-sa-cacrt"].value,
+    tf_prod01_aks_azure_devops_sa_token = base64decode(module.idpay_prod_secrets.values["selc-p-weu-prod01-aks-azure-devops-sa-token"].value),
     tf_aks_prod_name                    = var.aks_prod_platform_name
   }
   # global secrets
@@ -73,9 +73,9 @@ module "idpay_iac_code_review" {
 
   service_connection_ids_authorization = [
     azuredevops_serviceendpoint_github.io-azure-devops-github-ro.id,
-    azuredevops_serviceendpoint_azurerm.DEV-CSTAR.id,
-    azuredevops_serviceendpoint_azurerm.UAT-CSTAR.id,
-    azuredevops_serviceendpoint_azurerm.PROD-CSTAR.id,
+    azuredevops_serviceendpoint_azurerm.DEV-SELC.id,
+    azuredevops_serviceendpoint_azurerm.UAT-SELC.id,
+    azuredevops_serviceendpoint_azurerm.PROD-SELC.id,
   ]
 }
 
@@ -104,8 +104,8 @@ module "idpay_iac_deploy" {
 
   service_connection_ids_authorization = [
     azuredevops_serviceendpoint_github.io-azure-devops-github-ro.id,
-    azuredevops_serviceendpoint_azurerm.DEV-CSTAR.id,
-    azuredevops_serviceendpoint_azurerm.UAT-CSTAR.id,
-    azuredevops_serviceendpoint_azurerm.PROD-CSTAR.id,
+    azuredevops_serviceendpoint_azurerm.DEV-SELC.id,
+    azuredevops_serviceendpoint_azurerm.UAT-SELC.id,
+    azuredevops_serviceendpoint_azurerm.PROD-SELC.id,
   ]
 }

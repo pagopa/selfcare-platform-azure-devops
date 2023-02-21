@@ -14,9 +14,9 @@ module "rtd_dev_secrets" {
   key_vault_name = local.dev_rtd_key_vault_name
 
   secrets = [
-    "cstar-d-weu-dev01-aks-apiserver-url",
-    "cstar-d-weu-dev01-aks-azure-devops-sa-token",
-    "cstar-d-weu-dev01-aks-azure-devops-sa-cacrt",
+    "selc-d-weu-dev01-aks-apiserver-url",
+    "selc-d-weu-dev01-aks-azure-devops-sa-token",
+    "selc-d-weu-dev01-aks-azure-devops-sa-cacrt",
   ]
 }
 
@@ -31,9 +31,9 @@ module "rtd_uat_secrets" {
   key_vault_name = local.uat_rtd_key_vault_name
 
   secrets = [
-    "cstar-u-weu-uat01-aks-azure-devops-sa-token",
-    "cstar-u-weu-uat01-aks-azure-devops-sa-cacrt",
-    "cstar-u-weu-uat01-aks-apiserver-url"
+    "selc-u-weu-uat01-aks-azure-devops-sa-token",
+    "selc-u-weu-uat01-aks-azure-devops-sa-cacrt",
+    "selc-u-weu-uat01-aks-apiserver-url"
   ]
 }
 
@@ -48,8 +48,8 @@ module "rtd_uat_secrets" {
 #   key_vault_name = local.prod_rtd_key_vault_name
 
 #   secrets = [
-#     "cstar-p-weu-prod-aks-azure-devops-sa-token",
-#     "cstar-p-weu-prod-aks-azure-devops-sa-cacrt",
-#     "cstar-p-weu-prod-aks-apiserver-url"
+#     "selc-p-weu-prod-aks-azure-devops-sa-token",
+#     "selc-p-weu-prod-aks-azure-devops-sa-cacrt",
+#     "selc-p-weu-prod-aks-apiserver-url"
 #   ]
 # }

@@ -5,12 +5,12 @@ variable "devops-java-springboot-color" {
       name            = "devops-java-springboot-color"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
-      yml_prefix_name = "cstar-idpay"
+      yml_prefix_name = "selfcare-pnpg"
     }
     pipeline = {
       enable_code_review = true
       enable_deploy      = true
-      path               = "idpay\\devops-java-springboot-color"
+      path               = "pnpg\\devops-java-springboot-color"
     }
   }
 }
@@ -66,12 +66,12 @@ locals {
 }
 
 module "devops-java-springboot-color_code_review" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.2.0"
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.6.5"
   count  = var.devops-java-springboot-color.pipeline.enable_code_review == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.devops-java-springboot-color.repository
-  github_service_connection_id = local.service_endpoint_io_azure_devops_github_pr_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
   path                         = var.devops-java-springboot-color.pipeline.path
 
   pull_request_trigger_use_yaml = true
@@ -87,18 +87,18 @@ module "devops-java-springboot-color_code_review" {
   )
 
   service_connection_ids_authorization = [
-    local.service_endpoint_io_azure_devops_github_ro_id,
+    data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id,
     local.azuredevops_serviceendpoint_sonarcloud_id,
   ]
 }
 
 module "devops-java-springboot-color_deploy" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.2.0"
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.6.5"
   count  = var.devops-java-springboot-color.pipeline.enable_deploy == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.devops-java-springboot-color.repository
-  github_service_connection_id = local.service_endpoint_io_azure_devops_github_pr_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
   path                         = var.devops-java-springboot-color.pipeline.path
 
   ci_trigger_use_yaml = true
@@ -114,9 +114,8 @@ module "devops-java-springboot-color_deploy" {
   )
 
   service_connection_ids_authorization = [
-    local.service_endpoint_io_azure_devops_github_pr_id,
-
-    local.service_endpoint_azure_dev_id,
+    data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id,
+    data.azuredevops_serviceendpoint_azurerm.azure_dev.service_endpoint_id,
     local.service_endpoint_azure_devops_docker_dev_id,
     azuredevops_serviceendpoint_kubernetes.aks_dev.id
   ]
