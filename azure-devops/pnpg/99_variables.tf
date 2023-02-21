@@ -60,9 +60,9 @@ locals {
   srv_endpoint_name_aks_prod = "${local.prefix}-${local.domain}-aks-prod"
 
   # Agent Pool
-  azdo_agent_pool_dev  = "selc-dev-linux"
-  azdo_agent_pool_uat  = "selc-uat-linux"
-  azdo_agent_pool_prod = "selc-prod-linux"
+  azdo_agent_pool_dev  = "selfcare-dev-linux"
+  azdo_agent_pool_uat  = "selfcare-uat-linux"
+  azdo_agent_pool_prod = "selfcare-prod-linux"
 
   # Subscription Name
   dev_selc_subscription_name  = "dev-selfcare"

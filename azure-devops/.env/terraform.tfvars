@@ -17,7 +17,6 @@ service_endpoint_azure_dev_name="DEV-SELFCARE-SERVICE-CONN"
 service_endpoint_azure_uat_name="UAT-SELFCARE-SERVICE-CONN"
 service_endpoint_azure_prod_name="PROD-SELFCARE-SERVICE-CONN"
 
-
 terraform_remote_state_core = {
   resource_group_name  = "terraform-state-rg"
   storage_account_name = "tfinfprodselfcare"

@@ -5,7 +5,7 @@ variable "devops-java-springboot-color" {
       name            = "devops-java-springboot-color"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
-      yml_prefix_name = "selc-pnpg"
+      yml_prefix_name = "selfcare-pnpg"
     }
     pipeline = {
       enable_code_review = true
@@ -18,7 +18,7 @@ variable "devops-java-springboot-color" {
 locals {
   # global vars
   devops-java-springboot-color-variables = {
-    dockerfile = "Dockerfile"
+    dockerfile                       = "Dockerfile"
   }
   # global secrets
   devops-java-springboot-color-variables_secret = {
