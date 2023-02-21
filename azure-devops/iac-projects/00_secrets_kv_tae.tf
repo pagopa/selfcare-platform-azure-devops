@@ -42,8 +42,8 @@ module "tae_uat_secrets" {
 #   key_vault_name = local.prod_tae_key_vault_name
 
 #   secrets = [
-#     "cstar-p-weu-prod-aks-azure-devops-sa-token",
-#     "cstar-p-weu-prod-aks-azure-devops-sa-cacrt",
-#     "cstar-p-weu-prod-aks-apiserver-url"
+#     "selc-p-weu-prod-aks-azure-devops-sa-token",
+#     "selc-p-weu-prod-aks-azure-devops-sa-cacrt",
+#     "selc-p-weu-prod-aks-apiserver-url"
 #   ]
 # }

@@ -18,7 +18,7 @@ module "DEV-SELFCARE-TLS-CERT-SERVICE-CONN" {
 
 # create let's encrypt credential used to create SSL certificates
 module "letsencrypt_dev" {
-  source = "git::https://github.com/pagopa/azurerm.git//letsencrypt_credential?ref=v3.2.1"
+  source = "git::https://github.com/pagopa/azurerm.git//letsencrypt_credential?ref=v4.3.2"
 
   providers = {
     azurerm = azurerm.dev
@@ -51,7 +51,7 @@ module "UAT-SELFCARE-TLS-CERT-SERVICE-CONN" {
 }
 
 module "letsencrypt_uat" {
-  source = "git::https://github.com/pagopa/azurerm.git//letsencrypt_credential?ref=v3.2.1"
+  source = "git::https://github.com/pagopa/azurerm.git//letsencrypt_credential?ref=v4.3.2"
 
   providers = {
     azurerm = azurerm.uat
@@ -85,7 +85,7 @@ module "PROD-SELFCARE-TLS-CERT-SERVICE-CONN" {
 
 # create let's encrypt credential used to create SSL certificates
 module "letsencrypt_prod" {
-  source = "git::https://github.com/pagopa/azurerm.git//letsencrypt_credential?ref=v3.2.1"
+  source = "git::https://github.com/pagopa/azurerm.git//letsencrypt_credential?ref=v4.3.2"
 
   providers = {
     azurerm = azurerm.prod

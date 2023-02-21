@@ -2,7 +2,7 @@ variable "core_iac" {
   default = {
     repository = {
       organization    = "pagopa"
-      name            = "cstar-infrastructure"
+      name            = "selc-infrastructure"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
       yml_prefix_name = "core"
@@ -58,9 +58,9 @@ module "iac_code_review" {
 
   service_connection_ids_authorization = [
     azuredevops_serviceendpoint_github.io-azure-devops-github-ro.id,
-    azuredevops_serviceendpoint_azurerm.DEV-CSTAR.id,
-    azuredevops_serviceendpoint_azurerm.UAT-CSTAR.id,
-    azuredevops_serviceendpoint_azurerm.PROD-CSTAR.id,
+    azuredevops_serviceendpoint_azurerm.DEV-SELC.id,
+    azuredevops_serviceendpoint_azurerm.UAT-SELC.id,
+    azuredevops_serviceendpoint_azurerm.PROD-SELC.id,
   ]
 }
 
@@ -90,8 +90,8 @@ module "iac_deploy" {
 
   service_connection_ids_authorization = [
     azuredevops_serviceendpoint_github.io-azure-devops-github-ro.id,
-    azuredevops_serviceendpoint_azurerm.DEV-CSTAR.id,
-    azuredevops_serviceendpoint_azurerm.UAT-CSTAR.id,
-    azuredevops_serviceendpoint_azurerm.PROD-CSTAR.id,
+    azuredevops_serviceendpoint_azurerm.DEV-SELC.id,
+    azuredevops_serviceendpoint_azurerm.UAT-SELC.id,
+    azuredevops_serviceendpoint_azurerm.PROD-SELC.id,
   ]
 }

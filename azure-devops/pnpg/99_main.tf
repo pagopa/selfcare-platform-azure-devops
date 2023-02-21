@@ -1,9 +1,9 @@
 terraform {
-  required_version = ">= 1.1.5"
+  required_version = ">= 1.3.0"
   required_providers {
     azuredevops = {
       source  = "microsoft/azuredevops"
-      version = ">= 0.2.1"
+      version = ">= 0.3.0"
     }
     azurerm = {
       version = ">= 2.99.0"
@@ -27,7 +27,7 @@ provider "azurerm" {
       purge_soft_delete_on_destroy = false
     }
   }
-  subscription_id = module.secret_azdo.values["PAGOPAIT-DEV-CSTAR-SUBSCRIPTION-ID"].value
+  subscription_id = module.secrets_core_prod.values["PAGOPAIT-DEV-SELFCARE-SUBSCRIPTION-ID"].value
 }
 
 provider "azurerm" {
@@ -37,7 +37,7 @@ provider "azurerm" {
       purge_soft_delete_on_destroy = false
     }
   }
-  subscription_id = module.secret_azdo.values["PAGOPAIT-UAT-CSTAR-SUBSCRIPTION-ID"].value
+  subscription_id = module.secrets_core_prod.values["PAGOPAIT-UAT-SELFCARE-SUBSCRIPTION-ID"].value
 }
 
 provider "azurerm" {
@@ -47,7 +47,7 @@ provider "azurerm" {
       purge_soft_delete_on_destroy = false
     }
   }
-  subscription_id = module.secret_azdo.values["PAGOPAIT-PROD-CSTAR-SUBSCRIPTION-ID"].value
+  subscription_id = module.secrets_core_prod.values["PAGOPAIT-PROD-SELFCARE-SUBSCRIPTION-ID"].value
 }
 
 data "terraform_remote_state" "core" {
