@@ -72,7 +72,7 @@
 
 #   service_connection_ids_authorization = [
 #     azuredevops_serviceendpoint_github.io-azure-devops-github-ro.id,
-#     local.azuredevops_serviceendpoint_sonarcloud_id,
+#     local.azuredevops_serviceendpoint_sonarcloud_token,
 #   ]
 # }
 
