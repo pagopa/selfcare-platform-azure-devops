@@ -47,7 +47,7 @@ module "selc-fe-onboarding-pnpg_code_review" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selc-fe-onboarding-pnpg.repository
-  github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
+  github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-rw.id
   path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-fe-onboarding-pnpg.repository.name}"
   pull_request_trigger_use_yaml = true
 
