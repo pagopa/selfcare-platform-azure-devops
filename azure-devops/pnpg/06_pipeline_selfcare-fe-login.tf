@@ -1,8 +1,8 @@
-variable "selfcare-ms-product" {
+variable "selfcare-fe-login" {
   default = {
     repository = {
       organization    = "pagopa"
-      name            = "selfcare-ms-product"
+      name            = "selfcare-fe-login"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
       yml_prefix_name = "pnpg"
@@ -10,14 +10,14 @@ variable "selfcare-ms-product" {
     pipeline = {
       enable_code_review = false
       enable_deploy      = true
-      path               = "pnpg\\selfcare-ms-product"
+      path               = "pnpg\\selfcare-fe-login"
     }
   }
 }
 
 locals {
   # global vars
-  selfcare-ms-product-variables = {
+  selfcare-fe-login-variables = {
     settings_xml_rw_secure_file_name = "settings-rw.xml"
     settings_xml_ro_secure_file_name = "settings-ro.xml"
     maven_remote_repo_server_id      = "selfcare-platform"
@@ -25,29 +25,29 @@ locals {
     dockerfile                       = "Dockerfile"
   }
   # global secrets
-  selfcare-ms-product-variables_secret = {
+  selfcare-fe-login-variables_secret = {
 
   }
   # code_review vars
-  selfcare-ms-product-variables_code_review = {
+  selfcare-fe-login-variables_code_review = {
     sonarcloud_service_conn = "SONARCLOUD-SERVICE-CONN"
-    sonarcloud_org          = var.selfcare-ms-product.repository.organization
-    sonarcloud_project_key  = "${var.selfcare-ms-product.repository.organization}_${var.selfcare-ms-product.repository.name}"
-    sonarcloud_project_name = var.selfcare-ms-product.repository.name
+    sonarcloud_org          = var.selfcare-fe-login.repository.organization
+    sonarcloud_project_key  = "${var.selfcare-fe-login.repository.organization}_${var.selfcare-fe-login.repository.name}"
+    sonarcloud_project_name = var.selfcare-fe-login.repository.name
   }
   # code_review secrets
-  selfcare-ms-product-variables_secret_code_review = {
+  selfcare-fe-login-variables_secret_code_review = {
 
   }
   # deploy vars
-  selfcare-ms-product-variables_deploy = {
+  selfcare-fe-login-variables_deploy = {
 
-    K8S_IMAGE_REPOSITORY_NAME        = replace(var.selfcare-ms-product.repository.name, "-", "")
+    K8S_IMAGE_REPOSITORY_NAME        = replace(var.selfcare-fe-login.repository.name, "-", "")
     DEPLOY_NAMESPACE                 = local.domain
-    DEPLOYMENT_NAME                  = "ms-product"
+    DEPLOYMENT_NAME                  = "fe-login"
     SETTINGS_XML_RW_SECURE_FILE_NAME = "settings-rw.xml"
     SETTINGS_XML_RO_SECURE_FILE_NAME = "settings-ro.xml"
-    HELM_RELEASE_NAME                = var.selfcare-ms-product.repository.name
+    HELM_RELEASE_NAME                = var.selfcare-fe-login.repository.name
 
     DEV_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_dev_name
     DEV_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_dev
@@ -66,30 +66,30 @@ locals {
 
   }
   # deploy secrets
-  selfcare-ms-product-variables_secret_deploy = {
+  selfcare-fe-login-variables_secret_deploy = {
 
   }
 }
 
-module "selfcare-ms-product_code_review" {
+module "selfcare-fe-login_code_review" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.6.5"
-  count  = var.selfcare-ms-product.pipeline.enable_code_review == true ? 1 : 0
+  count  = var.selfcare-fe-login.pipeline.enable_code_review == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id
-  repository                   = var.selfcare-ms-product.repository
+  repository                   = var.selfcare-fe-login.repository
   github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
-  path                         = var.selfcare-ms-product.pipeline.path
+  path                         = var.selfcare-fe-login.pipeline.path
 
   pull_request_trigger_use_yaml = true
 
   variables = merge(
-    local.selfcare-ms-product-variables,
-    local.selfcare-ms-product-variables_code_review,
+    local.selfcare-fe-login-variables,
+    local.selfcare-fe-login-variables_code_review,
   )
 
   variables_secret = merge(
-    local.selfcare-ms-product-variables_secret,
-    local.selfcare-ms-product-variables_secret_code_review,
+    local.selfcare-fe-login-variables_secret,
+    local.selfcare-fe-login-variables_secret_code_review,
   )
 
   service_connection_ids_authorization = [
@@ -98,25 +98,25 @@ module "selfcare-ms-product_code_review" {
   ]
 }
 
-module "selfcare-ms-product_deploy" {
+module "selfcare-fe-login_deploy" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.6.5"
-  count  = var.selfcare-ms-product.pipeline.enable_deploy == true ? 1 : 0
+  count  = var.selfcare-fe-login.pipeline.enable_deploy == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id
-  repository                   = var.selfcare-ms-product.repository
+  repository                   = var.selfcare-fe-login.repository
   github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
-  path                         = var.selfcare-ms-product.pipeline.path
+  path                         = var.selfcare-fe-login.pipeline.path
 
   ci_trigger_use_yaml = true
 
   variables = merge(
-    local.selfcare-ms-product-variables,
-    local.selfcare-ms-product-variables_deploy,
+    local.selfcare-fe-login-variables,
+    local.selfcare-fe-login-variables_deploy,
   )
 
   variables_secret = merge(
-    local.selfcare-ms-product-variables_secret,
-    local.selfcare-ms-product-variables_secret_deploy,
+    local.selfcare-fe-login-variables_secret,
+    local.selfcare-fe-login-variables_secret_deploy,
   )
 
   service_connection_ids_authorization = [
