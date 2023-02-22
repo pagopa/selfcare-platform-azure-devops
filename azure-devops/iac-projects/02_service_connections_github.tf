@@ -9,7 +9,7 @@ resource "azuredevops_serviceendpoint_github" "io-azure-devops-github-rw" {
   project_id            = data.azuredevops_project.project.id
   service_endpoint_name = "io-azure-devops-github-rw"
   auth_personal {
-    personal_access_token = module.secret_azdo.values["cstar-azure-devops-github-rw-TOKEN"].value
+    personal_access_token = module.secret_azdo.values["selc-azure-devops-github-rw-TOKEN"].value
   }
   lifecycle {
     ignore_changes = [description, authorization]
@@ -23,7 +23,7 @@ resource "azuredevops_serviceendpoint_github" "io-azure-devops-github-ro" {
   project_id            = data.azuredevops_project.project.id
   service_endpoint_name = "io-azure-devops-github-ro"
   auth_personal {
-    personal_access_token = module.secret_azdo.values["cstar-azure-devops-github-ro-TOKEN"].value
+    personal_access_token = module.secret_azdo.values["selc-azure-devops-github-ro-TOKEN"].value
   }
   lifecycle {
     ignore_changes = [description, authorization]
@@ -37,7 +37,7 @@ resource "azuredevops_serviceendpoint_github" "io-azure-devops-github-pr" {
   project_id            = data.azuredevops_project.project.id
   service_endpoint_name = "io-azure-devops-github-pr"
   auth_personal {
-    personal_access_token = module.secret_azdo.values["cstar-azure-devops-github-pr-TOKEN"].value
+    personal_access_token = module.secret_azdo.values["selc-azure-devops-github-pr-TOKEN"].value
   }
   lifecycle {
     ignore_changes = [description, authorization]

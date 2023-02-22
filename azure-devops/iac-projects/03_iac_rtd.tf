@@ -2,7 +2,7 @@ variable "rtd_iac" {
   default = {
     repository = {
       organization    = "pagopa"
-      name            = "cstar-infrastructure"
+      name            = "selc-infrastructure"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
       yml_prefix_name = "rtd"
@@ -19,9 +19,9 @@ variable "rtd_iac" {
 locals {
   # global vars
   rtd_iac_variables = {
-    tf_dev01_aks_apiserver_url         = module.rtd_dev_secrets.values["cstar-d-weu-dev01-aks-apiserver-url"].value,
-    tf_dev01_aks_azure_devops_sa_cacrt = module.rtd_dev_secrets.values["cstar-d-weu-dev01-aks-azure-devops-sa-cacrt"].value,
-    tf_dev01_aks_azure_devops_sa_token = base64decode(module.rtd_dev_secrets.values["cstar-d-weu-dev01-aks-azure-devops-sa-token"].value),
+    tf_dev01_aks_apiserver_url         = module.rtd_dev_secrets.values["selc-d-weu-dev01-aks-apiserver-url"].value,
+    tf_dev01_aks_azure_devops_sa_cacrt = module.rtd_dev_secrets.values["selc-d-weu-dev01-aks-azure-devops-sa-cacrt"].value,
+    tf_dev01_aks_azure_devops_sa_token = base64decode(module.rtd_dev_secrets.values["selc-d-weu-dev01-aks-azure-devops-sa-token"].value),
     tf_aks_dev_name                    = var.aks_dev_platform_name
   }
   # global secrets
@@ -63,9 +63,9 @@ module "rtd_iac_code_review" {
 
   service_connection_ids_authorization = [
     azuredevops_serviceendpoint_github.io-azure-devops-github-ro.id,
-    azuredevops_serviceendpoint_azurerm.DEV-CSTAR.id,
-    azuredevops_serviceendpoint_azurerm.UAT-CSTAR.id,
-    azuredevops_serviceendpoint_azurerm.PROD-CSTAR.id,
+    azuredevops_serviceendpoint_azurerm.DEV-SELC.id,
+    azuredevops_serviceendpoint_azurerm.UAT-SELC.id,
+    azuredevops_serviceendpoint_azurerm.PROD-SELC.id,
   ]
 }
 
@@ -94,8 +94,8 @@ module "rtd_iac_deploy" {
 
   service_connection_ids_authorization = [
     azuredevops_serviceendpoint_github.io-azure-devops-github-ro.id,
-    azuredevops_serviceendpoint_azurerm.DEV-CSTAR.id,
-    azuredevops_serviceendpoint_azurerm.UAT-CSTAR.id,
-    azuredevops_serviceendpoint_azurerm.PROD-CSTAR.id,
+    azuredevops_serviceendpoint_azurerm.DEV-SELC.id,
+    azuredevops_serviceendpoint_azurerm.UAT-SELC.id,
+    azuredevops_serviceendpoint_azurerm.PROD-SELC.id,
   ]
 }

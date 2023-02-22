@@ -2,7 +2,7 @@ variable "apim_backup" {
   default = {
     repository = {
       organization    = "pagopa"
-      name            = "cstar-infrastructure"
+      name            = "selc-infrastructure"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
       yml_prefix_name = "backup-apim"
@@ -23,18 +23,18 @@ module "apim_backup" {
   pull_request_trigger_use_yaml = true
 
   variables = {
-    apim_name                 = "cstar-p-apim"
-    apim_rg                   = "cstar-p-api-rg"
-    storage_account_name      = "cstarpbackupstorage"
+    apim_name                 = "selc-p-apim"
+    apim_rg                   = "selc-p-api-rg"
+    storage_account_name      = "selcpbackupstorage"
     backup_name               = "apim-backup"
     storage_account_container = "apim"
-    storage_account_rg        = "cstar-p-storage-rg"
+    storage_account_rg        = "selc-p-storage-rg"
   }
 
   variables_secret = {}
 
   service_connection_ids_authorization = [
-    azuredevops_serviceendpoint_azurerm.PROD-CSTAR.id,
+    azuredevops_serviceendpoint_azurerm.PROD-SELC.id,
   ]
 
   schedules = {
