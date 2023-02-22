@@ -8,7 +8,7 @@ variable "selfcare-ms-product" {
       yml_prefix_name = null
     }
     pipeline = {
-      enable_code_review = true
+      enable_code_review = false
       enable_deploy      = true
       path               = "pnpg\\selfcare-ms-product"
     }
