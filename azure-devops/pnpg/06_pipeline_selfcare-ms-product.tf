@@ -5,7 +5,7 @@ variable "selfcare-ms-product" {
       name            = "selfcare-ms-product"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
-      yml_prefix_name = "pnpg"
+      yml_prefix_name = null
     }
     pipeline = {
       enable_code_review = true
