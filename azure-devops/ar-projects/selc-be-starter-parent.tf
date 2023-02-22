@@ -19,7 +19,7 @@ locals {
   selc-be-starter-parent-variables = {
     settings_xml_rw_secure_file_name = "settings-rw.xml"
     settings_xml_ro_secure_file_name = "settings-ro.xml"
-    maven_remote_repo_server_id      = "selc"
+    maven_remote_repo_server_id      = "selfcare-platform"
     maven_remote_repo                = "https://pkgs.dev.azure.com/pagopaspa/selfcare-platform-app-projects/_packaging/selfcare-platform/maven/v1"
   }
   # global secrets
@@ -49,13 +49,12 @@ locals {
 }
 
 module "selc-be-starter-parent_code_review" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.6.5"
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.0.4"
   count  = var.selc-be-starter-parent.pipeline.enable_code_review == true ? 1 : 0
 
-  project_id                   = data.azuredevops_project.project.id
+  project_id                   = azuredevops_project.project.id
   repository                   = var.selc-be-starter-parent.repository
   github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
-  path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-be-starter-parent.repository.name}"
 
   pull_request_trigger_use_yaml = true
 
@@ -71,18 +70,17 @@ module "selc-be-starter-parent_code_review" {
 
   service_connection_ids_authorization = [
     azuredevops_serviceendpoint_github.io-azure-devops-github-ro.id,
-    local.azuredevops_serviceendpoint_sonarcloud_token,
+    local.azuredevops_serviceendpoint_sonarcloud_id,
   ]
 }
 
 module "selc-be-starter-parent_deploy" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.6.5"
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.0.4"
   count  = var.selc-be-starter-parent.pipeline.enable_deploy == true ? 1 : 0
 
-  project_id                   = data.azuredevops_project.project.id
+  project_id                   = azuredevops_project.project.id
   repository                   = var.selc-be-starter-parent.repository
   github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
-  path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-be-starter-parent.repository.name}"
 
   ci_trigger_use_yaml = true
 
