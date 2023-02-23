@@ -81,7 +81,7 @@ module "selc-uservice-party-management_deploy" {
   repository                   = var.selc-uservice-party-management.repository
   github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
   path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-uservice-party-management.repository.name}"
-  ci_trigger_use_yaml = true
+  ci_trigger_use_yaml          = true
 
   variables = merge(
     local.selc-be-common-variables_deploy,
