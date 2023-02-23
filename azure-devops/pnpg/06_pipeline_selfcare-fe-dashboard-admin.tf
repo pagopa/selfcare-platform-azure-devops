@@ -1,8 +1,8 @@
-variable "selfcare-fe-dashboard-admin" {
+variable "selfcare-dashboard-admin-microfrontend" {
   default = {
     repository = {
       organization    = "pagopa"
-      name            = "selfcare-fe-dashboard-admin"
+      name            = "selfcare-dashboard-admin-microfrontend"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
       yml_prefix_name = "pnpg"
@@ -10,14 +10,14 @@ variable "selfcare-fe-dashboard-admin" {
     pipeline = {
       enable_code_review = false
       enable_deploy      = true
-      path               = "pnpg\\selfcare-fe-dashboard-admin"
+      path               = "pnpg\\selfcare-dashboard-admin-microfrontend"
     }
   }
 }
 
 locals {
   # global vars
-  selfcare-fe-dashboard-admin-variables = {
+  selfcare-dashboard-admin-microfrontend-variables = {
     settings_xml_rw_secure_file_name = "settings-rw.xml"
     settings_xml_ro_secure_file_name = "settings-ro.xml"
     maven_remote_repo_server_id      = "selfcare-platform"
@@ -25,29 +25,29 @@ locals {
     dockerfile                       = "Dockerfile"
   }
   # global secrets
-  selfcare-fe-dashboard-admin-variables_secret = {
+  selfcare-dashboard-admin-microfrontend-variables_secret = {
 
   }
   # code_review vars
-  selfcare-fe-dashboard-admin-variables_code_review = {
+  selfcare-dashboard-admin-microfrontend-variables_code_review = {
     sonarcloud_service_conn = "SONARCLOUD-SERVICE-CONN"
-    sonarcloud_org          = var.selfcare-fe-dashboard-admin.repository.organization
-    sonarcloud_project_key  = "${var.selfcare-fe-dashboard-admin.repository.organization}_${var.selfcare-fe-dashboard-admin.repository.name}"
-    sonarcloud_project_name = var.selfcare-fe-dashboard-admin.repository.name
+    sonarcloud_org          = var.selfcare-dashboard-admin-microfrontend.repository.organization
+    sonarcloud_project_key  = "${var.selfcare-dashboard-admin-microfrontend.repository.organization}_${var.selfcare-dashboard-admin-microfrontend.repository.name}"
+    sonarcloud_project_name = var.selfcare-dashboard-admin-microfrontend.repository.name
   }
   # code_review secrets
-  selfcare-fe-dashboard-admin-variables_secret_code_review = {
+  selfcare-dashboard-admin-microfrontend-variables_secret_code_review = {
 
   }
   # deploy vars
-  selfcare-fe-dashboard-admin-variables_deploy = {
+  selfcare-dashboard-admin-microfrontend-variables_deploy = {
 
-    K8S_IMAGE_REPOSITORY_NAME        = replace(var.selfcare-fe-dashboard-admin.repository.name, "-", "")
+    K8S_IMAGE_REPOSITORY_NAME        = replace(var.selfcare-dashboard-admin-microfrontend.repository.name, "-", "")
     DEPLOY_NAMESPACE                 = local.domain
-    DEPLOYMENT_NAME                  = "fe-dashboard-admin"
+    DEPLOYMENT_NAME                  = "dashboard-admin-microfrontend"
     SETTINGS_XML_RW_SECURE_FILE_NAME = "settings-rw.xml"
     SETTINGS_XML_RO_SECURE_FILE_NAME = "settings-ro.xml"
-    HELM_RELEASE_NAME                = var.selfcare-fe-dashboard-admin.repository.name
+    HELM_RELEASE_NAME                = var.selfcare-dashboard-admin-microfrontend.repository.name
 
     DEV_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_dev_name
     DEV_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_dev
@@ -66,30 +66,30 @@ locals {
 
   }
   # deploy secrets
-  selfcare-fe-dashboard-admin-variables_secret_deploy = {
+  selfcare-dashboard-admin-microfrontend-variables_secret_deploy = {
 
   }
 }
 
-module "selfcare-fe-dashboard-admin_code_review" {
+module "selfcare-dashboard-admin-microfrontend_code_review" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.6.5"
-  count  = var.selfcare-fe-dashboard-admin.pipeline.enable_code_review == true ? 1 : 0
+  count  = var.selfcare-dashboard-admin-microfrontend.pipeline.enable_code_review == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id
-  repository                   = var.selfcare-fe-dashboard-admin.repository
+  repository                   = var.selfcare-dashboard-admin-microfrontend.repository
   github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
-  path                         = var.selfcare-fe-dashboard-admin.pipeline.path
+  path                         = var.selfcare-dashboard-admin-microfrontend.pipeline.path
 
   pull_request_trigger_use_yaml = true
 
   variables = merge(
-    local.selfcare-fe-dashboard-admin-variables,
-    local.selfcare-fe-dashboard-admin-variables_code_review,
+    local.selfcare-dashboard-admin-microfrontend-variables,
+    local.selfcare-dashboard-admin-microfrontend-variables_code_review,
   )
 
   variables_secret = merge(
-    local.selfcare-fe-dashboard-admin-variables_secret,
-    local.selfcare-fe-dashboard-admin-variables_secret_code_review,
+    local.selfcare-dashboard-admin-microfrontend-variables_secret,
+    local.selfcare-dashboard-admin-microfrontend-variables_secret_code_review,
   )
 
   service_connection_ids_authorization = [
@@ -98,25 +98,25 @@ module "selfcare-fe-dashboard-admin_code_review" {
   ]
 }
 
-module "selfcare-fe-dashboard-admin_deploy" {
+module "selfcare-dashboard-admin-microfrontend_deploy" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.6.5"
-  count  = var.selfcare-fe-dashboard-admin.pipeline.enable_deploy == true ? 1 : 0
+  count  = var.selfcare-dashboard-admin-microfrontend.pipeline.enable_deploy == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id
-  repository                   = var.selfcare-fe-dashboard-admin.repository
+  repository                   = var.selfcare-dashboard-admin-microfrontend.repository
   github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
-  path                         = var.selfcare-fe-dashboard-admin.pipeline.path
+  path                         = var.selfcare-dashboard-admin-microfrontend.pipeline.path
 
   ci_trigger_use_yaml = true
 
   variables = merge(
-    local.selfcare-fe-dashboard-admin-variables,
-    local.selfcare-fe-dashboard-admin-variables_deploy,
+    local.selfcare-dashboard-admin-microfrontend-variables,
+    local.selfcare-dashboard-admin-microfrontend-variables_deploy,
   )
 
   variables_secret = merge(
-    local.selfcare-fe-dashboard-admin-variables_secret,
-    local.selfcare-fe-dashboard-admin-variables_secret_deploy,
+    local.selfcare-dashboard-admin-microfrontend-variables_secret,
+    local.selfcare-dashboard-admin-microfrontend-variables_secret_deploy,
   )
 
   service_connection_ids_authorization = [

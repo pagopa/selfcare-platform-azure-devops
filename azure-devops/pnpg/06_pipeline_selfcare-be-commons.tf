@@ -1,8 +1,8 @@
-variable "selfcare-be-commons" {
+variable "selfcare-commons" {
   default = {
     repository = {
       organization    = "pagopa"
-      name            = "selfcare-be-commons"
+      name            = "selfcare-commons"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
       yml_prefix_name = "pnpg"
@@ -10,14 +10,14 @@ variable "selfcare-be-commons" {
     pipeline = {
       enable_code_review = false
       enable_deploy      = true
-      path               = "pnpg\\selfcare-be-commons"
+      path               = "pnpg\\selfcare-commons"
     }
   }
 }
 
 locals {
   # global vars
-  selfcare-be-commons-variables = {
+  selfcare-commons-variables = {
     settings_xml_rw_secure_file_name = "settings-rw.xml"
     settings_xml_ro_secure_file_name = "settings-ro.xml"
     maven_remote_repo_server_id      = "selfcare-platform"
@@ -25,29 +25,29 @@ locals {
     dockerfile                       = "Dockerfile"
   }
   # global secrets
-  selfcare-be-commons-variables_secret = {
+  selfcare-commons-variables_secret = {
 
   }
   # code_review vars
-  selfcare-be-commons-variables_code_review = {
+  selfcare-commons-variables_code_review = {
     sonarcloud_service_conn = "SONARCLOUD-SERVICE-CONN"
-    sonarcloud_org          = var.selfcare-be-commons.repository.organization
-    sonarcloud_project_key  = "${var.selfcare-be-commons.repository.organization}_${var.selfcare-be-commons.repository.name}"
-    sonarcloud_project_name = var.selfcare-be-commons.repository.name
+    sonarcloud_org          = var.selfcare-commons.repository.organization
+    sonarcloud_project_key  = "${var.selfcare-commons.repository.organization}_${var.selfcare-commons.repository.name}"
+    sonarcloud_project_name = var.selfcare-commons.repository.name
   }
   # code_review secrets
-  selfcare-be-commons-variables_secret_code_review = {
+  selfcare-commons-variables_secret_code_review = {
 
   }
   # deploy vars
-  selfcare-be-commons-variables_deploy = {
+  selfcare-commons-variables_deploy = {
 
-    K8S_IMAGE_REPOSITORY_NAME        = replace(var.selfcare-be-commons.repository.name, "-", "")
+    K8S_IMAGE_REPOSITORY_NAME        = replace(var.selfcare-commons.repository.name, "-", "")
     DEPLOY_NAMESPACE                 = local.domain
-    DEPLOYMENT_NAME                  = "be-commons"
+    DEPLOYMENT_NAME                  = "commons"
     SETTINGS_XML_RW_SECURE_FILE_NAME = "settings-rw.xml"
     SETTINGS_XML_RO_SECURE_FILE_NAME = "settings-ro.xml"
-    HELM_RELEASE_NAME                = var.selfcare-be-commons.repository.name
+    HELM_RELEASE_NAME                = var.selfcare-commons.repository.name
 
     DEV_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_dev_name
     DEV_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_dev
@@ -66,30 +66,30 @@ locals {
 
   }
   # deploy secrets
-  selfcare-be-commons-variables_secret_deploy = {
+  selfcare-commons-variables_secret_deploy = {
 
   }
 }
 
-module "selfcare-be-commons_code_review" {
+module "selfcare-commons_code_review" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.6.5"
-  count  = var.selfcare-be-commons.pipeline.enable_code_review == true ? 1 : 0
+  count  = var.selfcare-commons.pipeline.enable_code_review == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id
-  repository                   = var.selfcare-be-commons.repository
+  repository                   = var.selfcare-commons.repository
   github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
-  path                         = var.selfcare-be-commons.pipeline.path
+  path                         = var.selfcare-commons.pipeline.path
 
   pull_request_trigger_use_yaml = true
 
   variables = merge(
-    local.selfcare-be-commons-variables,
-    local.selfcare-be-commons-variables_code_review,
+    local.selfcare-commons-variables,
+    local.selfcare-commons-variables_code_review,
   )
 
   variables_secret = merge(
-    local.selfcare-be-commons-variables_secret,
-    local.selfcare-be-commons-variables_secret_code_review,
+    local.selfcare-commons-variables_secret,
+    local.selfcare-commons-variables_secret_code_review,
   )
 
   service_connection_ids_authorization = [
@@ -98,25 +98,25 @@ module "selfcare-be-commons_code_review" {
   ]
 }
 
-module "selfcare-be-commons_deploy" {
+module "selfcare-commons_deploy" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.6.5"
-  count  = var.selfcare-be-commons.pipeline.enable_deploy == true ? 1 : 0
+  count  = var.selfcare-commons.pipeline.enable_deploy == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id
-  repository                   = var.selfcare-be-commons.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
-  path                         = var.selfcare-be-commons.pipeline.path
+  repository                   = var.selfcare-commons.repository
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_id
+  path                         = var.selfcare-commons.pipeline.path
 
   ci_trigger_use_yaml = true
 
   variables = merge(
-    local.selfcare-be-commons-variables,
-    local.selfcare-be-commons-variables_deploy,
+    local.selfcare-commons-variables,
+    local.selfcare-commons-variables_deploy,
   )
 
   variables_secret = merge(
-    local.selfcare-be-commons-variables_secret,
-    local.selfcare-be-commons-variables_secret_deploy,
+    local.selfcare-commons-variables_secret,
+    local.selfcare-commons-variables_secret_deploy,
   )
 
   service_connection_ids_authorization = [

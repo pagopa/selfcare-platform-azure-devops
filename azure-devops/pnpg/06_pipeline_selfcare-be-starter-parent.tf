@@ -1,8 +1,8 @@
-variable "selfcare-be-starter-parent" {
+variable "selfcare-starter-parent" {
   default = {
     repository = {
       organization    = "pagopa"
-      name            = "selfcare-be-starter-parent"
+      name            = "selfcare-starter-parent"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
       yml_prefix_name = "pnpg"
@@ -10,14 +10,14 @@ variable "selfcare-be-starter-parent" {
     pipeline = {
       enable_code_review = false
       enable_deploy      = true
-      path               = "pnpg\\selfcare-be-starter-parent"
+      path               = "pnpg\\selfcare-starter-parent"
     }
   }
 }
 
 locals {
   # global vars
-  selfcare-be-starter-parent-variables = {
+  selfcare-starter-parent-variables = {
     settings_xml_rw_secure_file_name = "settings-rw.xml"
     settings_xml_ro_secure_file_name = "settings-ro.xml"
     maven_remote_repo_server_id      = "selfcare-platform"
@@ -25,29 +25,29 @@ locals {
     dockerfile                       = "Dockerfile"
   }
   # global secrets
-  selfcare-be-starter-parent-variables_secret = {
+  selfcare-starter-parent-variables_secret = {
 
   }
   # code_review vars
-  selfcare-be-starter-parent-variables_code_review = {
+  selfcare-starter-parent-variables_code_review = {
     sonarcloud_service_conn = "SONARCLOUD-SERVICE-CONN"
-    sonarcloud_org          = var.selfcare-be-starter-parent.repository.organization
-    sonarcloud_project_key  = "${var.selfcare-be-starter-parent.repository.organization}_${var.selfcare-be-starter-parent.repository.name}"
-    sonarcloud_project_name = var.selfcare-be-starter-parent.repository.name
+    sonarcloud_org          = var.selfcare-starter-parent.repository.organization
+    sonarcloud_project_key  = "${var.selfcare-starter-parent.repository.organization}_${var.selfcare-starter-parent.repository.name}"
+    sonarcloud_project_name = var.selfcare-starter-parent.repository.name
   }
   # code_review secrets
-  selfcare-be-starter-parent-variables_secret_code_review = {
+  selfcare-starter-parent-variables_secret_code_review = {
 
   }
   # deploy vars
-  selfcare-be-starter-parent-variables_deploy = {
+  selfcare-starter-parent-variables_deploy = {
 
-    K8S_IMAGE_REPOSITORY_NAME        = replace(var.selfcare-be-starter-parent.repository.name, "-", "")
+    K8S_IMAGE_REPOSITORY_NAME        = replace(var.selfcare-starter-parent.repository.name, "-", "")
     DEPLOY_NAMESPACE                 = local.domain
-    DEPLOYMENT_NAME                  = "be-starter-parent"
+    DEPLOYMENT_NAME                  = "starter-parent"
     SETTINGS_XML_RW_SECURE_FILE_NAME = "settings-rw.xml"
     SETTINGS_XML_RO_SECURE_FILE_NAME = "settings-ro.xml"
-    HELM_RELEASE_NAME                = var.selfcare-be-starter-parent.repository.name
+    HELM_RELEASE_NAME                = var.selfcare-starter-parent.repository.name
 
     DEV_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_dev_name
     DEV_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_dev
@@ -66,30 +66,30 @@ locals {
 
   }
   # deploy secrets
-  selfcare-be-starter-parent-variables_secret_deploy = {
+  selfcare-starter-parent-variables_secret_deploy = {
 
   }
 }
 
-module "selfcare-be-starter-parent_code_review" {
+module "selfcare-starter-parent_code_review" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.6.5"
-  count  = var.selfcare-be-starter-parent.pipeline.enable_code_review == true ? 1 : 0
+  count  = var.selfcare-starter-parent.pipeline.enable_code_review == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id
-  repository                   = var.selfcare-be-starter-parent.repository
+  repository                   = var.selfcare-starter-parent.repository
   github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
-  path                         = var.selfcare-be-starter-parent.pipeline.path
+  path                         = var.selfcare-starter-parent.pipeline.path
 
   pull_request_trigger_use_yaml = true
 
   variables = merge(
-    local.selfcare-be-starter-parent-variables,
-    local.selfcare-be-starter-parent-variables_code_review,
+    local.selfcare-starter-parent-variables,
+    local.selfcare-starter-parent-variables_code_review,
   )
 
   variables_secret = merge(
-    local.selfcare-be-starter-parent-variables_secret,
-    local.selfcare-be-starter-parent-variables_secret_code_review,
+    local.selfcare-starter-parent-variables_secret,
+    local.selfcare-starter-parent-variables_secret_code_review,
   )
 
   service_connection_ids_authorization = [
@@ -98,25 +98,25 @@ module "selfcare-be-starter-parent_code_review" {
   ]
 }
 
-module "selfcare-be-starter-parent_deploy" {
+module "selfcare-starter-parent_deploy" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.6.5"
-  count  = var.selfcare-be-starter-parent.pipeline.enable_deploy == true ? 1 : 0
+  count  = var.selfcare-starter-parent.pipeline.enable_deploy == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id
-  repository                   = var.selfcare-be-starter-parent.repository
+  repository                   = var.selfcare-starter-parent.repository
   github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
-  path                         = var.selfcare-be-starter-parent.pipeline.path
+  path                         = var.selfcare-starter-parent.pipeline.path
 
   ci_trigger_use_yaml = true
 
   variables = merge(
-    local.selfcare-be-starter-parent-variables,
-    local.selfcare-be-starter-parent-variables_deploy,
+    local.selfcare-starter-parent-variables,
+    local.selfcare-starter-parent-variables_deploy,
   )
 
   variables_secret = merge(
-    local.selfcare-be-starter-parent-variables_secret,
-    local.selfcare-be-starter-parent-variables_secret_deploy,
+    local.selfcare-starter-parent-variables_secret,
+    local.selfcare-starter-parent-variables_secret_deploy,
   )
 
   service_connection_ids_authorization = [

@@ -1,8 +1,8 @@
-variable "selfcare-core-backend" {
+variable "selfcare-ms-core" {
   default = {
     repository = {
       organization    = "pagopa"
-      name            = "selfcare-core-backend"
+      name            = "selfcare-ms-core"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
       yml_prefix_name = "pnpg"
@@ -10,14 +10,14 @@ variable "selfcare-core-backend" {
     pipeline = {
       enable_code_review = false
       enable_deploy      = true
-      path               = "pnpg\\selfcare-core-backend"
+      path               = "pnpg\\selfcare-ms-core"
     }
   }
 }
 
 locals {
   # global vars
-  selfcare-core-backend-variables = {
+  selfcare-ms-core-variables = {
     settings_xml_rw_secure_file_name = "settings-rw.xml"
     settings_xml_ro_secure_file_name = "settings-ro.xml"
     maven_remote_repo_server_id      = "selfcare-platform"
@@ -25,29 +25,29 @@ locals {
     dockerfile                       = "Dockerfile"
   }
   # global secrets
-  selfcare-core-backend-variables_secret = {
+  selfcare-ms-core-variables_secret = {
 
   }
   # code_review vars
-  selfcare-core-backend-variables_code_review = {
+  selfcare-ms-core-variables_code_review = {
     sonarcloud_service_conn = "SONARCLOUD-SERVICE-CONN"
-    sonarcloud_org          = var.selfcare-core-backend.repository.organization
-    sonarcloud_project_key  = "${var.selfcare-core-backend.repository.organization}_${var.selfcare-core-backend.repository.name}"
-    sonarcloud_project_name = var.selfcare-core-backend.repository.name
+    sonarcloud_org          = var.selfcare-ms-core.repository.organization
+    sonarcloud_project_key  = "${var.selfcare-ms-core.repository.organization}_${var.selfcare-ms-core.repository.name}"
+    sonarcloud_project_name = var.selfcare-ms-core.repository.name
   }
   # code_review secrets
-  selfcare-core-backend-variables_secret_code_review = {
+  selfcare-ms-core-variables_secret_code_review = {
 
   }
   # deploy vars
-  selfcare-core-backend-variables_deploy = {
+  selfcare-ms-core-variables_deploy = {
 
-    K8S_IMAGE_REPOSITORY_NAME        = replace(var.selfcare-core-backend.repository.name, "-", "")
+    K8S_IMAGE_REPOSITORY_NAME        = replace(var.selfcare-ms-core.repository.name, "-", "")
     DEPLOY_NAMESPACE                 = local.domain
-    DEPLOYMENT_NAME                  = "core-backend"
+    DEPLOYMENT_NAME                  = "ms-core"
     SETTINGS_XML_RW_SECURE_FILE_NAME = "settings-rw.xml"
     SETTINGS_XML_RO_SECURE_FILE_NAME = "settings-ro.xml"
-    HELM_RELEASE_NAME                = var.selfcare-core-backend.repository.name
+    HELM_RELEASE_NAME                = var.selfcare-ms-core.repository.name
 
     DEV_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_dev_name
     DEV_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_dev
@@ -66,30 +66,30 @@ locals {
 
   }
   # deploy secrets
-  selfcare-core-backend-variables_secret_deploy = {
+  selfcare-ms-core-variables_secret_deploy = {
 
   }
 }
 
-module "selfcare-core-backend_code_review" {
+module "selfcare-ms-core_code_review" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.6.5"
-  count  = var.selfcare-core-backend.pipeline.enable_code_review == true ? 1 : 0
+  count  = var.selfcare-ms-core.pipeline.enable_code_review == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id
-  repository                   = var.selfcare-core-backend.repository
+  repository                   = var.selfcare-ms-core.repository
   github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
-  path                         = var.selfcare-core-backend.pipeline.path
+  path                         = var.selfcare-ms-core.pipeline.path
 
   pull_request_trigger_use_yaml = true
 
   variables = merge(
-    local.selfcare-core-backend-variables,
-    local.selfcare-core-backend-variables_code_review,
+    local.selfcare-ms-core-variables,
+    local.selfcare-ms-core-variables_code_review,
   )
 
   variables_secret = merge(
-    local.selfcare-core-backend-variables_secret,
-    local.selfcare-core-backend-variables_secret_code_review,
+    local.selfcare-ms-core-variables_secret,
+    local.selfcare-ms-core-variables_secret_code_review,
   )
 
   service_connection_ids_authorization = [
@@ -98,25 +98,25 @@ module "selfcare-core-backend_code_review" {
   ]
 }
 
-module "selfcare-core-backend_deploy" {
+module "selfcare-ms-core_deploy" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.6.5"
-  count  = var.selfcare-core-backend.pipeline.enable_deploy == true ? 1 : 0
+  count  = var.selfcare-ms-core.pipeline.enable_deploy == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id
-  repository                   = var.selfcare-core-backend.repository
+  repository                   = var.selfcare-ms-core.repository
   github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
-  path                         = var.selfcare-core-backend.pipeline.path
+  path                         = var.selfcare-ms-core.pipeline.path
 
   ci_trigger_use_yaml = true
 
   variables = merge(
-    local.selfcare-core-backend-variables,
-    local.selfcare-core-backend-variables_deploy,
+    local.selfcare-ms-core-variables,
+    local.selfcare-ms-core-variables_deploy,
   )
 
   variables_secret = merge(
-    local.selfcare-core-backend-variables_secret,
-    local.selfcare-core-backend-variables_secret_deploy,
+    local.selfcare-ms-core-variables_secret,
+    local.selfcare-ms-core-variables_secret_deploy,
   )
 
   service_connection_ids_authorization = [

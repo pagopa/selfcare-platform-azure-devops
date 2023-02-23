@@ -1,8 +1,8 @@
-variable "selfcare-fe-token-exchange" {
+variable "selfcare-token-exchange-frontend" {
   default = {
     repository = {
       organization    = "pagopa"
-      name            = "selfcare-fe-token-exchange"
+      name            = "selfcare-token-exchange-frontend"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
       yml_prefix_name = "pnpg"
@@ -10,14 +10,14 @@ variable "selfcare-fe-token-exchange" {
     pipeline = {
       enable_code_review = false
       enable_deploy      = true
-      path               = "pnpg\\selfcare-fe-token-exchange"
+      path               = "pnpg\\selfcare-token-exchange-frontend"
     }
   }
 }
 
 locals {
   # global vars
-  selfcare-fe-token-exchange-variables = {
+  selfcare-token-exchange-frontend-variables = {
     settings_xml_rw_secure_file_name = "settings-rw.xml"
     settings_xml_ro_secure_file_name = "settings-ro.xml"
     maven_remote_repo_server_id      = "selfcare-platform"
@@ -25,29 +25,29 @@ locals {
     dockerfile                       = "Dockerfile"
   }
   # global secrets
-  selfcare-fe-token-exchange-variables_secret = {
+  selfcare-token-exchange-frontend-variables_secret = {
 
   }
   # code_review vars
-  selfcare-fe-token-exchange-variables_code_review = {
+  selfcare-token-exchange-frontend-variables_code_review = {
     sonarcloud_service_conn = "SONARCLOUD-SERVICE-CONN"
-    sonarcloud_org          = var.selfcare-fe-token-exchange.repository.organization
-    sonarcloud_project_key  = "${var.selfcare-fe-token-exchange.repository.organization}_${var.selfcare-fe-token-exchange.repository.name}"
-    sonarcloud_project_name = var.selfcare-fe-token-exchange.repository.name
+    sonarcloud_org          = var.selfcare-token-exchange-frontend.repository.organization
+    sonarcloud_project_key  = "${var.selfcare-token-exchange-frontend.repository.organization}_${var.selfcare-token-exchange-frontend.repository.name}"
+    sonarcloud_project_name = var.selfcare-token-exchange-frontend.repository.name
   }
   # code_review secrets
-  selfcare-fe-token-exchange-variables_secret_code_review = {
+  selfcare-token-exchange-frontend-variables_secret_code_review = {
 
   }
   # deploy vars
-  selfcare-fe-token-exchange-variables_deploy = {
+  selfcare-token-exchange-frontend-variables_deploy = {
 
-    K8S_IMAGE_REPOSITORY_NAME        = replace(var.selfcare-fe-token-exchange.repository.name, "-", "")
+    K8S_IMAGE_REPOSITORY_NAME        = replace(var.selfcare-token-exchange-frontend.repository.name, "-", "")
     DEPLOY_NAMESPACE                 = local.domain
-    DEPLOYMENT_NAME                  = "fe-token-exchange"
+    DEPLOYMENT_NAME                  = "token-exchange-frontend"
     SETTINGS_XML_RW_SECURE_FILE_NAME = "settings-rw.xml"
     SETTINGS_XML_RO_SECURE_FILE_NAME = "settings-ro.xml"
-    HELM_RELEASE_NAME                = var.selfcare-fe-token-exchange.repository.name
+    HELM_RELEASE_NAME                = var.selfcare-token-exchange-frontend.repository.name
 
     DEV_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_dev_name
     DEV_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_dev
@@ -66,30 +66,30 @@ locals {
 
   }
   # deploy secrets
-  selfcare-fe-token-exchange-variables_secret_deploy = {
+  selfcare-token-exchange-frontend-variables_secret_deploy = {
 
   }
 }
 
-module "selfcare-fe-token-exchange_code_review" {
+module "selfcare-token-exchange-frontend_code_review" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.6.5"
-  count  = var.selfcare-fe-token-exchange.pipeline.enable_code_review == true ? 1 : 0
+  count  = var.selfcare-token-exchange-frontend.pipeline.enable_code_review == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id
-  repository                   = var.selfcare-fe-token-exchange.repository
+  repository                   = var.selfcare-token-exchange-frontend.repository
   github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
-  path                         = var.selfcare-fe-token-exchange.pipeline.path
+  path                         = var.selfcare-token-exchange-frontend.pipeline.path
 
   pull_request_trigger_use_yaml = true
 
   variables = merge(
-    local.selfcare-fe-token-exchange-variables,
-    local.selfcare-fe-token-exchange-variables_code_review,
+    local.selfcare-token-exchange-frontend-variables,
+    local.selfcare-token-exchange-frontend-variables_code_review,
   )
 
   variables_secret = merge(
-    local.selfcare-fe-token-exchange-variables_secret,
-    local.selfcare-fe-token-exchange-variables_secret_code_review,
+    local.selfcare-token-exchange-frontend-variables_secret,
+    local.selfcare-token-exchange-frontend-variables_secret_code_review,
   )
 
   service_connection_ids_authorization = [
@@ -98,25 +98,25 @@ module "selfcare-fe-token-exchange_code_review" {
   ]
 }
 
-module "selfcare-fe-token-exchange_deploy" {
+module "selfcare-token-exchange-frontend_deploy" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.6.5"
-  count  = var.selfcare-fe-token-exchange.pipeline.enable_deploy == true ? 1 : 0
+  count  = var.selfcare-token-exchange-frontend.pipeline.enable_deploy == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id
-  repository                   = var.selfcare-fe-token-exchange.repository
+  repository                   = var.selfcare-token-exchange-frontend.repository
   github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
-  path                         = var.selfcare-fe-token-exchange.pipeline.path
+  path                         = var.selfcare-token-exchange-frontend.pipeline.path
 
   ci_trigger_use_yaml = true
 
   variables = merge(
-    local.selfcare-fe-token-exchange-variables,
-    local.selfcare-fe-token-exchange-variables_deploy,
+    local.selfcare-token-exchange-frontend-variables,
+    local.selfcare-token-exchange-frontend-variables_deploy,
   )
 
   variables_secret = merge(
-    local.selfcare-fe-token-exchange-variables_secret,
-    local.selfcare-fe-token-exchange-variables_secret_deploy,
+    local.selfcare-token-exchange-frontend-variables_secret,
+    local.selfcare-token-exchange-frontend-variables_secret_deploy,
   )
 
   service_connection_ids_authorization = [
