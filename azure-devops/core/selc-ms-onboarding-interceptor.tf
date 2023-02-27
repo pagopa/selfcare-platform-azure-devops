@@ -57,7 +57,7 @@ module "selc-ms-onboarding-interceptor_code_review" {
   project_id                    = data.azuredevops_project.project.id
   repository                    = var.selc-ms-onboarding-interceptor.repository
   github_service_connection_id  = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
-  path                          = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-ms-onboarding-interceptor.repository.name}"
+  #path                          = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-ms-onboarding-interceptor.repository.name}"
   pull_request_trigger_use_yaml = true
 
   variables = merge(
@@ -72,7 +72,7 @@ module "selc-ms-onboarding-interceptor_code_review" {
 
   service_connection_ids_authorization = [
     azuredevops_serviceendpoint_github.io-azure-devops-github-ro.id,
-    local.azuredevops_serviceendpoint_sonarcloud_id,
+    local.azuredevops_serviceendpoint_sonarcloud_token,
   ]
 }
 
@@ -83,7 +83,7 @@ module "selc-ms-onboarding-interceptor_deploy" {
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selc-ms-onboarding-interceptor.repository
   github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
-  path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-ms-onboarding-interceptor.repository.name}"
+  #path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-ms-onboarding-interceptor.repository.name}"
   ci_trigger_use_yaml          = true
 
   variables = merge(
