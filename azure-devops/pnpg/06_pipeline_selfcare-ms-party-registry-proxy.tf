@@ -93,7 +93,7 @@ module "selfcare-ms-party-registry-proxy_code_review" {
 
   service_connection_ids_authorization = [
     data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id,
-    local.azuredevops_serviceendpoint_sonarcloud_id,
+    azuredevops_serviceendpoint_sonarcloud.sonarcloud.id,
   ]
 }
 
