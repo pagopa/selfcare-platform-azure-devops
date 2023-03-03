@@ -68,7 +68,7 @@ module "selc-uservice-party-process_code_review" {
 
   service_connection_ids_authorization = [
     azuredevops_serviceendpoint_github.io-azure-devops-github-ro.id,
-    local.azuredevops_serviceendpoint_sonarcloud_id,
+    azuredevops_serviceendpoint_sonarcloud.sonarcloud.id,
   ]
 }
 

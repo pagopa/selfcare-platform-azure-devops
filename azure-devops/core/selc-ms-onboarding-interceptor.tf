@@ -20,7 +20,7 @@ locals {
     settings_xml_rw_secure_file_name = "settings-rw.xml"
     settings_xml_ro_secure_file_name = "settings-ro.xml"
     maven_remote_repo_server_id      = "selc"
-    maven_remote_repo                = "https://pkgs.dev.azure.com/pagopaspa/selfcare-platform-app-projects/_packaging/selfcare/maven/v1"
+    maven_remote_repo                = "https://pkgs.dev.azure.com/pagopaspa/selfcare-platform-app-projects/_packaging/selfcare-platform/maven/v1"
     dockerfile                       = "Dockerfile"
   }
   # global secrets
@@ -51,7 +51,7 @@ locals {
 }
 
 module "selc-ms-onboarding-interceptor_code_review" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.0.4"
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.6.5"
   count  = var.selc-ms-onboarding-interceptor.pipeline.enable_code_review == true ? 1 : 0
 
   project_id                    = data.azuredevops_project.project.id
@@ -72,12 +72,12 @@ module "selc-ms-onboarding-interceptor_code_review" {
 
   service_connection_ids_authorization = [
     azuredevops_serviceendpoint_github.io-azure-devops-github-ro.id,
-    local.azuredevops_serviceendpoint_sonarcloud_id,
+    azuredevops_serviceendpoint_sonarcloud.sonarcloud.id,
   ]
 }
 
 module "selc-ms-onboarding-interceptor_deploy" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.0.4"
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.6.5"
   count  = var.selc-ms-onboarding-interceptor.pipeline.enable_deploy == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id
