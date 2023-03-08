@@ -37,7 +37,7 @@ locals {
     k8s_image_repository_name              = replace(replace(var.selc-uservice-party-process.repository.name, "-", ""), "selfcare", "")
     deploy_namespace                       = "selc"
     common_container_registry_name         = "ghcr.io"
-    common_container_registry_service_conn = "test"
+    common_container_registry_service_conn = azuredevops_serviceendpoint_dockerregistry.github_docker_registry_ro.service_endpoint_name
     deployment_name                        = "interop-be-party-process"
   }
   # deploy secrets
