@@ -36,12 +36,7 @@ locals {
   selc-proxy-mockserver-variables_deploy = {
     k8s_image_repository_name = replace(var.selc-proxy-mockserver.repository.name, "-", "")
     deploy_namespace          = "selc"
-    common_container_registry_name = "docker.io"
-    common_container_registry_service_conn = "test"
     deployment_name = "mockserver"
-    dev_replicas              = 1
-    uat_replicas              = 1
-    prod_replicas             = 2
   }
   # deploy secrets
   selc-proxy-mockserver-variables_secret_deploy = {
