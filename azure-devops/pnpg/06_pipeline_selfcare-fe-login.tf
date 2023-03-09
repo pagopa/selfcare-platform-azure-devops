@@ -86,7 +86,7 @@ module "selfcare-login-frontend_deploy" {
   variables = merge(
     local.selfcare-login-frontend-variables,
     local.selfcare-login-frontend-variables_deploy,
-    local.selc-fe-login-variables_deploy,
+    local.selc-fe-common-variables_deploy,
   )
 
   variables_secret = merge(
