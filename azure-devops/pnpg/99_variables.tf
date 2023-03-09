@@ -5,14 +5,14 @@ locals {
   domain           = "pnpg"
 
   #CORE
-  core_key_vault_name              = "selc-p-kv"
-  core_key_vault_resource_group    = "selc-p-sec-rg"
+  core_key_vault_name              = "selc-d-pnpg-kv" // selc-p-pnpg-kv
+  core_key_vault_resource_group    = "selc-d-pnpg-sec-rg" //selc-p-pnpg-sec-rg
   core_key_vault_subscription_name = "PROD-SELFCARE"
 
   # 🔐 KV AZDO
-  dev_key_vault_resource_group  = "${local.prefix}-d-sec-rg"
-  uat_key_vault_resource_group  = "${local.prefix}-u-sec-rg"
-  prod_key_vault_resource_group = "${local.prefix}-p-sec-rg"
+  dev_key_vault_resource_group  = "${local.prefix}-d-pnpg-sec-rg"
+  uat_key_vault_resource_group  = "${local.prefix}-u-pnpg-sec-rg"
+  prod_key_vault_resource_group = "${local.prefix}-p-pnpg-sec-rg"
 
   dev_key_vault_azdo_name  = "${local.prefix}-d-azdo-weu-kv"
   uat_key_vault_azdo_name  = "${local.prefix}-u-azdo-weu-kv"
@@ -71,7 +71,7 @@ locals {
 
   #tfsec:ignore:general-secrets-no-plaintext-exposure
   #tfsec:ignore:GEN002
-  tlscert_renew_token = "v1"
+  tlscert_renew_token = "v2"
 
   # TODO azure devops terraform provider does not support SonarCloud service endpoint
   azuredevops_serviceendpoint_sonarcloud_id = data.terraform_remote_state.core.outputs.service_connection_sonar_cloud_id
