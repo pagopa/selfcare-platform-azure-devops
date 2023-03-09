@@ -79,13 +79,14 @@ module "selfcare-login-frontend_deploy" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-login-frontend.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.io-azure-devops-github-rw.id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.id
   path                         = var.selfcare-login-frontend.pipeline.path
   ci_trigger_use_yaml = true
 
   variables = merge(
     local.selfcare-login-frontend-variables,
     local.selfcare-login-frontend-variables_deploy,
+    local.selc-fe-login-variables_deploy,
   )
 
   variables_secret = merge(
@@ -94,9 +95,9 @@ module "selfcare-login-frontend_deploy" {
   )
 
   service_connection_ids_authorization = [
-    data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id,
-    data.azuredevops_serviceendpoint_azurerm.azure_dev.service_endpoint_id,
-    local.service_endpoint_azure_devops_docker_dev_id,
-    azuredevops_serviceendpoint_kubernetes.aks_dev.id
+    data.azuredevops_serviceendpoint_github.github_ro.id,
+    data.azuredevops_serviceendpoint_azurerm.azure_dev.id,
+    data.azuredevops_serviceendpoint_azurerm.azure_uat.id,
+    data.azuredevops_serviceendpoint_azurerm.azure_prod.id,
   ]
 }
