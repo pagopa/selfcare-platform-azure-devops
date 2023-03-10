@@ -14,7 +14,7 @@ module "domain_dev_secrets" {
   key_vault_name = local.dev_domain_key_vault_name
 
   secrets = [
-    "selc-d-weu-dev01-aks-apiserver-url",
+    "selc-d-weu-dev01-aks-aks-apiserver-url",
     "selc-d-weu-dev01-aks-azure-devops-sa-cacrt",
     "selc-d-weu-dev01-aks-azure-devops-sa-token",
   ]
@@ -31,7 +31,7 @@ module "domain_dev_secrets" {
 #   key_vault_name = local.uat_domain_key_vault_name
 
 #   secrets = [
-#     "selc-u-weu-uat01-aks-apiserver-url",
+#     "selc-d-weu-uat01-aks-aks-apiserver-url",
 #     "selc-u-weu-uat01-aks-azure-devops-sa-cacrt",
 #     "selc-u-weu-uat01-aks-azure-devops-sa-token",
 #   ]
@@ -48,7 +48,7 @@ module "domain_dev_secrets" {
 #   key_vault_name = local.prod_domain_key_vault_name
 
 #   secrets = [
-#     "selc-p-weu-prod01-aks-apiserver-url",
+#     "selc-d-weu-prod01-aks-aks-apiserver-url",
 #     "selc-p-weu-prod01-aks-azure-devops-sa-cacrt",
 #     "selc-p-weu-prod01-aks-azure-devops-sa-token",
 #   ]

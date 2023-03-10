@@ -50,10 +50,10 @@ module "selc-fe-login_code_review" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.6.5"
   count  = var.selc-fe-login.pipeline.enable_code_review == true ? 1 : 0
 
-  project_id                   = data.azuredevops_project.project.id
-  repository                   = var.selc-fe-login.repository
-  github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
-  path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-fe-login.repository.name}"
+  project_id                    = data.azuredevops_project.project.id
+  repository                    = var.selc-fe-login.repository
+  github_service_connection_id  = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
+  path                          = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-fe-login.repository.name}"
   pull_request_trigger_use_yaml = true
 
   variables = merge(
@@ -79,7 +79,7 @@ module "selc-fe-login_deploy" {
   repository                   = var.selc-fe-login.repository
   github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-rw.id
   path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-fe-login.repository.name}"
-  ci_trigger_use_yaml = true
+  ci_trigger_use_yaml          = true
 
   variables = merge(
     local.selc-fe-common-variables_deploy,

@@ -9,7 +9,7 @@ variable "selc-proxy-mockserver" {
     }
     pipeline = {
       enable_code_review = false
-      enable_deploy = true
+      enable_deploy      = true
     }
   }
 }
@@ -18,7 +18,7 @@ locals {
   # global vars
   selc-proxy-mockserver-variables = {
     docker_base_image_name = "hub.docker.com/r/mockserver/mockserver"
-    dockerfile = "Dockerfile"
+    dockerfile             = "Dockerfile"
   }
   # global secrets
   selc-proxy-mockserver-variables_secret = {
@@ -36,7 +36,7 @@ locals {
   selc-proxy-mockserver-variables_deploy = {
     k8s_image_repository_name = replace(var.selc-proxy-mockserver.repository.name, "-", "")
     deploy_namespace          = "selc"
-    deployment_name = "mockserver"
+    deployment_name           = "mockserver"
   }
   # deploy secrets
   selc-proxy-mockserver-variables_secret_deploy = {
@@ -52,7 +52,7 @@ module "selc-proxy-mockserver_deploy" {
   repository                   = var.selc-proxy-mockserver.repository
   github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-rw.id
   path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-proxy-mockserver.repository.name}"
-  ci_trigger_use_yaml = true
+  ci_trigger_use_yaml          = true
 
   variables = merge(
     local.selc-be-common-variables_deploy,

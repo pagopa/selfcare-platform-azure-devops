@@ -53,7 +53,7 @@ module "selfcare-login-frontend_code_review" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-login-frontend.repository
-  github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_pr.id
   path                         = var.selfcare-login-frontend.pipeline.path
 
   pull_request_trigger_use_yaml = true
@@ -79,9 +79,9 @@ module "selfcare-login-frontend_deploy" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-login-frontend.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.io-azure-devops-github-rw.id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.id
   path                         = var.selfcare-login-frontend.pipeline.path
-  ci_trigger_use_yaml = true
+  ci_trigger_use_yaml          = true
 
   variables = merge(
     local.selfcare-login-frontend-variables,

@@ -52,7 +52,7 @@ module "hub-spid-login-ms_deploy" {
   repository                   = var.hub-spid-login-ms.repository
   github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-rw.id
   path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.hub-spid-login-ms.repository.name}"
-  ci_trigger_use_yaml = true
+  ci_trigger_use_yaml          = true
 
   variables = merge(
     local.selc-be-common-variables_deploy,
