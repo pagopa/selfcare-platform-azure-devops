@@ -54,10 +54,10 @@ module "selc-ms-notification-manager_code_review" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.6.5"
   count  = var.selc-ms-notification-manager.pipeline.enable_code_review == true ? 1 : 0
 
-  project_id                   = data.azuredevops_project.project.id
-  repository                   = var.selc-ms-notification-manager.repository
-  github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
-  path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-ms-notification-manager.repository.name}"
+  project_id                    = data.azuredevops_project.project.id
+  repository                    = var.selc-ms-notification-manager.repository
+  github_service_connection_id  = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
+  path                          = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-ms-notification-manager.repository.name}"
   pull_request_trigger_use_yaml = true
 
   variables = merge(
@@ -84,7 +84,7 @@ module "selc-ms-notification-manager_deploy" {
   repository                   = var.selc-ms-notification-manager.repository
   github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
   path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selc-ms-notification-manager.repository.name}"
-  ci_trigger_use_yaml = true
+  ci_trigger_use_yaml          = true
 
   variables = merge(
     local.selc-be-common-variables_deploy,
