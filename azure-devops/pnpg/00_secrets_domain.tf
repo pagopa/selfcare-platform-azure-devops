@@ -14,7 +14,7 @@ module "domain_dev_secrets" {
   key_vault_name = local.dev_domain_key_vault_name
 
   secrets = [
-    "selc-d-weu-dev01-aks-apiserver-url",
+    "dev-selfcare-aks-apiserver-url",
     "selc-d-weu-dev01-aks-azure-devops-sa-cacrt",
     "selc-d-weu-dev01-aks-azure-devops-sa-token",
   ]
