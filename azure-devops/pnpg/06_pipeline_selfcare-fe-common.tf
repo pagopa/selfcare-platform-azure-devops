@@ -43,7 +43,7 @@ locals {
   }
   # deploy vars
   selfcare-common-frontend-variables_deploy = {
-    npm_connection = azuredevops_serviceendpoint_npm.pagopa-npm-bot.service_endpoint_name
+    npm_connection =  local.service_connection_npm_endpoint_name
   }
   # deploy secrets
   selfcare-common-frontend-variables_secret_deploy = {

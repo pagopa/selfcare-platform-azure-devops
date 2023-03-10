@@ -25,3 +25,11 @@ output "service_connection_docker_registry_common_uat_id" {
 output "service_connection_docker_registry_common_prod_id" {
   value = azuredevops_serviceendpoint_azurecr.selfcare-docker-common-prod.id
 }
+
+output "service_connection_npm_id" {
+  value = azuredevops_serviceendpoint_npm.pagopa-npm-bot.id
+}
+
+output "service_connection_npm_name" {
+  value = azuredevops_serviceendpoint_npm.pagopa-npm-bot.service_endpoint_name
+}

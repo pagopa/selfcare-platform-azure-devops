@@ -3,7 +3,7 @@ variable "selc-proxy-mockserver" {
     repository = {
       organization    = "pagopa"
       name            = "selfcare-proxy-mockserver"
-      branch_name     = "master"
+      branch_name     = "refs/heads/master"
       pipelines_path  = ".devops"
       yml_prefix_name = null
     }
