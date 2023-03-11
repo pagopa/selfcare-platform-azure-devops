@@ -19,7 +19,7 @@ locals {
     pipelines_folder_name = "pnpg"
   }
 
-  selc-fe-common-variables_deploy = {
+  selc-fe-common-variables_deploy-pnpg = {
     blob_container_name = "$web"
 
     git_mail          = module.secrets_core_prod.values["io-azure-devops-github-EMAIL"].value
