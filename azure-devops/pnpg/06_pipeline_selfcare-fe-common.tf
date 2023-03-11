@@ -91,7 +91,7 @@ module "selfcare-common-frontend_deploy" {
   variables = merge(
     local.selfcare-common-frontend-variables,
     local.selfcare-common-frontend-variables_deploy,
-    local.selc-fe-common-variables_deploy,
+    local.selc-fe-common-variables_deploy-pnpg,
   )
 
   variables_secret = merge(

@@ -80,7 +80,7 @@ module "selfcare-onboarding-frontend_deploy" {
   ci_trigger_use_yaml = true
 
   variables = merge(
-    local.selc-fe-common-variables_deploy,
+    local.selc-fe-common-variables_deploy-pnpg,
     local.selfcare-onboarding-frontend-variables,
     local.selfcare-onboarding-frontend-variables_deploy,
   )
