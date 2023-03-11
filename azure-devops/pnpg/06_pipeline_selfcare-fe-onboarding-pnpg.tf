@@ -74,7 +74,7 @@ module "selfcare-pnpg-onboarding-frontend_deploy" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-pnpg-onboarding-frontend.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_pr.service_endpoint_id
   path                         = var.selfcare-pnpg-onboarding-frontend.pipeline.path
 
   ci_trigger_use_yaml = true
@@ -91,11 +91,7 @@ module "selfcare-pnpg-onboarding-frontend_deploy" {
   )
 
   service_connection_ids_authorization = [
-    data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id,
+    data.azuredevops_serviceendpoint_github.github_pr.service_endpoint_id,
     data.azuredevops_serviceendpoint_azurerm.azure_dev.service_endpoint_id,
-    # data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id,
-    # data.azuredevops_serviceendpoint_azurerm.azure_dev.service_endpoint_id,
-    # local.service_endpoint_azure_devops_docker_dev_id,
-    # azuredevops_serviceendpoint_kubernetes.aks_dev.id
   ]
 }
