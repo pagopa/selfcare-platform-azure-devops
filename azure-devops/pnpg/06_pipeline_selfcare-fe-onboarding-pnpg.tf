@@ -74,7 +74,7 @@ module "selfcare-pnpg-onboarding-frontend_deploy" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-pnpg-onboarding-frontend.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_pr.service_endpoint_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_id
   path                         = var.selfcare-pnpg-onboarding-frontend.pipeline.path
 
   ci_trigger_use_yaml = true
