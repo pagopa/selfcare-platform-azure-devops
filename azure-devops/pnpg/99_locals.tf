@@ -24,9 +24,9 @@ locals {
 
     git_mail          = module.secrets_core_prod.values["io-azure-devops-github-EMAIL"].value
     git_username      = module.secrets_core_prod.values["io-azure-devops-github-USERNAME"].value
-    github_connection = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_name
+    github_connection = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_id
 
-    dev_azure_subscription = data.azuredevops_serviceendpoint_azurerm.azure_dev.service_endpoint_name
+    dev_azure_subscription = data.azuredevops_serviceendpoint_azurerm.azure_dev.service_endpoint_id
     dev_cdn_endpoint       = "selc-d-weu-pnpg-checkout-cdn-endpoint"
     dev_cdn_profile        = "selc-d-weu-pnpg-checkout-cdn-profile"
     dev_resource_group     = "selc-d-weu-pnpg-checkout-fe-rg"
