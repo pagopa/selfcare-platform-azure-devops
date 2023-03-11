@@ -5,7 +5,7 @@ variable "selfcare-login-frontend" {
       name            = "selfcare-login-frontend"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
-      yml_prefix_name = "pnpg"
+      yml_prefix_name = null
     }
     pipeline = {
       enable_code_review = true
@@ -53,7 +53,7 @@ module "selfcare-login-frontend_code_review" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-login-frontend.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_id
   path                         = var.selfcare-login-frontend.pipeline.path
 
   pull_request_trigger_use_yaml = true
@@ -79,7 +79,7 @@ module "selfcare-login-frontend_deploy" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-login-frontend.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_id
   path                         = var.selfcare-login-frontend.pipeline.path
   ci_trigger_use_yaml = true
 
@@ -95,9 +95,7 @@ module "selfcare-login-frontend_deploy" {
   )
 
   service_connection_ids_authorization = [
-    data.azuredevops_serviceendpoint_github.github_ro.id,
-    data.azuredevops_serviceendpoint_azurerm.azure_dev.id,
-    data.azuredevops_serviceendpoint_azurerm.azure_uat.id,
-    data.azuredevops_serviceendpoint_azurerm.azure_prod.id,
+    data.azuredevops_serviceendpoint_github.github_pr.service_endpoint_id,
+    data.azuredevops_serviceendpoint_azurerm.azure_dev.service_endpoint_id,
   ]
 }
