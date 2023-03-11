@@ -91,8 +91,8 @@ module "selfcare-pnpg-onboarding-frontend_deploy" {
   )
 
   service_connection_ids_authorization = [
-    data.azuredevops_serviceendpoint_github.github_ro.id,
-    data.azuredevops_serviceendpoint_azurerm.azure_dev.id,
+    data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id,
+    data.azuredevops_serviceendpoint_azurerm.azure_dev.service_endpoint_id,
     # data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id,
     # data.azuredevops_serviceendpoint_azurerm.azure_dev.service_endpoint_id,
     # local.service_endpoint_azure_devops_docker_dev_id,
