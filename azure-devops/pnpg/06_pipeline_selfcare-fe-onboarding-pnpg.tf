@@ -8,7 +8,7 @@ variable "selfcare-pnpg-onboarding-frontend" {
       yml_prefix_name = null
     }
     pipeline = {
-      enable_code_review = false
+      enable_code_review = true
       enable_deploy      = true
       path               = "pnpg\\selfcare-pnpg-onboarding-frontend"
     }
