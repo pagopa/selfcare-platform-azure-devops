@@ -5,7 +5,7 @@ variable "selfcare-starter-parent" {
       name            = "selfcare-starter-parent"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
-      yml_prefix_name = "pnpg"
+      yml_prefix_name = null
     }
     pipeline = {
       enable_code_review = false
@@ -77,7 +77,7 @@ module "selfcare-starter-parent_code_review" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-starter-parent.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_id
   path                         = var.selfcare-starter-parent.pipeline.path
 
   pull_request_trigger_use_yaml = true
@@ -93,7 +93,7 @@ module "selfcare-starter-parent_code_review" {
   )
 
   service_connection_ids_authorization = [
-    data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id,
+    data.azuredevops_serviceendpoint_github.github_pr.service_endpoint_id,
     local.azuredevops_serviceendpoint_sonarcloud_id,
   ]
 }
@@ -104,7 +104,7 @@ module "selfcare-starter-parent_deploy" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-starter-parent.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_id
   path                         = var.selfcare-starter-parent.pipeline.path
 
   ci_trigger_use_yaml = true
