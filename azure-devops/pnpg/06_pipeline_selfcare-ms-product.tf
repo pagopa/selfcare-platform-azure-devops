@@ -8,7 +8,7 @@ variable "selfcare-ms-product" {
       yml_prefix_name = "pnpg"
     }
     pipeline = {
-      enable_code_review = false
+      enable_code_review = true
       enable_deploy      = true
       path               = "pnpg\\selfcare-ms-product"
     }
@@ -77,7 +77,7 @@ module "selfcare-ms-product_code_review" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-ms-product.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_pr.service_endpoint_id
   path                         = var.selfcare-ms-product.pipeline.path
 
   pull_request_trigger_use_yaml = true
@@ -104,7 +104,7 @@ module "selfcare-ms-product_deploy" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-ms-product.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_id
   path                         = var.selfcare-ms-product.pipeline.path
 
   ci_trigger_use_yaml = true
