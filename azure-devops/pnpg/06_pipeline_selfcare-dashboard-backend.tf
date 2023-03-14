@@ -8,7 +8,7 @@ variable "selfcare-dashboard-backend" {
       yml_prefix_name = "pnpg"
     }
     pipeline = {
-      enable_code_review = false
+      enable_code_review = true
       enable_deploy      = true
       path               = "pnpg\\selfcare-dashboard-backend"
     }
@@ -44,7 +44,7 @@ locals {
 
     K8S_IMAGE_REPOSITORY_NAME        = replace(var.selfcare-dashboard-backend.repository.name, "-", "")
     DEPLOY_NAMESPACE                 = local.domain
-    DEPLOYMENT_NAME                  = "dashboard-backend"
+    DEPLOYMENT_NAME                  = "b4f-dashboard"
     SETTINGS_XML_RW_SECURE_FILE_NAME = "settings-rw.xml"
     SETTINGS_XML_RO_SECURE_FILE_NAME = "settings-ro.xml"
     HELM_RELEASE_NAME                = var.selfcare-dashboard-backend.repository.name
