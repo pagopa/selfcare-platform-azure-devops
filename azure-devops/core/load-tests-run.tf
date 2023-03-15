@@ -1,10 +1,10 @@
 variable "selfcare-load-tests" {
   default = {
     repository = {
-      organization    = "pagopa"
-      name            = "selfcare-load-tests"
-      branch_name     = "main"
-      pipelines_path  = "pipelines"
+      organization   = "pagopa"
+      name           = "selfcare-load-tests"
+      branch_name    = "main"
+      pipelines_path = "pipelines"
     }
   }
 }
