@@ -20,6 +20,9 @@ module "selfcare-load-tests_run" {
   pipeline_yml_filename        = "run-load-tests.yml"
   ci_trigger_use_yaml          = true
 
+  variables        = {}
+  variables_secret = {}
+
   service_connection_ids_authorization = [
     azuredevops_serviceendpoint_github.io-azure-devops-github-rw.id,
   ]
