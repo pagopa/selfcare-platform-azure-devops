@@ -5,8 +5,8 @@ locals {
   domain           = "ar"
 
   # #CORE
-  # core_key_vault_name              = "selc-p-kv"
-  # core_key_vault_resource_group    = "selc-p-sec-rg"
+  core_key_vault_name              = "selc-p-kv"
+  core_key_vault_resource_group    = "selc-p-sec-rg"
   # core_key_vault_subscription_name = "PROD-SELFCARE"
 
   # # 🔐 KV AZDO
@@ -19,13 +19,13 @@ locals {
   # prod_key_vault_azdo_name = "${local.prefix}-p-azdo-weu-kv"
 
   # # 🔐 KV Domain
-  # dev_domain_key_vault_resource_group  = "${local.prefix}-d-${local.domain}-sec-rg"
-  # uat_domain_key_vault_resource_group  = "${local.prefix}-u-${local.domain}-sec-rg"
-  # prod_domain_key_vault_resource_group = "${local.prefix}-p-${local.domain}-sec-rg"
+  dev_domain_key_vault_resource_group  = "${local.prefix}-d-${local.domain}-sec-rg"
+  uat_domain_key_vault_resource_group  = "${local.prefix}-u-${local.domain}-sec-rg"
+  prod_domain_key_vault_resource_group = "${local.prefix}-p-${local.domain}-sec-rg"
 
-  # dev_domain_key_vault_name  = "${local.prefix}-d-${local.domain}-kv"
-  # uat_domain_key_vault_name  = "${local.prefix}-u-${local.domain}-kv"
-  # prod_domain_key_vault_name = "${local.prefix}-p-${local.domain}-kv"
+  dev_domain_key_vault_name  = "${local.prefix}-d-${local.domain}-kv"
+  uat_domain_key_vault_name  = "${local.prefix}-u-${local.domain}-kv"
+  prod_domain_key_vault_name = "${local.prefix}-p-${local.domain}-kv"
 
   # # ☁️ VNET
   # dev_vnet_rg  = "${local.prefix}-d-vnet-rg"
@@ -34,9 +34,9 @@ locals {
 
   # # DNS Zone
 
-  # rg_dev_dns_zone_name  = "selc-d-vnet-rg"
-  # rg_uat_dns_zone_name  = "selc-u-vnet-rg"
-  # rg_prod_dns_zone_name = "selc-p-vnet-rg"
+  rg_dev_dns_zone_name  = "selc-d-vnet-rg"
+  rg_uat_dns_zone_name  = "selc-u-vnet-rg"
+  rg_prod_dns_zone_name = "selc-p-vnet-rg"
 
   # dev_dns_zone_name  = "dev.selfcare.pagopa.it"
   # uat_dns_zone_name  = "uat.selfcare.pagopa.it"
@@ -65,13 +65,13 @@ locals {
   # azdo_agent_pool_prod = "selfcare-prod-linux"
 
   # # Subscription Name
-  # dev_selc_subscription_name  = "dev-selfcare"
-  # uat_selc_subscription_name  = "uat-selfcare"
-  # prod_selc_subscription_name = "prod-selfcare"
+  dev_selc_subscription_name  = "dev-selfcare"
+  uat_selc_subscription_name  = "uat-selfcare"
+  prod_selc_subscription_name = "prod-selfcare"
 
   # #tfsec:ignore:general-secrets-no-plaintext-exposure
   # #tfsec:ignore:GEN002
-  # tlscert_renew_token = "v2"
+  tlscert_renew_token = "v2"
 
   # TODO azure devops terraform provider does not support SonarCloud service endpoint
   azuredevops_serviceendpoint_sonarcloud_id = data.terraform_remote_state.core.outputs.service_connection_sonar_cloud_id
