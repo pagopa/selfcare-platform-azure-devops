@@ -7,10 +7,10 @@ variable "tlscert-dev01-api-ar-internal-dev-selfcare-pagopa-it" {
       pipelines_path = "."
     }
     pipeline = {
-      enable_tls_cert = true
-      path            = "TLS-Certificates\\DEV"
-      dns_record_name = "api.dev01.ar.internal"
-      dns_zone_name   = "dev.selfcare.pagopa.it"
+      enable_tls_cert         = true
+      path                    = "TLS-Certificates\\DEV"
+      dns_record_name         = "api.dev01.ar.internal"
+      dns_zone_name           = "dev.selfcare.pagopa.it"
       dns_zone_resource_group = "selc-d-vnet-rg"
       # common variables to all pipelines
       variables = {

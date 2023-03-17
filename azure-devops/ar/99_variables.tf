@@ -1,12 +1,12 @@
 locals {
 
-  prefix           = "selc"
+  prefix = "selc"
   # azure_devops_org = "pagopaspa"
-  domain           = "ar"
+  domain = "ar"
 
   # #CORE
-  core_key_vault_name              = "selc-p-kv"
-  core_key_vault_resource_group    = "selc-p-sec-rg"
+  core_key_vault_name           = "selc-p-kv"
+  core_key_vault_resource_group = "selc-p-sec-rg"
   # core_key_vault_subscription_name = "PROD-SELFCARE"
 
   # # 🔐 KV AZDO
@@ -44,24 +44,24 @@ locals {
 
   # # 📦 ACR DEV FOR AKS
   # aks_dev_docker_registry_rg_name = "${local.prefix}-d-container-registry-rg"
-  aks_dev_docker_registry_name    = "${local.prefix}dcommonacr"
+  aks_dev_docker_registry_name = "${local.prefix}dcommonacr"
 
   # # 📦 ACR UAT FOR AKS
   # aks_uat_docker_registry_rg_name = "${local.prefix}-u-container-registry-rg"
-  aks_uat_docker_registry_name    = "${local.prefix}ucommonacr"
+  aks_uat_docker_registry_name = "${local.prefix}ucommonacr"
 
   # # 📦 ACR PROD FOR AKS
   # aks_docker_rg_name_prod       = "${local.prefix}-p-container-registry-rg"
   # aks_prod_docker_registry_name = "${local.prefix}pcommonacr"
 
   # # AKS
-  srv_endpoint_name_aks_dev  = "${local.prefix}-${local.domain}-aks-dev"
-  srv_endpoint_name_aks_uat  = "${local.prefix}-${local.domain}-aks-uat"
+  srv_endpoint_name_aks_dev = "${local.prefix}-${local.domain}-aks-dev"
+  srv_endpoint_name_aks_uat = "${local.prefix}-${local.domain}-aks-uat"
   # srv_endpoint_name_aks_prod = "${local.prefix}-${local.domain}-aks-prod"
 
   # # Agent Pool
-  azdo_agent_pool_dev  = "selfcare-dev-linux"
-  azdo_agent_pool_uat  = "selfcare-uat-linux"
+  azdo_agent_pool_dev = "selfcare-dev-linux"
+  azdo_agent_pool_uat = "selfcare-uat-linux"
   # azdo_agent_pool_prod = "selfcare-prod-linux"
 
   # # Subscription Name
@@ -90,7 +90,7 @@ locals {
 
   # service_connection_npm_id = data.terraform_remote_state.core.outputs.service_connection_npm_id
   # service_connection_npm_endpoint_name = data.terraform_remote_state.core.outputs.service_connection_npm_name
-  
+
 }
 
 #
