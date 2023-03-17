@@ -14,7 +14,7 @@ module "selfcare-load-tests_run" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-load-tests.repository
-  github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-rw.id
+  github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
   path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.selfcare-load-tests.repository.name}"
   pipeline_name                = "run-load-tests"
   pipeline_yml_filename        = "run-load-tests.yml"
