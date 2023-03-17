@@ -11,7 +11,7 @@ variable "tlscert-dev01-api-ar-internal-dev-selfcare-pagopa-it" {
       path            = "TLS-Certificates\\DEV"
       dns_record_name = "api.dev01.ar.internal"
       dns_zone_name   = "dev.selfcare.pagopa.it"
-      # dns_zone_resource_group = "selc-d-vnet-rg"
+      dns_zone_resource_group = "selc-d-vnet-rg"
       # common variables to all pipelines
       variables = {
         CERT_NAME_EXPIRE_SECONDS = "2592000" #30 days
