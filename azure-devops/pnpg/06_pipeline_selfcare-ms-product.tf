@@ -45,8 +45,6 @@ locals {
     k8s_image_repository_name        = replace(var.selfcare-ms-product.repository.name, "-", "")
     deploy_namespace                 = local.domain
     deployment_name                  = "ms-product"
-    SETTINGS_XML_RW_SECURE_FILE_NAME = "settings-rw.xml"
-    SETTINGS_XML_RO_SECURE_FILE_NAME = "settings-ro.xml"
     helm_release_name                = var.selfcare-ms-product.repository.name
   }
   # deploy secrets

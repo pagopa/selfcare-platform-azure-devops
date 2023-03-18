@@ -8,7 +8,7 @@ variable "selfcare-onboarding-backend" {
       yml_prefix_name = "pnpg"
     }
     pipeline = {
-      enable_code_review = false
+      enable_code_review = true
       enable_deploy      = true
       path               = "pnpg\\selfcare-onboarding-backend"
     }
@@ -42,28 +42,10 @@ locals {
   # deploy vars
   selfcare-onboarding-backend-variables_deploy = {
 
-    K8S_IMAGE_REPOSITORY_NAME        = replace(var.selfcare-onboarding-backend.repository.name, "-", "")
-    DEPLOY_NAMESPACE                 = local.domain
-    DEPLOYMENT_NAME                  = "b4f-onboarding"
-    SETTINGS_XML_RW_SECURE_FILE_NAME = "settings-rw.xml"
-    SETTINGS_XML_RO_SECURE_FILE_NAME = "settings-ro.xml"
-    HELM_RELEASE_NAME                = var.selfcare-onboarding-backend.repository.name
-
-    DEV_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_dev_name
-    DEV_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_dev
-    DEV_CONTAINER_REGISTRY_NAME         = local.aks_dev_docker_registry_name
-    DEV_AGENT_POOL                      = local.azdo_agent_pool_dev
-
-    UAT_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_uat_name
-    UAT_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_uat
-    UAT_CONTAINER_REGISTRY_NAME         = local.aks_uat_docker_registry_name
-    UAT_AGENT_POOL                      = local.azdo_agent_pool_uat
-
-    PROD_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_prod_name
-    PROD_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_prod
-    PROD_CONTAINER_REGISTRY_NAME         = local.aks_prod_docker_registry_name
-    PROD_AGENT_POOL                      = local.azdo_agent_pool_prod
-
+    k8s_image_repository_name        = replace(var.selfcare-onboarding-backend.repository.name, "-", "")
+    deploy_namespace                 = local.domain
+    deployment_name                  = "b4f-onboarding"
+    helm_release_name                = var.selfcare-onboarding-backend.repository.name
   }
   # deploy secrets
   selfcare-onboarding-backend-variables_secret_deploy = {
@@ -77,7 +59,7 @@ module "selfcare-onboarding-backend_code_review" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-onboarding-backend.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_pr.service_endpoint_id
   path                         = var.selfcare-onboarding-backend.pipeline.path
 
   pull_request_trigger_use_yaml = true
@@ -104,12 +86,13 @@ module "selfcare-onboarding-backend_deploy" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-onboarding-backend.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_id
   path                         = var.selfcare-onboarding-backend.pipeline.path
 
   ci_trigger_use_yaml = true
 
   variables = merge(
+    local.selc-be-common-variables_deploy,
     local.selfcare-onboarding-backend-variables,
     local.selfcare-onboarding-backend-variables_deploy,
   )
