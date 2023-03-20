@@ -21,8 +21,8 @@ module "selfcare-load-tests_run" {
   ci_trigger_use_yaml          = true
 
   variables        = {
-    dev_azure_service_name = azuredevops_serviceendpoint_azurerm.DEV-SELFCARE.service_endpoint_name
-    uat_azure_service_name = azuredevops_serviceendpoint_azurerm.UAT-SELFCARE.service_endpoint_name
+    dev_azure_service_name  = azuredevops_serviceendpoint_azurerm.DEV-SELFCARE.service_endpoint_name
+    uat_azure_service_name  = azuredevops_serviceendpoint_azurerm.UAT-SELFCARE.service_endpoint_name
     prod_azure_service_name = azuredevops_serviceendpoint_azurerm.PROD-SELFCARE.service_endpoint_name
   }
   variables_secret = {}
