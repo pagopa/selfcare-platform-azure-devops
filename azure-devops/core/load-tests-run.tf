@@ -22,8 +22,11 @@ module "selfcare-load-tests_run" {
 
   variables        = {
     dev_azure_service_name  = azuredevops_serviceendpoint_azurerm.DEV-SELFCARE.service_endpoint_name
+    dev_agent_pool          = "selfcare-dev-linux"
     uat_azure_service_name  = azuredevops_serviceendpoint_azurerm.UAT-SELFCARE.service_endpoint_name
+    uat_agent_pool          = "selfcare-uat-linux"
     prod_azure_service_name = azuredevops_serviceendpoint_azurerm.PROD-SELFCARE.service_endpoint_name
+    prod_agent_pool         = "selfcare-prod-linux"
   }
   variables_secret = {}
 
