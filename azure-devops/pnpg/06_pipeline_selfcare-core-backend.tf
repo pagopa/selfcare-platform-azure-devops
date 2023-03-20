@@ -92,7 +92,7 @@ module "selfcare-ms-core_deploy" {
   ci_trigger_use_yaml = true
 
   variables = merge(
-    local.selc-be-common-variables_deploy,
+    local.pnpg-be-common-variables_deploy,
     local.selfcare-ms-core-variables,
     local.selfcare-ms-core-variables_deploy,
   )

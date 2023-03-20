@@ -92,7 +92,7 @@ module "selfcare-onboarding-backend_deploy" {
   ci_trigger_use_yaml = true
 
   variables = merge(
-    local.selc-be-common-variables_deploy,
+    local.pnpg-be-common-variables_deploy,
     local.selfcare-onboarding-backend-variables,
     local.selfcare-onboarding-backend-variables_deploy,
   )
