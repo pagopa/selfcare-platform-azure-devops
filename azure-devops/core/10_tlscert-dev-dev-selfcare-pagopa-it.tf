@@ -45,7 +45,7 @@ module "tlscert-dev-dev-selfcare-pagopa-it-cert_az" {
   repository                   = var.tlscert-dev-dev-selfcare-pagopa-it.repository
   name                         = "${var.tlscert-dev-dev-selfcare-pagopa-it.pipeline.dns_record_name}.${var.tlscert-dev-dev-selfcare-pagopa-it.pipeline.dns_zone_name}"
   path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.tlscert-dev-dev-selfcare-pagopa-it.pipeline.path}"
-  github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-ro.id
+  github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-rw.id
   #tfsec:ignore:GEN003
   renew_token = local.tlscert_renew_token
 
