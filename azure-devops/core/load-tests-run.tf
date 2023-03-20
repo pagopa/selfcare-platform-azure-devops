@@ -20,10 +20,17 @@ module "selfcare-load-tests_run" {
   pipeline_yml_filename        = "run-load-tests.yml"
   ci_trigger_use_yaml          = true
 
-  variables        = {}
+  variables        = {
+    dev_azure_service_name = azuredevops_serviceendpoint_azurerm.DEV-SELFCARE.service_endpoint_name
+    uat_azure_service_name = azuredevops_serviceendpoint_azurerm.UAT-SELFCARE.service_endpoint_name
+    prod_azure_service_name = azuredevops_serviceendpoint_azurerm.PROD-SELFCARE.service_endpoint_name
+  }
   variables_secret = {}
 
   service_connection_ids_authorization = [
     azuredevops_serviceendpoint_github.io-azure-devops-github-rw.id,
+    azuredevops_serviceendpoint_azurerm.DEV-SELFCARE.id,
+    azuredevops_serviceendpoint_azurerm.UAT-SELFCARE.id,
+    azuredevops_serviceendpoint_azurerm.PROD-SELFCARE.id,
   ]
 }
