@@ -120,7 +120,7 @@ locals {
 
   }
 
-  selc-be-common-variables_deploy = {
+  pnpg-be-common-variables_deploy = {
     DEV_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_dev_name
     DEV_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_dev
     DEV_CONTAINER_REGISTRY_NAME         = local.aks_dev_docker_registry_name
