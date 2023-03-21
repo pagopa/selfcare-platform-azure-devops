@@ -35,8 +35,8 @@ locals {
   }
   # deploy vars
   selfcare-proxy-mockserver-variables_deploy = {
-    k8s_image_repository_name = replace(var.selfcare-proxy-mockserver.repository.name, "-", "")
-    deployment_name           = "mockserver"
+    k8s_image_repository_name        = replace(var.selfcare-proxy-mockserver.repository.name, "-", "")
+    deployment_name                  = "mockserver"
     DEPLOY_NAMESPACE                 = local.domain
     SETTINGS_XML_RW_SECURE_FILE_NAME = "settings-rw.xml"
     SETTINGS_XML_RO_SECURE_FILE_NAME = "settings-ro.xml"

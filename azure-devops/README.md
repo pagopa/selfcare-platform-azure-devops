@@ -46,7 +46,7 @@ export AZDO_ORG_SERVICE_URL="https://dev.azure.com/pagopa-io"
 export AZDO_PERSONAL_ACCESS_TOKEN="__YOUR_PERSONAL_ACCESS_TOKEN__"
 ```
 
-AZDO_ORG_SERVICE_URL can be with `pagopa-io` or the new `pagopaspa`
+AZDO_ORG_SERVICE_URL value should be `pagopaspa`
 
 ## How to
 

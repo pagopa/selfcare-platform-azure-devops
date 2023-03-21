@@ -1,13 +1,13 @@
 locals {
-  
+
   #CORE
-  
+
 
   #KV
-  dev_key_vault_name           = "selc-d-pnpg-kv"
-  uat_key_vault_name           = "selc-u-pnpg-kv"
-  prod_key_vault_name          = "selc-p-pnpg-kv"
-  
+  dev_key_vault_name  = "selc-d-pnpg-kv"
+  uat_key_vault_name  = "selc-u-pnpg-kv"
+  prod_key_vault_name = "selc-p-pnpg-kv"
+
   # Subscription Name
   dev_selfcare_subscription_name  = "dev-selfcare"
   uat_selfcare_subscription_name  = "uat-selfcare"

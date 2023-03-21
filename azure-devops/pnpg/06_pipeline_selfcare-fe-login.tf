@@ -81,7 +81,7 @@ module "selfcare-login-frontend_deploy" {
   repository                   = var.selfcare-login-frontend.repository
   github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_id
   path                         = var.selfcare-login-frontend.pipeline.path
-  ci_trigger_use_yaml = true
+  ci_trigger_use_yaml          = true
 
   variables = merge(
     local.selfcare-login-frontend-variables,
