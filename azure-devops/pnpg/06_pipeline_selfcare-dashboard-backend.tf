@@ -85,7 +85,7 @@ module "selfcare-dashboard-backend_deploy" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-dashboard-backend.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_pr.service_endpoint_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_id
   path                         = var.selfcare-dashboard-backend.pipeline.path
 
   ci_trigger_use_yaml = true

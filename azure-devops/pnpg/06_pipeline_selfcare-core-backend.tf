@@ -86,7 +86,7 @@ module "selfcare-ms-core_deploy" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-ms-core.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_id
   path                         = var.selfcare-ms-core.pipeline.path
 
   ci_trigger_use_yaml = true

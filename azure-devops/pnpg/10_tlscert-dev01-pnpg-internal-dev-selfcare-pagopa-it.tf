@@ -61,7 +61,7 @@ module "tlscert-dev01-pnpg-internal-dev-selfcare-pagopa-it-cert_az" {
   #tfsec:ignore:GEN003
   renew_token                  = local.tlscert_renew_token
   path                         = "${local.domain}\\${var.tlscert-dev01-pnpg-internal-dev-selfcare-pagopa-it.pipeline.path}"
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_id
 
   dns_record_name         = var.tlscert-dev01-pnpg-internal-dev-selfcare-pagopa-it.pipeline.dns_record_name
   dns_zone_name           = var.tlscert-dev01-pnpg-internal-dev-selfcare-pagopa-it.pipeline.dns_zone_name
