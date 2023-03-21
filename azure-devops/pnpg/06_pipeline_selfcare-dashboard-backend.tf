@@ -41,29 +41,10 @@ locals {
   }
   # deploy vars
   selfcare-dashboard-backend-variables_deploy = {
-
-    K8S_IMAGE_REPOSITORY_NAME        = replace(var.selfcare-dashboard-backend.repository.name, "-", "")
-    DEPLOY_NAMESPACE                 = local.domain
-    DEPLOYMENT_NAME                  = "b4f-dashboard"
-    SETTINGS_XML_RW_SECURE_FILE_NAME = "settings-rw.xml"
-    SETTINGS_XML_RO_SECURE_FILE_NAME = "settings-ro.xml"
-    HELM_RELEASE_NAME                = var.selfcare-dashboard-backend.repository.name
-
-    DEV_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_dev_name
-    DEV_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_dev
-    DEV_CONTAINER_REGISTRY_NAME         = local.aks_dev_docker_registry_name
-    DEV_AGENT_POOL                      = local.azdo_agent_pool_dev
-
-    UAT_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_uat_name
-    UAT_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_uat
-    UAT_CONTAINER_REGISTRY_NAME         = local.aks_uat_docker_registry_name
-    UAT_AGENT_POOL                      = local.azdo_agent_pool_uat
-
-    PROD_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_prod_name
-    PROD_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_prod
-    PROD_CONTAINER_REGISTRY_NAME         = local.aks_prod_docker_registry_name
-    PROD_AGENT_POOL                      = local.azdo_agent_pool_prod
-
+    k8s_image_repository_name        = replace(var.selfcare-dashboard-backend.repository.name, "-", "")
+    deploy_namespace                 = local.domain
+    deployment_name                  = "b4f-dashboard"
+    helm_release_name                = var.selfcare-dashboard-backend.repository.name
   }
   # deploy secrets
   selfcare-dashboard-backend-variables_secret_deploy = {
@@ -77,7 +58,7 @@ module "selfcare-dashboard-backend_code_review" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-dashboard-backend.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_pr.service_endpoint_id
   path                         = var.selfcare-dashboard-backend.pipeline.path
 
   pull_request_trigger_use_yaml = true
@@ -110,6 +91,7 @@ module "selfcare-dashboard-backend_deploy" {
   ci_trigger_use_yaml = true
 
   variables = merge(
+    local.pnpg-be-common-variables_deploy,
     local.selfcare-dashboard-backend-variables,
     local.selfcare-dashboard-backend-variables_deploy,
   )

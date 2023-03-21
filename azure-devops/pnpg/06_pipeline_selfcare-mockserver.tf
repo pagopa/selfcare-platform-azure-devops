@@ -59,7 +59,7 @@ module "selfcare-proxy-mockserver_deploy" {
   ci_trigger_use_yaml          = true
 
   variables = merge(
-    local.selc-be-common-variables_deploy,
+    local.pnpg-be-common-variables_deploy,
     local.selfcare-proxy-mockserver-variables,
     local.selfcare-proxy-mockserver-variables_deploy,
   )
