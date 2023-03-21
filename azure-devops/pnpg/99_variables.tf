@@ -88,9 +88,9 @@ locals {
   service_endpoint_azure_devops_docker_prod_name = "selc-docker-common-prod"
   service_endpoint_azure_devops_docker_prod_id   = data.terraform_remote_state.core.outputs.service_connection_docker_registry_common_prod_id
 
-  service_connection_npm_id = data.terraform_remote_state.core.outputs.service_connection_npm_id
+  service_connection_npm_id            = data.terraform_remote_state.core.outputs.service_connection_npm_id
   service_connection_npm_endpoint_name = data.terraform_remote_state.core.outputs.service_connection_npm_name
-  
+
 }
 
 #
