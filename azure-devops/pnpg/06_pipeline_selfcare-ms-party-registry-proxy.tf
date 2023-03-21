@@ -44,7 +44,7 @@ locals {
 
     k8s_image_repository_name        = replace(var.selfcare-ms-party-registry-proxy.repository.name, "-", "")
     deploy_namespace                 = local.domain
-    deployment_name                  = "b4f-dashboard"
+    deployment_name                  = "ms-party-registry-proxy"
     helm_release_name                = var.selfcare-ms-party-registry-proxy.repository.name
 
   }
