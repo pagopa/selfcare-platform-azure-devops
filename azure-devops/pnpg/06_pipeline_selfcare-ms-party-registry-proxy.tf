@@ -42,10 +42,10 @@ locals {
   # deploy vars
   selfcare-ms-party-registry-proxy-variables_deploy = {
 
-    k8s_image_repository_name        = replace(var.selfcare-ms-party-registry-proxy.repository.name, "-", "")
-    deploy_namespace                 = local.domain
-    deployment_name                  = "b4f-dashboard"
-    helm_release_name                = var.selfcare-ms-party-registry-proxy.repository.name
+    k8s_image_repository_name = replace(var.selfcare-ms-party-registry-proxy.repository.name, "-", "")
+    deploy_namespace          = local.domain
+    deployment_name           = "b4f-dashboard"
+    helm_release_name         = var.selfcare-ms-party-registry-proxy.repository.name
 
   }
   # deploy secrets

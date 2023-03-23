@@ -41,10 +41,10 @@ locals {
   }
   # deploy vars
   selfcare-dashboard-backend-variables_deploy = {
-    k8s_image_repository_name        = replace(var.selfcare-dashboard-backend.repository.name, "-", "")
-    deploy_namespace                 = local.domain
-    deployment_name                  = "b4f-dashboard"
-    helm_release_name                = var.selfcare-dashboard-backend.repository.name
+    k8s_image_repository_name = replace(var.selfcare-dashboard-backend.repository.name, "-", "")
+    deploy_namespace          = local.domain
+    deployment_name           = "b4f-dashboard"
+    helm_release_name         = var.selfcare-dashboard-backend.repository.name
   }
   # deploy secrets
   selfcare-dashboard-backend-variables_secret_deploy = {

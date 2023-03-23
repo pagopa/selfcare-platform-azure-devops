@@ -8,48 +8,48 @@ module "domain_dev_secrets" {
     azurerm = azurerm.dev
   }
 
-  source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v2.18.9"
+  source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v4.13.0"
 
   resource_group = local.dev_domain_key_vault_resource_group
   key_vault_name = local.dev_domain_key_vault_name
 
   secrets = [
-    "selc-d-weu-dev01-aks-aks-apiserver-url",
+    "selc-d-weu-dev01-aks-apiserver-url",
     "selc-d-weu-dev01-aks-azure-devops-sa-cacrt",
     "selc-d-weu-dev01-aks-azure-devops-sa-token",
   ]
 }
 
-# module "domain_uat_secrets" {
-#   source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v2.18.9"
+module "domain_uat_secrets" {
+  source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v4.13.0"
 
-#   providers = {
-#     azurerm = azurerm.uat
-#   }
+  providers = {
+    azurerm = azurerm.uat
+  }
 
-#   resource_group = local.uat_domain_key_vault_resource_group
-#   key_vault_name = local.uat_domain_key_vault_name
+  resource_group = local.uat_domain_key_vault_resource_group
+  key_vault_name = local.uat_domain_key_vault_name
 
-#   secrets = [
-#     "selc-d-weu-uat01-aks-aks-apiserver-url",
-#     "selc-u-weu-uat01-aks-azure-devops-sa-cacrt",
-#     "selc-u-weu-uat01-aks-azure-devops-sa-token",
-#   ]
-# }
+  secrets = [
+    "selc-u-weu-uat01-aks-apiserver-url",
+    "selc-u-weu-uat01-aks-azure-devops-sa-cacrt",
+    "selc-u-weu-uat01-aks-azure-devops-sa-token",
+  ]
+}
 
-# module "domain_prod_secrets" {
-#   source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v2.18.9"
+module "domain_prod_secrets" {
+  source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v4.13.0"
 
-#   providers = {
-#     azurerm = azurerm.prod
-#   }
+  providers = {
+    azurerm = azurerm.prod
+  }
 
-#   resource_group = local.prod_domain_key_vault_resource_group
-#   key_vault_name = local.prod_domain_key_vault_name
+  resource_group = local.prod_domain_key_vault_resource_group
+  key_vault_name = local.prod_domain_key_vault_name
 
-#   secrets = [
-#     "selc-d-weu-prod01-aks-aks-apiserver-url",
-#     "selc-p-weu-prod01-aks-azure-devops-sa-cacrt",
-#     "selc-p-weu-prod01-aks-azure-devops-sa-token",
-#   ]
-# }
+  secrets = [
+    "selc-p-weu-prod01-aks-apiserver-url",
+    "selc-p-weu-prod01-aks-azure-devops-sa-cacrt",
+    "selc-p-weu-prod01-aks-azure-devops-sa-token",
+  ]
+}

@@ -42,10 +42,10 @@ locals {
   # deploy vars
   selfcare-ms-product-variables_deploy = {
 
-    k8s_image_repository_name        = replace(var.selfcare-ms-product.repository.name, "-", "")
-    deploy_namespace                 = local.domain
-    deployment_name                  = "ms-product"
-    helm_release_name                = var.selfcare-ms-product.repository.name
+    k8s_image_repository_name = replace(var.selfcare-ms-product.repository.name, "-", "")
+    deploy_namespace          = local.domain
+    deployment_name           = "ms-product"
+    helm_release_name         = var.selfcare-ms-product.repository.name
   }
   # deploy secrets
   selfcare-ms-product-variables_secret_deploy = {

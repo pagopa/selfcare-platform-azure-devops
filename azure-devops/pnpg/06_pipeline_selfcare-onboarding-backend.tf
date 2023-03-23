@@ -42,10 +42,10 @@ locals {
   # deploy vars
   selfcare-onboarding-backend-variables_deploy = {
 
-    k8s_image_repository_name        = replace(var.selfcare-onboarding-backend.repository.name, "-", "")
-    deploy_namespace                 = local.domain
-    deployment_name                  = "b4f-onboarding"
-    helm_release_name                = var.selfcare-onboarding-backend.repository.name
+    k8s_image_repository_name = replace(var.selfcare-onboarding-backend.repository.name, "-", "")
+    deploy_namespace          = local.domain
+    deployment_name           = "b4f-onboarding"
+    helm_release_name         = var.selfcare-onboarding-backend.repository.name
   }
   # deploy secrets
   selfcare-onboarding-backend-variables_secret_deploy = {

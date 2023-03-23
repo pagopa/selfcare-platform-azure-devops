@@ -41,10 +41,10 @@ locals {
   }
   # deploy vars
   selfcare-ms-core-variables_deploy = {
-    k8s_image_repository_name        = replace(var.selfcare-ms-core.repository.name, "-", "")
-    deploy_namespace                 = local.domain
-    deployment_name                  = "ms-core"
-    helm_release_name                = var.selfcare-ms-core.repository.name
+    k8s_image_repository_name = replace(var.selfcare-ms-core.repository.name, "-", "")
+    deploy_namespace          = local.domain
+    deployment_name           = "ms-core"
+    helm_release_name         = var.selfcare-ms-core.repository.name
 
   }
   # deploy secrets
