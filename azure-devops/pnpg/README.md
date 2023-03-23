@@ -5,20 +5,20 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
-| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | >= v2.36.0 |
-| <a name="requirement_azuredevops"></a> [azuredevops](#requirement\_azuredevops) | >= 0.3.0 |
+| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | >= 2.36.0 |
+| <a name="requirement_azuredevops"></a> [azuredevops](#requirement\_azuredevops) | >= 0.4.0 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 2.99.0 |
-| <a name="requirement_null"></a> [null](#requirement\_null) | >= v3.2.0 |
-| <a name="requirement_time"></a> [time](#requirement\_time) | >= v0.9.1 |
+| <a name="requirement_null"></a> [null](#requirement\_null) | >= 3.2.0 |
+| <a name="requirement_time"></a> [time](#requirement\_time) | >= 0.9.1 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azuredevops"></a> [azuredevops](#provider\_azuredevops) | >= 0.3.0 |
-| <a name="provider_azurerm.dev"></a> [azurerm.dev](#provider\_azurerm.dev) | >= 2.99.0 |
-| <a name="provider_azurerm.prod"></a> [azurerm.prod](#provider\_azurerm.prod) | >= 2.99.0 |
-| <a name="provider_azurerm.uat"></a> [azurerm.uat](#provider\_azurerm.uat) | >= 2.99.0 |
+| <a name="provider_azuredevops"></a> [azuredevops](#provider\_azuredevops) | 0.4.0 |
+| <a name="provider_azurerm.dev"></a> [azurerm.dev](#provider\_azurerm.dev) | 2.99.0 |
+| <a name="provider_azurerm.prod"></a> [azurerm.prod](#provider\_azurerm.prod) | 2.99.0 |
+| <a name="provider_azurerm.uat"></a> [azurerm.uat](#provider\_azurerm.uat) | 2.99.0 |
 | <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 
 ## Modules
@@ -36,6 +36,7 @@
 | <a name="module_letsencrypt_prod"></a> [letsencrypt\_prod](#module\_letsencrypt\_prod) | git::https://github.com/pagopa/azurerm.git//letsencrypt_credential | v4.3.2 |
 | <a name="module_letsencrypt_uat"></a> [letsencrypt\_uat](#module\_letsencrypt\_uat) | git::https://github.com/pagopa/azurerm.git//letsencrypt_credential | v4.3.2 |
 | <a name="module_secrets_core_prod"></a> [secrets\_core\_prod](#module\_secrets\_core\_prod) | git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query | v2.0.4 |
+| <a name="module_selfcare-aks-cert-mounter_deploy"></a> [selfcare-aks-cert-mounter\_deploy](#module\_selfcare-aks-cert-mounter\_deploy) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy | v2.6.5 |
 | <a name="module_selfcare-assistance-frontend_code_review"></a> [selfcare-assistance-frontend\_code\_review](#module\_selfcare-assistance-frontend\_code\_review) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review | v2.6.5 |
 | <a name="module_selfcare-assistance-frontend_deploy"></a> [selfcare-assistance-frontend\_deploy](#module\_selfcare-assistance-frontend\_deploy) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy | v2.6.5 |
 | <a name="module_selfcare-common-frontend_code_review"></a> [selfcare-common-frontend\_code\_review](#module\_selfcare-common-frontend\_code\_review) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review | v2.6.5 |
@@ -79,6 +80,8 @@
 | <a name="module_selfcare-token-exchange-frontend_deploy"></a> [selfcare-token-exchange-frontend\_deploy](#module\_selfcare-token-exchange-frontend\_deploy) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy | v2.6.5 |
 | <a name="module_tlscert-dev01-api-pnpg-internal-dev-selfcare-pagopa-it-cert_az"></a> [tlscert-dev01-api-pnpg-internal-dev-selfcare-pagopa-it-cert\_az](#module\_tlscert-dev01-api-pnpg-internal-dev-selfcare-pagopa-it-cert\_az) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert | v2.6.5 |
 | <a name="module_tlscert-dev01-pnpg-internal-dev-selfcare-pagopa-it-cert_az"></a> [tlscert-dev01-pnpg-internal-dev-selfcare-pagopa-it-cert\_az](#module\_tlscert-dev01-pnpg-internal-dev-selfcare-pagopa-it-cert\_az) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert | v2.6.5 |
+| <a name="module_tlscert-prod01-pnpg-internal-selc-pagopa-it-cert_az"></a> [tlscert-prod01-pnpg-internal-selc-pagopa-it-cert\_az](#module\_tlscert-prod01-pnpg-internal-selc-pagopa-it-cert\_az) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert | v2.6.5 |
+| <a name="module_tlscert-uat01-pnpg-internal-uat-selc-pagopa-it-cert_az"></a> [tlscert-uat01-pnpg-internal-uat-selc-pagopa-it-cert\_az](#module\_tlscert-uat01-pnpg-internal-uat-selc-pagopa-it-cert\_az) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert | v2.6.5 |
 
 ## Resources
 
@@ -110,6 +113,7 @@
 | <a name="input_devops-app-status"></a> [devops-app-status](#input\_devops-app-status) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "enable_code_review": true,<br>    "enable_deploy": true,<br>    "path": "pnpg\\devops-app-status"<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/main",<br>    "name": "devops-app-status",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": "selfcare-pnpg"<br>  }<br>}</pre> | no |
 | <a name="input_prod_subscription_name"></a> [prod\_subscription\_name](#input\_prod\_subscription\_name) | PROD Subscription name | `string` | n/a | yes |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | Project name (e.g. pagoPA platform) | `string` | n/a | yes |
+| <a name="input_selfcare-aks-cert-mounter"></a> [selfcare-aks-cert-mounter](#input\_selfcare-aks-cert-mounter) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "enable_code_review": true,<br>    "enable_deploy": true,<br>    "path": "pnpg\\selfcare-aks-cert-mounter"<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/main",<br>    "name": "selfcare-aks-cert-mounter",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": "selfcare-pnpg"<br>  }<br>}</pre> | no |
 | <a name="input_selfcare-assistance-frontend"></a> [selfcare-assistance-frontend](#input\_selfcare-assistance-frontend) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "enable_code_review": true,<br>    "enable_deploy": true,<br>    "path": "pnpg\\selfcare-assistance-frontend"<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/main",<br>    "name": "selfcare-assistance-frontend",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": null<br>  }<br>}</pre> | no |
 | <a name="input_selfcare-common-frontend"></a> [selfcare-common-frontend](#input\_selfcare-common-frontend) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "enable_code_review": true,<br>    "enable_deploy": true,<br>    "path": "pnpg\\selfcare-common-frontend"<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/main",<br>    "name": "selfcare-common-frontend",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": null<br>  }<br>}</pre> | no |
 | <a name="input_selfcare-commons"></a> [selfcare-commons](#input\_selfcare-commons) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "enable_code_review": false,<br>    "enable_deploy": true,<br>    "path": "pnpg\\selfcare-commons"<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/main",<br>    "name": "selfcare-commons",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": "pnpg"<br>  }<br>}</pre> | no |
@@ -140,6 +144,8 @@
 | <a name="input_terraform_remote_state_core"></a> [terraform\_remote\_state\_core](#input\_terraform\_remote\_state\_core) | n/a | <pre>object({<br>    resource_group_name  = string,<br>    storage_account_name = string,<br>    container_name       = string,<br>    key                  = string<br>  })</pre> | n/a | yes |
 | <a name="input_tlscert-dev01-api-pnpg-internal-dev-selfcare-pagopa-it"></a> [tlscert-dev01-api-pnpg-internal-dev-selfcare-pagopa-it](#input\_tlscert-dev01-api-pnpg-internal-dev-selfcare-pagopa-it) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "dns_record_name": "api.dev01.pnpg.internal",<br>    "dns_zone_name": "dev.selfcare.pagopa.it",<br>    "enable_tls_cert": true,<br>    "path": "TLS-Certificates\\DEV",<br>    "variables": {<br>      "CERT_NAME_EXPIRE_SECONDS": "2592000"<br>    },<br>    "variables_secret": {}<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/master",<br>    "name": "le-azure-acme-tiny",<br>    "organization": "pagopa",<br>    "pipelines_path": "."<br>  }<br>}</pre> | no |
 | <a name="input_tlscert-dev01-pnpg-internal-dev-selfcare-pagopa-it"></a> [tlscert-dev01-pnpg-internal-dev-selfcare-pagopa-it](#input\_tlscert-dev01-pnpg-internal-dev-selfcare-pagopa-it) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "dns_record_name": "dev01.pnpg.internal",<br>    "dns_zone_name": "dev.selfcare.pagopa.it",<br>    "enable_tls_cert": true,<br>    "path": "TLS-Certificates\\DEV",<br>    "variables": {<br>      "CERT_NAME_EXPIRE_SECONDS": "2592000"<br>    },<br>    "variables_secret": {}<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/master",<br>    "name": "le-azure-acme-tiny",<br>    "organization": "pagopa",<br>    "pipelines_path": "."<br>  }<br>}</pre> | no |
+| <a name="input_tlscert-prod01-pnpg-internal-selc-pagopa-it"></a> [tlscert-prod01-pnpg-internal-selc-pagopa-it](#input\_tlscert-prod01-pnpg-internal-selc-pagopa-it) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "dns_record_name": "prod01.pnpg.internal",<br>    "dns_zone_name": "selfcare.pagopa.it",<br>    "enable_tls_cert": true,<br>    "path": "TLS-Certificates\\PROD",<br>    "variables": {<br>      "CERT_NAME_EXPIRE_SECONDS": "2592000"<br>    },<br>    "variables_secret": {}<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/master",<br>    "name": "le-azure-acme-tiny",<br>    "organization": "pagopa",<br>    "pipelines_path": "."<br>  }<br>}</pre> | no |
+| <a name="input_tlscert-uat01-pnpg-internal-uat-selc-pagopa-it"></a> [tlscert-uat01-pnpg-internal-uat-selc-pagopa-it](#input\_tlscert-uat01-pnpg-internal-uat-selc-pagopa-it) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "dns_record_name": "uat01.pnpg.internal",<br>    "dns_zone_name": "uat.selfcare.pagopa.it",<br>    "enable_tls_cert": true,<br>    "path": "TLS-Certificates\\UAT",<br>    "variables": {<br>      "CERT_NAME_EXPIRE_SECONDS": "2592000"<br>    },<br>    "variables_secret": {}<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/master",<br>    "name": "le-azure-acme-tiny",<br>    "organization": "pagopa",<br>    "pipelines_path": "."<br>  }<br>}</pre> | no |
 | <a name="input_uat_subscription_name"></a> [uat\_subscription\_name](#input\_uat\_subscription\_name) | UAT Subscription name | `string` | n/a | yes |
 
 ## Outputs

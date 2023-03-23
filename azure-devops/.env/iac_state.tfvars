@@ -1,4 +1,4 @@
-resource_group_name  = "io-infra-rg"
-storage_account_name = "selcinfrastterraform"
-container_name       = "azuredevopsstate"
+resource_group_name  = "terraform-state-rg"
+storage_account_name = "tfinfprodselfcare"
+container_name       = "terraform-state"
 key                  = "iac-devops.terraform.tfstate"
