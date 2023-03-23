@@ -60,7 +60,7 @@ locals {
 
     dev_react_app_url_cdn                      = "https://pnpg.dev.selfcare.pagopa.it"
     dev_react_app_url_storage                  = "https://selcdweupnpgcheckoutsa.z6.web.core.windows.net"
-    dev_react_app_url_fe_login                 = "https://pnpg.dev.selfcare.pagopa.it/auth"
+    dev_react_app_url_fe_login                 = "https://portale-login.dev.pn.pagopa.it/login"
     dev_react_app_url_fe_onboarding            = "https://pnpg.dev.selfcare.pagopa.it/onboarding"
     dev_react_app_url_fe_onboarding-pnpg       = "https://pnpg.dev.selfcare.pagopa.it/onboarding-pnpg"
     dev_react_app_url_fe_dashboard             = "https://pnpg.dev.selfcare.pagopa.it/dashboard"
@@ -70,13 +70,13 @@ locals {
     dev_react_app_url_fe_assistance            = "https://pnpg.dev.selfcare.pagopa.it/assistenza"
     dev_react_app_url_fe_landing               = "https://pnpg.dev.selfcare.pagopa.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
     dev_react_app_url_fe_token_exchange        = "https://pnpg.dev.selfcare.pagopa.it/token-exchange"
-    dev_react_app_url_api_login                = "https://api-pnpg.dev.selfcare.pagopa.it/pnpg/spid/v1"
-    dev_react_app_url_api_party_process        = "https://api-pnpg.dev.selfcare.pagopa.it/pnpg/party-process/v1"
-    dev_react_app_url_api_party_management     = "https://api-pnpg.dev.selfcare.pagopa.it/pnpg/party-management/v1"
-    dev_react_app_url_api_party_registry_proxy = "https://api-pnpg.dev.selfcare.pagopa.it/pnpg/party-registry-proxy/v1"
-    dev_react_app_url_api_dashboard            = "https://api-pnpg.dev.selfcare.pagopa.it/pnpg/dashboard/v1"
-    dev_react_app_url_api_onboarding           = "https://api-pnpg.dev.selfcare.pagopa.it/pnpg/onboarding/v1"
-    dev_react_app_url_api_notification         = "https://api-pnpg.dev.selfcare.pagopa.it/pnpg/ms-notification-manager"
+    dev_react_app_url_api_login                = "https://api-pnpg.dev.selfcare.pagopa.it/spid/v1"
+    dev_react_app_url_api_party_process        = "https://api-pnpg.dev.selfcare.pagopa.it/party-process/v1"
+    dev_react_app_url_api_party_management     = "https://api-pnpg.dev.selfcare.pagopa.it/party-management/v1"
+    dev_react_app_url_api_party_registry_proxy = "https://api-pnpg.dev.selfcare.pagopa.it/party-registry-proxy/v1"
+    dev_react_app_url_api_dashboard            = "https://api-pnpg.dev.selfcare.pagopa.it/dashboard/v1"
+    dev_react_app_url_api_onboarding           = "https://api-pnpg.dev.selfcare.pagopa.it/onboarding/v1"
+    dev_react_app_url_api_notification         = "https://api-pnpg.dev.selfcare.pagopa.it/ms-notification-manager"\
 
     # uat_react_app_url_cdn                      = "https://uat.selfcare.pagopa.it"
     # uat_react_app_url_storage                  = "https://selcucheckoutsa.z6.web.core.windows.net"
