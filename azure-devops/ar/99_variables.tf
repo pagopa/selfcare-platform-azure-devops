@@ -112,10 +112,10 @@ locals {
 #   description = "PROD Subscription name"
 # }
 
-# variable "project_name" {
-#   type        = string
-#   description = "Project name (e.g. pagoPA platform)"
-# }
+variable "project_name" {
+  type        = string
+  description = "Project name (e.g. pagoPA platform)"
+}
 
 variable "terraform_remote_state_core" {
   type = object({
