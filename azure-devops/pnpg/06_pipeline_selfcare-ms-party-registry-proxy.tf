@@ -8,7 +8,7 @@ variable "selfcare-ms-party-registry-proxy" {
       yml_prefix_name = "pnpg"
     }
     pipeline = {
-      enable_code_review = false
+      enable_code_review = true
       enable_deploy      = true
       path               = "pnpg\\selfcare-ms-party-registry-proxy"
     }
@@ -41,28 +41,10 @@ locals {
   }
   # deploy vars
   selfcare-ms-party-registry-proxy-variables_deploy = {
-
-    K8S_IMAGE_REPOSITORY_NAME        = replace(var.selfcare-ms-party-registry-proxy.repository.name, "-", "")
-    DEPLOY_NAMESPACE                 = local.domain
-    SETTINGS_XML_RW_SECURE_FILE_NAME = "settings-rw.xml"
-    SETTINGS_XML_RO_SECURE_FILE_NAME = "settings-ro.xml"
-    HELM_RELEASE_NAME                = var.selfcare-ms-party-registry-proxy.repository.name
-
-    DEV_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_dev_name
-    DEV_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_dev
-    DEV_CONTAINER_REGISTRY_NAME         = local.aks_dev_docker_registry_name
-    DEV_AGENT_POOL                      = local.azdo_agent_pool_dev
-
-    UAT_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_uat_name
-    UAT_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_uat
-    UAT_CONTAINER_REGISTRY_NAME         = local.aks_uat_docker_registry_name
-    UAT_AGENT_POOL                      = local.azdo_agent_pool_uat
-
-    PROD_CONTAINER_REGISTRY_SERVICE_CONN = local.service_endpoint_azure_devops_docker_prod_name
-    PROD_KUBERNETES_SERVICE_CONN         = local.srv_endpoint_name_aks_prod
-    PROD_CONTAINER_REGISTRY_NAME         = local.aks_prod_docker_registry_name
-    PROD_AGENT_POOL                      = local.azdo_agent_pool_prod
-
+    k8s_image_repository_name        = replace(var.selfcare-ms-party-registry-proxy.repository.name, "-", "")
+    deploy_namespace                 = local.domain
+    deployment_name                  = "ms-party-registry-proxy"
+    helm_release_name                = var.selfcare-ms-party-registry-proxy.repository.name
   }
   # deploy secrets
   selfcare-ms-party-registry-proxy-variables_secret_deploy = {
@@ -76,7 +58,7 @@ module "selfcare-ms-party-registry-proxy_code_review" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-ms-party-registry-proxy.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_id
   path                         = var.selfcare-ms-party-registry-proxy.pipeline.path
 
   pull_request_trigger_use_yaml = true
@@ -103,12 +85,13 @@ module "selfcare-ms-party-registry-proxy_deploy" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-ms-party-registry-proxy.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_id
   path                         = var.selfcare-ms-party-registry-proxy.pipeline.path
 
   ci_trigger_use_yaml = true
 
   variables = merge(
+    local.pnpg-be-common-variables_deploy,
     local.selfcare-ms-party-registry-proxy-variables,
     local.selfcare-ms-party-registry-proxy-variables_deploy,
   )

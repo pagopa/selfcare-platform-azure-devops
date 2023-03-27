@@ -35,8 +35,8 @@ locals {
   }
   # deploy vars
   selfcare-proxy-mockserver-variables_deploy = {
-    k8s_image_repository_name = replace(var.selfcare-proxy-mockserver.repository.name, "-", "")
-    deployment_name           = "mockserver"
+    k8s_image_repository_name        = replace(var.selfcare-proxy-mockserver.repository.name, "-", "")
+    deployment_name                  = "mockserver"
     DEPLOY_NAMESPACE                 = local.domain
     SETTINGS_XML_RW_SECURE_FILE_NAME = "settings-rw.xml"
     SETTINGS_XML_RO_SECURE_FILE_NAME = "settings-ro.xml"
@@ -59,7 +59,7 @@ module "selfcare-proxy-mockserver_deploy" {
   ci_trigger_use_yaml          = true
 
   variables = merge(
-    local.selc-be-common-variables_deploy,
+    local.pnpg-be-common-variables_deploy,
     local.selfcare-proxy-mockserver-variables,
     local.selfcare-proxy-mockserver-variables_deploy,
   )
