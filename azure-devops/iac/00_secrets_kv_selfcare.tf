@@ -8,7 +8,7 @@ module "selfcare_dev_secrets" {
     azurerm = azurerm.dev
   }
 
-  source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v2.18.9"
+  source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v4.13.0"
 
   resource_group = local.dev_selfcare_pnpg_key_vault_resource_group
   key_vault_name = local.dev_selfcare_pnpg_key_vault_name
@@ -21,7 +21,7 @@ module "selfcare_dev_secrets" {
 }
 
 module "selfcare_uat_secrets" {
-  source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v2.18.9"
+  source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v4.13.0"
 
   providers = {
     azurerm = azurerm.uat
@@ -38,7 +38,7 @@ module "selfcare_uat_secrets" {
 }
 
 module "selfcare_prod_secrets" {
-  source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v2.18.9"
+  source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v4.13.0"
 
   providers = {
     azurerm = azurerm.prod
