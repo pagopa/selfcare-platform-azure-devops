@@ -2,7 +2,7 @@
 # PROD ECOMMERCE KEYVAULT
 #
 
-module "idpay_dev_secrets" {
+module "selfcare_dev_secrets" {
 
   providers = {
     azurerm = azurerm.dev
@@ -10,8 +10,8 @@ module "idpay_dev_secrets" {
 
   source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v2.18.9"
 
-  resource_group = local.dev_idpay_key_vault_resource_group
-  key_vault_name = local.dev_idpay_key_vault_name
+  resource_group = local.dev_selfcare_pnpg_key_vault_resource_group
+  key_vault_name = local.dev_selfcare_pnpg_key_vault_name
 
   secrets = [
     "selc-d-weu-dev01-aks-apiserver-url",
@@ -20,15 +20,15 @@ module "idpay_dev_secrets" {
   ]
 }
 
-module "idpay_uat_secrets" {
+module "selfcare_uat_secrets" {
   source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v2.18.9"
 
   providers = {
     azurerm = azurerm.uat
   }
 
-  resource_group = local.uat_idpay_key_vault_resource_group
-  key_vault_name = local.uat_idpay_key_vault_name
+  resource_group = local.uat_selfcare_pnpg_key_vault_resource_group
+  key_vault_name = local.uat_selfcare_pnpg_key_vault_name
 
   secrets = [
     "selc-u-weu-uat01-aks-azure-devops-sa-token",
@@ -37,15 +37,15 @@ module "idpay_uat_secrets" {
   ]
 }
 
-module "idpay_prod_secrets" {
+module "selfcare_prod_secrets" {
   source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v2.18.9"
 
   providers = {
     azurerm = azurerm.prod
   }
 
-  resource_group = local.prod_idpay_key_vault_resource_group
-  key_vault_name = local.prod_idpay_key_vault_name
+  resource_group = local.prod_selfcare_pnpg_key_vault_resource_group
+  key_vault_name = local.prod_selfcare_pnpg_key_vault_name
 
   secrets = [
     "selc-p-weu-prod01-aks-azure-devops-sa-token",
