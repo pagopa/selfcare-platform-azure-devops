@@ -1,13 +1,13 @@
 locals {
-  
+
   #CORE
-  
+
 
   #KV
-  dev_key_vault_name           = "selc-d-pnpg-kv"
-  uat_key_vault_name           = "selc-u-pnpg-kv"
-  prod_key_vault_name          = "selc-p-pnpg-kv"
-  
+  dev_key_vault_name  = "selc-d-pnpg-kv"
+  uat_key_vault_name  = "selc-u-pnpg-kv"
+  prod_key_vault_name = "selc-p-pnpg-kv"
+
   # Subscription Name
   dev_selfcare_subscription_name  = "dev-selfcare"
   uat_selfcare_subscription_name  = "uat-selfcare"
@@ -76,7 +76,7 @@ locals {
     dev_react_app_url_api_party_registry_proxy = "https://api-pnpg.dev.selfcare.pagopa.it/party-registry-proxy/v1"
     dev_react_app_url_api_dashboard            = "https://api-pnpg.dev.selfcare.pagopa.it/dashboard/v1"
     dev_react_app_url_api_onboarding           = "https://api-pnpg.dev.selfcare.pagopa.it/onboarding/v1"
-    dev_react_app_url_api_notification         = "https://api-pnpg.dev.selfcare.pagopa.it/ms-notification-manager"\
+    dev_react_app_url_api_notification         = "https://api-pnpg.dev.selfcare.pagopa.it/ms-notification-manager"
 
     # uat_react_app_url_cdn                      = "https://uat.selfcare.pagopa.it"
     # uat_react_app_url_storage                  = "https://selcucheckoutsa.z6.web.core.windows.net"
