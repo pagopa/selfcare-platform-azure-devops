@@ -61,3 +61,14 @@ provider "azurerm" {
   }
   subscription_id = module.secrets_core_prod.values["PAGOPAIT-PROD-SELFCARE-SUBSCRIPTION-ID"].value
 }
+
+data "terraform_remote_state" "core" {
+  backend = "azurerm"
+
+  config = {
+    resource_group_name  = var.terraform_remote_state_core.resource_group_name
+    storage_account_name = var.terraform_remote_state_core.storage_account_name
+    container_name       = var.terraform_remote_state_core.container_name
+    key                  = var.terraform_remote_state_core.key
+  }
+}

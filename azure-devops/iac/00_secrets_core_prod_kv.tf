@@ -8,6 +8,8 @@ module "secrets_core_prod" {
     "io-azure-devops-github-ro-TOKEN",
     "io-azure-devops-github-pr-TOKEN",
     "io-azure-devops-github-rw-TOKEN",
+    "io-azure-devops-github-EMAIL",
+    "io-azure-devops-github-USERNAME",
     "PAGOPAIT-TENANTID",
     "PAGOPAIT-DEV-SELFCARE-SUBSCRIPTION-ID",
     "PAGOPAIT-UAT-SELFCARE-SUBSCRIPTION-ID",

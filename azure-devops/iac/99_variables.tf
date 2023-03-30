@@ -51,9 +51,24 @@ variable "prod_subscription_name" {
   description = "PROD Subscription name"
 }
 
+variable "project_name" {
+  type        = string
+  description = "Project name for IaC projects"
+}
+
+
 variable "project_iac_name" {
   type        = string
   description = "Project name for IaC projects"
+}
+
+variable "terraform_remote_state_core" {
+  type = object({
+    resource_group_name  = string,
+    storage_account_name = string,
+    container_name       = string,
+    key                  = string
+  })
 }
 
 variable "aks_dev_platform_name" {
