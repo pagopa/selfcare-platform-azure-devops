@@ -39,7 +39,7 @@ provider "azurerm" {
       purge_soft_delete_on_destroy = false
     }
   }
-  subscription_id = module.secret_azdo.values["PAGOPAIT-DEV-SELC-SUBSCRIPTION-ID"].value
+  subscription_id = module.secrets_core_prod.values["PAGOPAIT-DEV-SELFCARE-SUBSCRIPTION-ID"].value
 }
 
 provider "azurerm" {
@@ -49,7 +49,7 @@ provider "azurerm" {
       purge_soft_delete_on_destroy = false
     }
   }
-  subscription_id = module.secret_azdo.values["PAGOPAIT-UAT-SELC-SUBSCRIPTION-ID"].value
+  subscription_id = module.secrets_core_prod.values["PAGOPAIT-UAT-SELFCARE-SUBSCRIPTION-ID"].value
 }
 
 provider "azurerm" {
@@ -59,5 +59,16 @@ provider "azurerm" {
       purge_soft_delete_on_destroy = false
     }
   }
-  subscription_id = module.secret_azdo.values["PAGOPAIT-PROD-SELC-SUBSCRIPTION-ID"].value
+  subscription_id = module.secrets_core_prod.values["PAGOPAIT-PROD-SELFCARE-SUBSCRIPTION-ID"].value
+}
+
+data "terraform_remote_state" "core" {
+  backend = "azurerm"
+
+  config = {
+    resource_group_name  = var.terraform_remote_state_core.resource_group_name
+    storage_account_name = var.terraform_remote_state_core.storage_account_name
+    container_name       = var.terraform_remote_state_core.container_name
+    key                  = var.terraform_remote_state_core.key
+  }
 }

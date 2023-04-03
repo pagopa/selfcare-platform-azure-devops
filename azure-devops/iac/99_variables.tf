@@ -5,18 +5,17 @@ locals {
   prefix               = "selc"
 
   # 🔐 KV AZDO
-  prod_key_vault_resource_group = "${local.project_prefix_short}-p-sec-rg"
+  prod_key_vault_resource_group = "${local.prefix}-p-sec-rg"
+  prod_key_vault_azdo_name = "${local.prefix}-p-kv"
 
-  prod_key_vault_azdo_name = "${local.project_prefix_short}-p-azdo-weu-kv"
+  # 🔐 SELFCARE PNPG KV Domain
+  dev_selfcare_pnpg_key_vault_resource_group  = "${local.prefix}-d-pnpg-sec-rg"
+  uat_selfcare_pnpg_key_vault_resource_group  = "${local.prefix}-u-pnpg-sec-rg"
+  prod_selfcare_pnpg_key_vault_resource_group = "${local.prefix}-p-pnpg-sec-rg"
 
-  # 🔐 IDPAY KV Domain
-  dev_idpay_key_vault_resource_group  = "${local.prefix}-d-idpay-sec-rg"
-  uat_idpay_key_vault_resource_group  = "${local.prefix}-u-idpay-sec-rg"
-  prod_idpay_key_vault_resource_group = "${local.prefix}-p-idpay-sec-rg"
-
-  dev_idpay_key_vault_name  = "${local.prefix}-d-idpay-kv"
-  uat_idpay_key_vault_name  = "${local.prefix}-u-idpay-kv"
-  prod_idpay_key_vault_name = "${local.prefix}-p-idpay-kv"
+  dev_selfcare_pnpg_key_vault_name  = "${local.prefix}-d-pnpg-kv"
+  uat_selfcare_pnpg_key_vault_name  = "${local.prefix}-u-pnpg-kv"
+  prod_selfcare_pnpg_key_vault_name = "${local.prefix}-p-pnpg-kv"
 
   # 🔐 RTD KV Domain
   dev_rtd_key_vault_resource_group  = "${local.prefix}-d-rtd-sec-rg"
@@ -52,9 +51,24 @@ variable "prod_subscription_name" {
   description = "PROD Subscription name"
 }
 
+variable "project_name" {
+  type        = string
+  description = "Project name for IaC projects"
+}
+
+
 variable "project_iac_name" {
   type        = string
   description = "Project name for IaC projects"
+}
+
+variable "terraform_remote_state_core" {
+  type = object({
+    resource_group_name  = string,
+    storage_account_name = string,
+    container_name       = string,
+    key                  = string
+  })
 }
 
 variable "aks_dev_platform_name" {
@@ -70,4 +84,28 @@ variable "aks_uat_platform_name" {
 variable "aks_prod_platform_name" {
   type        = string
   description = "AKS PROD platform name"
+}
+
+variable "service_endpoint_io_azure_devops_github_ro_name" {
+  type = string
+}
+
+variable "service_endpoint_io_azure_devops_github_rw_name" {
+  type = string
+}
+
+variable "service_endpoint_io_azure_devops_github_pr_name" {
+  type = string
+}
+
+variable "service_endpoint_azure_dev_name" {
+  type = string
+}
+
+variable "service_endpoint_azure_uat_name" {
+  type = string
+}
+
+variable "service_endpoint_azure_prod_name" {
+  type = string
 }

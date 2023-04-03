@@ -1,45 +1,14 @@
-#
-# 🐙 GITHUB
-#
-
-# Github service connection (RW)
-resource "azuredevops_serviceendpoint_github" "io-azure-devops-github-rw" {
-  depends_on = [data.azuredevops_project.project]
-
+data "azuredevops_serviceendpoint_github" "github_ro" {
   project_id            = data.azuredevops_project.project.id
-  service_endpoint_name = "io-azure-devops-github-rw"
-  auth_personal {
-    personal_access_token = module.secret_azdo.values["selc-azure-devops-github-rw-TOKEN"].value
-  }
-  lifecycle {
-    ignore_changes = [description, authorization]
-  }
+  service_endpoint_name = var.service_endpoint_io_azure_devops_github_ro_name
 }
 
-# Github service connection (read-only)
-resource "azuredevops_serviceendpoint_github" "io-azure-devops-github-ro" {
-  depends_on = [data.azuredevops_project.project]
+# data "azuredevops_serviceendpoint_github" "github_rw" {
+#   project_id            = data.azuredevops_project.project.id
+#   service_endpoint_name = var.service_endpoint_io_azure_devops_github_rw_name
+# }
 
+data "azuredevops_serviceendpoint_github" "github_pr" {
   project_id            = data.azuredevops_project.project.id
-  service_endpoint_name = "io-azure-devops-github-ro"
-  auth_personal {
-    personal_access_token = module.secret_azdo.values["selc-azure-devops-github-ro-TOKEN"].value
-  }
-  lifecycle {
-    ignore_changes = [description, authorization]
-  }
-}
-
-# Github service connection (pull request)
-resource "azuredevops_serviceendpoint_github" "io-azure-devops-github-pr" {
-  depends_on = [data.azuredevops_project.project]
-
-  project_id            = data.azuredevops_project.project.id
-  service_endpoint_name = "io-azure-devops-github-pr"
-  auth_personal {
-    personal_access_token = module.secret_azdo.values["selc-azure-devops-github-pr-TOKEN"].value
-  }
-  lifecycle {
-    ignore_changes = [description, authorization]
-  }
+  service_endpoint_name = var.service_endpoint_io_azure_devops_github_pr_name
 }
