@@ -3,7 +3,7 @@ variable "hub-spid-login-ms" {
     repository = {
       organization    = "pagopa"
       name            = "hub-spid-login-ms"
-      branch_name     = "master"
+      branch_name     = "refs/heads/master"
       pipelines_path  = ".devops/kubernetes"
       yml_prefix_name = null
     }
@@ -34,10 +34,6 @@ locals {
   # deploy vars
   hub-spid-login-ms-variables_deploy = {
     k8s_image_repository_name = replace(var.hub-spid-login-ms.repository.name, "-", "")
-
-    DEV_CONTAINER_REGISTRY_NAME = local.aks_dev_docker_registry_name
-    UAT_CONTAINER_REGISTRY_NAME = local.aks_uat_docker_registry_name
-    PROD_CONTAINER_REGISTRY_NAME = local.aks_prod_docker_registry_name
 
     deploy_namespace          = local.domain
     dev_replicas              = 1
