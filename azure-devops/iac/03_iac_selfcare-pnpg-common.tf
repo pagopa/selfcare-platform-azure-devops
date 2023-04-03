@@ -2,7 +2,7 @@ variable "selfcare_pnpg_common_iac" {
   default = {
     repository = {
       organization    = "pagopa"
-      name            = "selfcare-infrastructure"
+      name            = "selfcare-infra"
       branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
       yml_prefix_name = "pnpgcommon"
@@ -10,7 +10,7 @@ variable "selfcare_pnpg_common_iac" {
     pipeline = {
       enable_code_review   = true
       enable_deploy        = true
-      path                 = "selfcare-infrastructure"
+      path                 = "selfcare-infra"
       pipeline_name_prefix = "pnpgcommon"
     }
   }
@@ -19,24 +19,23 @@ variable "selfcare_pnpg_common_iac" {
 locals {
   # global vars
   selfcare_pnpg_common_iac_variables = {
-    tf_dev01_aks_apiserver_url         = module.selfcare_dev_secrets.values["selc-d-weu-dev01-aks-apiserver-url"].value,
-    tf_dev01_aks_azure_devops_sa_cacrt = module.selfcare_dev_secrets.values["selc-d-weu-dev01-aks-azure-devops-sa-cacrt"].value,
-    tf_dev01_aks_azure_devops_sa_token = base64decode(module.selfcare_dev_secrets.values["selc-d-weu-dev01-aks-azure-devops-sa-token"].value),
+    tf_dev_aks_apiserver_url         = module.selfcare_dev_secrets.values["selc-d-weu-dev01-aks-apiserver-url"].value,
+    tf_dev_aks_azure_devops_sa_cacrt = module.selfcare_dev_secrets.values["selc-d-weu-dev01-aks-azure-devops-sa-cacrt"].value,
+    tf_dev_aks_azure_devops_sa_token = base64decode(module.selfcare_dev_secrets.values["selc-d-weu-dev01-aks-azure-devops-sa-token"].value),
     tf_aks_dev_name                    = var.aks_dev_platform_name
-    # tf_dev_azure_service_connection  = azuredevops_serviceendpoint_azurerm.DEV-SERVICE-CONN.service_endpoint_name
-    
+    tf_dev_azure_service_connection    = data.azuredevops_serviceendpoint_azurerm.azure_dev.service_endpoint_name
 
-    tf_uat01_aks_apiserver_url         = module.selfcare_uat_secrets.values["selc-u-weu-uat01-aks-apiserver-url"].value,
-    tf_uat01_aks_azure_devops_sa_cacrt = module.selfcare_uat_secrets.values["selc-u-weu-uat01-aks-azure-devops-sa-cacrt"].value,
-    tf_uat01_aks_azure_devops_sa_token = base64decode(module.selfcare_uat_secrets.values["selc-u-weu-uat01-aks-azure-devops-sa-token"].value),
+    tf_uat_aks_apiserver_url         = module.selfcare_uat_secrets.values["selc-u-weu-uat01-aks-apiserver-url"].value,
+    tf_uat_aks_azure_devops_sa_cacrt = module.selfcare_uat_secrets.values["selc-u-weu-uat01-aks-azure-devops-sa-cacrt"].value,
+    tf_uat_aks_azure_devops_sa_token = base64decode(module.selfcare_uat_secrets.values["selc-u-weu-uat01-aks-azure-devops-sa-token"].value),
     tf_aks_uat_name                    = var.aks_uat_platform_name
-    # tf_uat_azure_service_connection  = azuredevops_serviceendpoint_azurerm.UAT-SERVICE-CONN.service_endpoint_name
+    tf_uat_azure_service_connection    = data.azuredevops_serviceendpoint_azurerm.azure_uat.service_endpoint_name
 
-    tf_prod01_aks_apiserver_url         = module.selfcare_prod_secrets.values["selc-p-weu-prod01-aks-apiserver-url"].value,
-    tf_prod01_aks_azure_devops_sa_cacrt = module.selfcare_prod_secrets.values["selc-p-weu-prod01-aks-azure-devops-sa-cacrt"].value,
-    tf_prod01_aks_azure_devops_sa_token = base64decode(module.selfcare_prod_secrets.values["selc-p-weu-prod01-aks-azure-devops-sa-token"].value),
+    tf_prod_aks_apiserver_url         = module.selfcare_prod_secrets.values["selc-p-weu-prod01-aks-apiserver-url"].value,
+    tf_prod_aks_azure_devops_sa_cacrt = module.selfcare_prod_secrets.values["selc-p-weu-prod01-aks-azure-devops-sa-cacrt"].value,
+    tf_prod_aks_azure_devops_sa_token = base64decode(module.selfcare_prod_secrets.values["selc-p-weu-prod01-aks-azure-devops-sa-token"].value),
     tf_aks_prod_name                    = var.aks_prod_platform_name
-    # tf_prod_azure_service_connection  = azuredevops_serviceendpoint_azurerm.PROD-SERVICE-CONN.service_endpoint_name
+    tf_prod_azure_service_connection    = data.azuredevops_serviceendpoint_azurerm.azure_prod.service_endpoint_name
   }
 
   # global secrets
@@ -60,7 +59,7 @@ module "selfcare_pnpg_common_iac_code_review" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare_pnpg_common_iac.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_pr.service_endpoint_id
 
   pipeline_name_prefix = var.selfcare_pnpg_common_iac.pipeline.pipeline_name_prefix
 
@@ -91,7 +90,7 @@ module "selfcare_pnpg_common_iac_deploy" {
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare_pnpg_common_iac.repository
-  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_rw.service_endpoint_id
+  github_service_connection_id = data.azuredevops_serviceendpoint_github.github_pr.service_endpoint_id
 
   pipeline_name_prefix = var.selfcare_pnpg_common_iac.pipeline.pipeline_name_prefix
 
