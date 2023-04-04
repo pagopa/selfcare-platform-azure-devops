@@ -60,7 +60,7 @@ locals {
 
     dev_react_app_url_cdn                      = "https://pnpg.dev.selfcare.pagopa.it"
     dev_react_app_url_storage                  = "https://selcdweupnpgcheckoutsa.z6.web.core.windows.net"
-    dev_react_app_url_fe_login                 = "https://portale-login.dev.pn.pagopa.it/login"
+    dev_react_app_url_fe_login                 = "https://pnpg.dev.selfcare.pagopa.it/auth"
     dev_react_app_url_fe_onboarding            = "https://pnpg.dev.selfcare.pagopa.it/onboarding"
     dev_react_app_url_fe_onboarding-pnpg       = "https://pnpg.dev.selfcare.pagopa.it/onboarding-pnpg"
     dev_react_app_url_fe_dashboard             = "https://pnpg.dev.selfcare.pagopa.it/dashboard"
