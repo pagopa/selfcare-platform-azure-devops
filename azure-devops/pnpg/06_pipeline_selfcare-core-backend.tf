@@ -106,6 +106,12 @@ module "selfcare-ms-core_deploy" {
     data.azuredevops_serviceendpoint_github.github_ro.service_endpoint_id,
     data.azuredevops_serviceendpoint_azurerm.azure_dev.service_endpoint_id,
     local.service_endpoint_azure_devops_docker_dev_id,
-    azuredevops_serviceendpoint_kubernetes.aks_dev.id
+    azuredevops_serviceendpoint_kubernetes.aks_dev.id,
+    data.azuredevops_serviceendpoint_azurerm.azure_uat.service_endpoint_id,
+    local.service_endpoint_azure_devops_docker_uat_id,
+    azuredevops_serviceendpoint_kubernetes.aks_uat.id,
+    data.azuredevops_serviceendpoint_azurerm.azure_prod.service_endpoint_id,
+    local.service_endpoint_azure_devops_docker_prod_id,
+    azuredevops_serviceendpoint_kubernetes.aks_prod.id
   ]
 }

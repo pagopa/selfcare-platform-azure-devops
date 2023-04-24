@@ -37,9 +37,9 @@ locals {
     dev_onetrust_domain_id = "a8f58d7a-7f6a-4fe6-ac02-f95bac3876d4-test"
 
     uat_azure_subscription = data.azuredevops_serviceendpoint_azurerm.azure_uat.service_endpoint_id
-    uat_cdn_endpoint       = "selc-u-weu-pnpg--checkout-cdn-endpoint"
-    uat_cdn_profile        = "selc-u-weu-pnpg--checkout-cdn-profile"
-    uat_resource_group     = "selc-u-weu-pnpg--checkout-fe-rg"
+    uat_cdn_endpoint       = "selc-u-weu-pnpg-checkout-cdn-endpoint"
+    uat_cdn_profile        = "selc-u-weu-pnpg-checkout-cdn-profile"
+    uat_resource_group     = "selc-u-weu-pnpg-checkout-fe-rg"
     uat_storage_account    = "selcuweupnpgcheckoutsa"
     uat_analytics_enabled  = "true"
     uat_analytics_mocked   = "false"
@@ -47,9 +47,9 @@ locals {
     uat_onetrust_domain_id = "15a1f042-9257-450f-b9e8-38d019191729"
 
     prod_azure_subscription = data.azuredevops_serviceendpoint_azurerm.azure_prod.service_endpoint_id
-    prod_cdn_endpoint       = "selc-p-weu-pnpg--checkout-cdn-endpoint"
-    prod_cdn_profile        = "selc-p-weu-pnpg--checkout-cdn-profile"
-    prod_resource_group     = "selc-p-weu-pnpg--checkout-fe-rg"
+    prod_cdn_endpoint       = "selc-p-weu-pnpg-checkout-cdn-endpoint"
+    prod_cdn_profile        = "selc-p-weu-pnpg-checkout-cdn-profile"
+    prod_resource_group     = "selc-p-weu-pnpg-checkout-fe-rg"
     prod_storage_account    = "selcpweupnpgcheckoutsa"
     prod_analytics_enabled  = "true"
     prod_analytics_mocked   = "false"
