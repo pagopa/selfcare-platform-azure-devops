@@ -89,7 +89,6 @@ locals {
     dev_react_app_url_api_dashboard            = "https://api.dev.selfcare.pagopa.it/dashboard/v1"
     dev_react_app_url_api_onboarding           = "https://api.dev.selfcare.pagopa.it/onboarding/v1"
     dev_react_app_url_api_notification         = "https://api.dev.selfcare.pagopa.it/ms-notification-manager"
-    dev_react_app_url_api_party_registry_proxy = "https://api.dev.selfcare.pagopa.it/party-registry-proxy/v1"
 
     uat_react_app_url_cdn                      = "https://uat.selfcare.pagopa.it"
     uat_react_app_url_storage                  = "https://selcucheckoutsa.z6.web.core.windows.net"
@@ -104,13 +103,12 @@ locals {
     uat_react_app_url_fe_landing               = "https://uat.selfcare.pagopa.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
     uat_react_app_url_fe_token_exchange        = "https://uat.selfcare.pagopa.it/token-exchange"
     uat_react_app_url_api_login                = "https://api.uat.selfcare.pagopa.it/spid/v1"
-    uat_react_app_url_api_party_process        = "https://api.uat.selfcare.pagopa.it/party-process/v1"
-    uat_react_app_url_api_party_management     = "https://api.uat.selfcare.pagopa.it/party-management/v1"
+    uat_react_app_url_api_party_process        = "https://api.uat.selfcare.pagopa.it/ms-core/v1"
+    uat_react_app_url_api_party_management     = "https://api.uat.selfcare.pagopa.it/ms-core/v1"
     uat_react_app_url_api_party_registry_proxy = "https://api.uat.selfcare.pagopa.it/party-registry-proxy/v1"
     uat_react_app_url_api_dashboard            = "https://api.uat.selfcare.pagopa.it/dashboard/v1"
     uat_react_app_url_api_onboarding           = "https://api.uat.selfcare.pagopa.it/onboarding/v1"
     uat_react_app_url_api_notification         = "https://api.uat.selfcare.pagopa.it/ms-notification-manager"
-    uat_react_app_url_api_party_registry_proxy = "https://api.dev.selfcare.pagopa.it/party-registry-proxy/v1"
 
     prod_react_app_url_cdn                      = "https://selfcare.pagopa.it"
     prod_react_app_url_storage                  = "https://selcpcheckoutsa.z6.web.core.windows.net"
@@ -131,7 +129,6 @@ locals {
     prod_react_app_url_api_dashboard            = "https://api.selfcare.pagopa.it/dashboard/v1"
     prod_react_app_url_api_onboarding           = "https://api.selfcare.pagopa.it/onboarding/v1"
     prod_react_app_url_api_notification         = "https://api.selfcare.pagopa.it/ms-notification-manager"
-    prod_react_app_url_api_party_registry_proxy = "https://api.dev.selfcare.pagopa.it/party-registry-proxy/v1"
 
   }
 
