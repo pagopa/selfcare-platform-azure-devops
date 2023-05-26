@@ -72,6 +72,7 @@ locals {
 
     dev_react_app_url_cdn                      = "https://dev.selfcare.pagopa.it"
     dev_react_app_url_storage                  = "https://selcdcheckoutsa.z6.web.core.windows.net"
+    dev_react_app_products_asset               = "https://dev.selfcare.pagopa.it/assets/products.json"
     dev_react_app_url_fe_login                 = "https://dev.selfcare.pagopa.it/auth"
     dev_react_app_url_fe_onboarding            = "https://dev.selfcare.pagopa.it/onboarding"
     dev_react_app_url_fe_onboarding-pnpg       = "https://dev.selfcare.pagopa.it/onboarding-pnpg"
@@ -92,6 +93,7 @@ locals {
 
     uat_react_app_url_cdn                      = "https://uat.selfcare.pagopa.it"
     uat_react_app_url_storage                  = "https://selcucheckoutsa.z6.web.core.windows.net"
+    uat_react_app_products_asset               = "https://uat.selfcare.pagopa.it/assets/products.json"
     uat_react_app_url_fe_login                 = "https://uat.selfcare.pagopa.it/auth"
     uat_react_app_url_fe_onboarding            = "https://uat.selfcare.pagopa.it/onboarding"
     uat_react_app_url_fe_dashboard             = "https://uat.selfcare.pagopa.it/dashboard"
@@ -112,6 +114,7 @@ locals {
 
     prod_react_app_url_cdn                      = "https://selfcare.pagopa.it"
     prod_react_app_url_storage                  = "https://selcpcheckoutsa.z6.web.core.windows.net"
+    prod_react_app_products_asset               = "https://selfcare.pagopa.it/assets/products.json"
     prod_react_app_url_fe_login                 = "https://selfcare.pagopa.it/auth"
     prod_react_app_url_fe_onboarding            = "https://selfcare.pagopa.it/onboarding"
     prod_react_app_url_fe_dashboard             = "https://selfcare.pagopa.it/dashboard"
