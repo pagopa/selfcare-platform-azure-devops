@@ -24,6 +24,10 @@ module "selfcare-load-tests_run" {
     dev_azure_service_name  = azuredevops_serviceendpoint_azurerm.DEV-SELFCARE.service_endpoint_name
     uat_azure_service_name  = azuredevops_serviceendpoint_azurerm.UAT-SELFCARE.service_endpoint_name
     prod_azure_service_name = azuredevops_serviceendpoint_azurerm.PROD-SELFCARE.service_endpoint_name
+
+    DEV_AGENT_POOL                      = local.azdo_agent_pool_dev
+    UAT_AGENT_POOL                      = local.azdo_agent_pool_uat
+    PROD_AGENT_POOL                      = local.azdo_agent_pool_prod
   }
   variables_secret = {}
 
