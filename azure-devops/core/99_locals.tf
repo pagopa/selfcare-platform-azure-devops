@@ -72,7 +72,7 @@ locals {
     prod_onetrust_domain_id = "084d5de2-d423-458a-9b28-0f8db3e55e71"
     prod_react_app_url_geotaxonomy = "https://api.pdnd.pagopa.it/geo-tax/geotaxonomy"
 
-    react_app_assistance_email = "selfcare@assistenza.pagopa.it"
+    react_app_assistance_email = "areariservata@assistenza.pagopa.it"
 
     dev_react_app_url_cdn                      = "https://dev.selfcare.pagopa.it"
     dev_react_app_url_storage                  = "https://selcdcheckoutsa.z6.web.core.windows.net"
