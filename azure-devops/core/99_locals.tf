@@ -20,6 +20,10 @@ locals {
   uat_selfcare_subscription_name  = "uat-selfcare"
   prod_selfcare_subscription_name = "prod-selfcare"
 
+  # Agent Pool
+  azdo_agent_pool_dev  = "selfcare-dev-linux"
+  azdo_agent_pool_uat  = "selfcare-uat-linux"
+  azdo_agent_pool_prod = "selfcare-prod-linux"
 
   #tfsec:ignore:GEN002
   tlscert_renew_token = "v2"
@@ -126,8 +130,8 @@ locals {
     prod_react_app_url_fe_landing               = "https://selfcare.pagopa.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
     prod_react_app_url_fe_token_exchange        = "https://selfcare.pagopa.it/token-exchange"
     prod_react_app_url_api_login                = "https://api.selfcare.pagopa.it/spid/v1"
-    prod_react_app_url_api_party_process        = "https://api.selfcare.pagopa.it/party-process/v1"
-    prod_react_app_url_api_party_management     = "https://api.selfcare.pagopa.it/party-management/v1"
+    prod_react_app_url_api_party_process        = "https://api.selfcare.pagopa.it/ms-core/v1"
+    prod_react_app_url_api_party_management     = "https://api.selfcare.pagopa.it/ms-core/v1"
     prod_react_app_url_api_party_registry_proxy = "https://api.selfcare.pagopa.it/party-registry-proxy/v1"
     prod_react_app_url_api_dashboard            = "https://api.selfcare.pagopa.it/dashboard/v1"
     prod_react_app_url_api_onboarding           = "https://api.selfcare.pagopa.it/onboarding/v1"
