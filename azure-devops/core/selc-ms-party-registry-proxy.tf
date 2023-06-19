@@ -42,7 +42,7 @@ locals {
   selc-ms-party-registry-proxy-variables_deploy = {
     k8s_image_repository_name = replace(var.selc-ms-party-registry-proxy.repository.name, "-", "")
     deploy_namespace          = "selc"
-    deployment_name           = "external-api"
+    deployment_name           = "ms-party-registry-proxy"
   }
   # deploy secrets
   selc-ms-party-registry-proxy-variables_secret_deploy = {
