@@ -34,12 +34,12 @@ locals {
   }
   # deploy vars
   selfcare-login-frontend-variables_deploy = {
-    dev_react_app_url_file_privacy_disclaimer    = "https://www.pagopa.it/it/informativa-privacy-area-riservata"
-    dev_react_app_url_file_terms_and_conditions  = "https://www.pagopa.it/it/termini-condizioni-area-riservata"
-    uat_react_app_url_file_privacy_disclaimer    = "https://www.pagopa.it/it/informativa-privacy-area-riservata"
-    uat_react_app_url_file_terms_and_conditions  = "https://www.pagopa.it/it/termini-condizioni-area-riservata"
-    prod_react_app_url_file_privacy_disclaimer   = "https://www.pagopa.it/it/informativa-privacy-area-riservata"
-    prod_react_app_url_file_terms_and_conditions = "https://www.pagopa.it/it/termini-condizioni-area-riservata"
+    dev_react_app_url_file_privacy_disclaimer    = "https://imprese.dev.notifichedigitali.it/informativa-privacy"
+    dev_react_app_url_file_terms_and_conditions  = "https://imprese.dev.notifichedigitali.it/termini-di-servizio"
+    uat_react_app_url_file_privacy_disclaimer    = "https://imprese.uat.notifichedigitali.it/informativa-privacy"
+    uat_react_app_url_file_terms_and_conditions  = "https://imprese.uat.notifichedigitali.it/termini-di-servizio"
+    prod_react_app_url_file_privacy_disclaimer   = "https://imprese.notifichedigitali.it/informativa-privacy"
+    prod_react_app_url_file_terms_and_conditions = "https://imprese.notifichedigitali.it/termini-di-servizio"
   }
   # deploy secrets
   selfcare-login-frontend-variables_secret_deploy = {
