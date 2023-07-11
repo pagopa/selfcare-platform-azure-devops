@@ -63,6 +63,7 @@ locals {
     uat_react_app_url_geotaxonomy = "https://api.pdnd.pagopa.it/geo-tax/geotaxonomy"
     uat_aoo_uo_enabled = "false"
 
+
     prod_azure_subscription = azuredevops_serviceendpoint_azurerm.PROD-SELFCARE.service_endpoint_name
     prod_cdn_endpoint       = "selc-p-checkout-cdn-endpoint"
     prod_cdn_profile        = "selc-p-checkout-cdn-profile"
