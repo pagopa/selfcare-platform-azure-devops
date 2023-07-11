@@ -49,7 +49,7 @@ locals {
     dev_mixpanel_token     = "6e1290bdda5885981a2f443f37444f0f"
     dev_onetrust_domain_id = "a8f58d7a-7f6a-4fe6-ac02-f95bac3876d4-test"
     dev_react_app_url_geotaxonomy = "https://api.pdnd.pagopa.it/geo-tax/geotaxonomy"
-    dev_aoo_uo_enabled = "false"
+    dev_aoo_uo_enabled = "true"
 
     uat_azure_subscription = azuredevops_serviceendpoint_azurerm.UAT-SELFCARE.service_endpoint_name
     uat_cdn_endpoint       = "selc-u-checkout-cdn-endpoint"
@@ -61,7 +61,8 @@ locals {
     uat_mixpanel_token     = "6e1290bdda5885981a2f443f37444f0f"
     uat_onetrust_domain_id = "15a1f042-9257-450f-b9e8-38d019191729"
     uat_react_app_url_geotaxonomy = "https://api.pdnd.pagopa.it/geo-tax/geotaxonomy"
-    uat_aoo_uo_enabled = "true"
+    uat_aoo_uo_enabled = "false"
+
 
     prod_azure_subscription = azuredevops_serviceendpoint_azurerm.PROD-SELFCARE.service_endpoint_name
     prod_cdn_endpoint       = "selc-p-checkout-cdn-endpoint"
