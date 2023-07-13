@@ -51,6 +51,7 @@ locals {
     dev_react_app_url_geotaxonomy = "https://api.pdnd.pagopa.it/geo-tax/geotaxonomy"
     dev_aoo_uo_enabled = "true"
     dev_pt_enabled = "false"
+    dev_delegations_enabled = "true"
 
     uat_azure_subscription = azuredevops_serviceendpoint_azurerm.UAT-SELFCARE.service_endpoint_name
     uat_cdn_endpoint       = "selc-u-checkout-cdn-endpoint"
@@ -64,6 +65,7 @@ locals {
     uat_react_app_url_geotaxonomy = "https://api.pdnd.pagopa.it/geo-tax/geotaxonomy"
     uat_aoo_uo_enabled = "false"
     uat_pt_enabled = "true"
+    uat_delegations_enabled = "true"
 
     prod_azure_subscription = azuredevops_serviceendpoint_azurerm.PROD-SELFCARE.service_endpoint_name
     prod_cdn_endpoint       = "selc-p-checkout-cdn-endpoint"
@@ -77,6 +79,7 @@ locals {
     prod_react_app_url_geotaxonomy = "https://api.pdnd.pagopa.it/geo-tax/geotaxonomy"
     prod_aoo_uo_enabled = "false"
     prod_pt_enabled = "false"
+    prod_delegations_enabled = "false"
 
     react_app_assistance_email = "areariservata@assistenza.pagopa.it"
 
