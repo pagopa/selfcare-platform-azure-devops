@@ -63,7 +63,7 @@ locals {
     uat_mixpanel_token     = "6e1290bdda5885981a2f443f37444f0f"
     uat_onetrust_domain_id = "15a1f042-9257-450f-b9e8-38d019191729"
     uat_react_app_url_geotaxonomy = "https://api.pdnd.pagopa.it/geo-tax/geotaxonomy"
-    uat_aoo_uo_enabled = "false"
+    uat_aoo_uo_enabled = "true"
     uat_pt_enabled = "true"
     uat_delegations_enabled = "true"
 
