@@ -42,7 +42,7 @@ locals {
   selfcare-ms-external-interceptor-variables_deploy = {
     k8s_image_repository_name = replace(var.selfcare-ms-external-interceptor.repository.name, "-", "")
     deploy_namespace          = "selc"
-    deployment_name           = "ms-onboarding-interceptor"
+    deployment_name           = "ms-external-interceptor"
   }
   # deploy secrets
   selfcare-ms-external-interceptor-variables_secret_deploy = {
