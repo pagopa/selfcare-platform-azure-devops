@@ -103,7 +103,7 @@ locals {
     dev_react_app_url_api_dashboard            = "https://api.dev.selfcare.pagopa.it/dashboard/v1"
     dev_react_app_url_api_onboarding           = "https://api.dev.selfcare.pagopa.it/onboarding/v1"
     dev_react_app_url_api_notification         = "https://api.dev.selfcare.pagopa.it/ms-notification-manager"
-    dev_react_app_banner_enabled               = "false"
+    dev_react_app_banner_enabled               = "true"
 
     uat_react_app_url_cdn                      = "https://uat.selfcare.pagopa.it"
     uat_react_app_url_storage                  = "https://selcucheckoutsa.z6.web.core.windows.net"
@@ -125,7 +125,7 @@ locals {
     uat_react_app_url_api_dashboard            = "https://api.uat.selfcare.pagopa.it/dashboard/v1"
     uat_react_app_url_api_onboarding           = "https://api.uat.selfcare.pagopa.it/onboarding/v1"
     uat_react_app_url_api_notification         = "https://api.uat.selfcare.pagopa.it/ms-notification-manager"
-    uat_react_app_banner_enabled               = "false"
+    uat_react_app_banner_enabled               = "true"
 
     prod_react_app_url_cdn                      = "https://selfcare.pagopa.it"
     prod_react_app_url_storage                  = "https://selcpcheckoutsa.z6.web.core.windows.net"
