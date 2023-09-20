@@ -147,7 +147,7 @@ locals {
     prod_react_app_url_api_dashboard            = "https://api.selfcare.pagopa.it/dashboard/v1"
     prod_react_app_url_api_onboarding           = "https://api.selfcare.pagopa.it/onboarding/v1"
     prod_react_app_url_api_notification         = "https://api.selfcare.pagopa.it/ms-notification-manager"
-    prod_react_app_banner_enabled               = "false"
+    prod_react_app_banner_enabled               = "true"
   }
 
   selc-be-common-variables_deploy = {
