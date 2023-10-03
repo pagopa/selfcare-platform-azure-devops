@@ -33,12 +33,7 @@ locals {
   }
   # deploy vars
   selc-fe-login-variables_deploy = {
-    dev_react_app_url_file_privacy_disclaimer    = "https://www.pagopa.it/it/informativa-privacy-area-riservata"
-    dev_react_app_url_file_terms_and_conditions  = "https://www.pagopa.it/it/termini-condizioni-area-riservata"
-    uat_react_app_url_file_privacy_disclaimer    = "https://www.pagopa.it/it/informativa-privacy-area-riservata"
-    uat_react_app_url_file_terms_and_conditions  = "https://www.pagopa.it/it/termini-condizioni-area-riservata"
-    prod_react_app_url_file_privacy_disclaimer   = "https://www.pagopa.it/it/informativa-privacy-area-riservata"
-    prod_react_app_url_file_terms_and_conditions = "https://www.pagopa.it/it/termini-condizioni-area-riservata"
+
   }
   # deploy secrets
   selc-fe-login-variables_secret_deploy = {
