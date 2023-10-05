@@ -86,6 +86,7 @@ locals {
     dev_react_app_url_cdn                       = "https://dev.selfcare.pagopa.it"
     dev_react_app_url_storage                   = "https://selcdcheckoutsa.z6.web.core.windows.net"
     dev_react_app_products_asset                = "https://dev.selfcare.pagopa.it/assets/products.json"
+    dev_react_app_login_alert_banner            = "https://dev.selfcare.pagopa.it/assets/login-alert-message.json"
     dev_react_app_url_privacy_disclaimer        = "https://www.pagopa.it/it/informativa-privacy-area-riservata"
     dev_react_app_url_terms_and_conditions      = "https://www.pagopa.it/it/termini-condizioni-area-riservata"
     dev_react_app_url_fe_login                  = "https://dev.selfcare.pagopa.it/auth"
@@ -105,11 +106,11 @@ locals {
     dev_react_app_url_api_dashboard             = "https://api.dev.selfcare.pagopa.it/dashboard/v1"
     dev_react_app_url_api_onboarding            = "https://api.dev.selfcare.pagopa.it/onboarding/v1"
     dev_react_app_url_api_notification          = "https://api.dev.selfcare.pagopa.it/ms-notification-manager"
-    dev_react_app_login_alert_banner            = "true"
  
     uat_react_app_url_cdn                       = "https://uat.selfcare.pagopa.it"
     uat_react_app_url_storage                   = "https://selcucheckoutsa.z6.web.core.windows.net"
     uat_react_app_products_asset                = "https://uat.selfcare.pagopa.it/assets/products.json"
+    uat_react_app_login_alert_banner            = "https://uat.selfcare.pagopa.it/assets/login-alert-message.json"
     uat_react_app_url_privacy_disclaimer        = "https://www.pagopa.it/it/informativa-privacy-area-riservata"
     uat_react_app_url_terms_and_conditions      = "https://www.pagopa.it/it/termini-condizioni-area-riservata"
     uat_react_app_url_fe_login                  = "https://uat.selfcare.pagopa.it/auth"
@@ -129,11 +130,11 @@ locals {
     uat_react_app_url_api_dashboard             = "https://api.uat.selfcare.pagopa.it/dashboard/v1"
     uat_react_app_url_api_onboarding            = "https://api.uat.selfcare.pagopa.it/onboarding/v1"
     uat_react_app_url_api_notification          = "https://api.uat.selfcare.pagopa.it/ms-notification-manager"
-    uat_react_app_login_alert_banner            = "true"
  
     prod_react_app_url_cdn                       = "https://selfcare.pagopa.it"
     prod_react_app_url_storage                   = "https://selcpcheckoutsa.z6.web.core.windows.net"
     prod_react_app_products_asset                = "https://selfcare.pagopa.it/assets/products.json"
+    prod_react_app_login_alert_banner            = "https://selfcare.pagopa.it/assets/login-alert-message.json"
     prod_react_app_url_privacy_disclaimer        = "https://www.pagopa.it/it/informativa-privacy-area-riservata"
     prod_react_app_url_terms_and_conditions      = "https://www.pagopa.it/it/termini-condizioni-area-riservata"
     prod_react_app_url_fe_login                  = "https://selfcare.pagopa.it/auth"
@@ -153,7 +154,6 @@ locals {
     prod_react_app_url_api_dashboard             = "https://api.selfcare.pagopa.it/dashboard/v1"
     prod_react_app_url_api_onboarding            = "https://api.selfcare.pagopa.it/onboarding/v1"
     prod_react_app_url_api_notification          = "https://api.selfcare.pagopa.it/ms-notification-manager"
-    prod_react_app_login_alert_banner            = "true"
   }
 
   selc-be-common-variables_deploy = {
