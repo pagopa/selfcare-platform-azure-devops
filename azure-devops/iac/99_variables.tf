@@ -6,16 +6,16 @@ locals {
 
   # 🔐 KV AZDO
   prod_key_vault_resource_group = "${local.prefix}-p-sec-rg"
-  prod_key_vault_azdo_name = "${local.prefix}-p-kv"
+  prod_key_vault_azdo_name      = "${local.prefix}-p-kv"
 
   # 🔐 SELFCARE PNPG KV Domain
-  dev_selfcare_key_vault_resource_group   = "${local.prefix}-d-sec-rg"
-  uat_selfcare_key_vault_resource_group   = "${local.prefix}-u-sec-rg"
-  prod_selfcare_key_vault_resource_group  = "${local.prefix}-p-sec-rg"
+  dev_selfcare_key_vault_resource_group  = "${local.prefix}-d-sec-rg"
+  uat_selfcare_key_vault_resource_group  = "${local.prefix}-u-sec-rg"
+  prod_selfcare_key_vault_resource_group = "${local.prefix}-p-sec-rg"
 
-  dev_selfcare_key_vault_name   = "${local.prefix}-d-kv"
-  uat_selfcare_key_vault_name   = "${local.prefix}-u-kv"
-  prod_selfcare_key_vault_name  = "${local.prefix}-p-kv"
+  dev_selfcare_key_vault_name  = "${local.prefix}-d-kv"
+  uat_selfcare_key_vault_name  = "${local.prefix}-u-kv"
+  prod_selfcare_key_vault_name = "${local.prefix}-p-kv"
 
   # 🔐 SELFCARE PNPG KV Domain
   dev_selfcare_pnpg_key_vault_resource_group  = "${local.prefix}-d-pnpg-sec-rg"

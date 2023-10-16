@@ -81,7 +81,7 @@ locals {
     dev_react_app_url_api_dashboard            = "https://api-pnpg.dev.selfcare.pagopa.it/dashboard/v1"
     dev_react_app_url_api_onboarding           = "https://api-pnpg.dev.selfcare.pagopa.it/onboarding/v1"
     dev_react_app_url_api_notification         = "https://api-pnpg.dev.selfcare.pagopa.it/ms-notification-manager"
-    
+
     uat_react_app_url_cdn                      = "https://imprese.uat.notifichedigitali.it"
     uat_react_app_url_storage                  = "https://selcuweupnpgcheckoutsa.z6.web.core.windows.net"
     uat_react_app_products_asset               = "https://imprese.uat.notifichedigitali.it/assets/products.json"

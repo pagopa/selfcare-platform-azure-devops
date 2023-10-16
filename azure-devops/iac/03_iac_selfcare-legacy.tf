@@ -22,20 +22,20 @@ locals {
     tf_dev_aks_apiserver_url         = module.selfcare_legacy_dev_secrets.values["dev-selfcare-aks-apiserver-url"].value,
     tf_dev_aks_azure_devops_sa_cacrt = module.selfcare_legacy_dev_secrets.values["dev-selfcare-aks-azure-devops-sa-cacrt"].value,
     tf_dev_aks_azure_devops_sa_token = base64decode(module.selfcare_legacy_dev_secrets.values["dev-selfcare-aks-azure-devops-sa-token"].value),
-    tf_aks_dev_name                    = "selc-d-aks"
-    tf_dev_azure_service_connection    = "DEV-SELFCARE-SERVICE-CONN"
+    tf_aks_dev_name                  = "selc-d-aks"
+    tf_dev_azure_service_connection  = "DEV-SELFCARE-SERVICE-CONN"
 
     tf_uat_aks_apiserver_url         = module.selfcare_legacy_uat_secrets.values["uat-selfcare-aks-apiserver-url"].value,
     tf_uat_aks_azure_devops_sa_cacrt = module.selfcare_legacy_uat_secrets.values["uat-selfcare-aks-azure-devops-sa-cacrt"].value,
     tf_uat_aks_azure_devops_sa_token = base64decode(module.selfcare_legacy_uat_secrets.values["uat-selfcare-aks-azure-devops-sa-token"].value),
-    tf_aks_uat_name                    = "selc-u-aks"
-    tf_uat_azure_service_connection    = "UAT-SELFCARE-SERVICE-CONN"
+    tf_aks_uat_name                  = "selc-u-aks"
+    tf_uat_azure_service_connection  = "UAT-SELFCARE-SERVICE-CONN"
 
     tf_prod_aks_apiserver_url         = module.selfcare_legacy_prod_secrets.values["prod-selfcare-aks-apiserver-url"].value,
     tf_prod_aks_azure_devops_sa_cacrt = module.selfcare_legacy_prod_secrets.values["prod-selfcare-aks-azure-devops-sa-cacrt"].value,
     tf_prod_aks_azure_devops_sa_token = base64decode(module.selfcare_legacy_prod_secrets.values["prod-selfcare-aks-azure-devops-sa-token"].value),
-    tf_aks_prod_name                    = "selc-p-aks"
-    tf_prod_azure_service_connection    = "PROD-SELFCARE-SERVICE-CONN"
+    tf_aks_prod_name                  = "selc-p-aks"
+    tf_prod_azure_service_connection  = "PROD-SELFCARE-SERVICE-CONN"
   }
 
   # global secrets

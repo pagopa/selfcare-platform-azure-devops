@@ -9,7 +9,7 @@ variable "hub-spid-login-ms" {
     }
     pipeline = {
       enable_deploy = true
-      path               = "pnpg\\hub-spid-login-ms"
+      path          = "pnpg\\hub-spid-login-ms"
     }
   }
 }
@@ -35,10 +35,10 @@ locals {
   hub-spid-login-ms-variables_deploy = {
     k8s_image_repository_name = replace(var.hub-spid-login-ms.repository.name, "-", "")
 
-    deploy_namespace          = local.domain
-    dev_replicas              = 1
-    uat_replicas              = 1
-    prod_replicas             = 2
+    deploy_namespace = local.domain
+    dev_replicas     = 1
+    uat_replicas     = 1
+    prod_replicas    = 2
   }
   # deploy secrets
   hub-spid-login-ms-variables_secret_deploy = {

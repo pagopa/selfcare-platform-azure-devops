@@ -42,10 +42,10 @@ locals {
   # deploy vars
   selfcare-external-api-backend-variables_deploy = {
 
-    k8s_image_repository_name        = replace(var.selfcare-external-api-backend.repository.name, "-", "")
-    deploy_namespace                 = local.domain
-    deployment_name                  = "external-api"
-    helm_release_name                = var.selfcare-external-api-backend.repository.name
+    k8s_image_repository_name = replace(var.selfcare-external-api-backend.repository.name, "-", "")
+    deploy_namespace          = local.domain
+    deployment_name           = "external-api"
+    helm_release_name         = var.selfcare-external-api-backend.repository.name
   }
   # deploy secrets
   selfcare-external-api-backend-variables_secret_deploy = {
