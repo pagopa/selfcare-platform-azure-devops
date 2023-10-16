@@ -22,20 +22,20 @@ locals {
     tf_dev_aks_apiserver_url         = module.selfcare_dev_secrets.values["selc-d-weu-dev01-aks-apiserver-url"].value,
     tf_dev_aks_azure_devops_sa_cacrt = module.selfcare_dev_secrets.values["selc-d-weu-dev01-aks-azure-devops-sa-cacrt"].value,
     tf_dev_aks_azure_devops_sa_token = base64decode(module.selfcare_dev_secrets.values["selc-d-weu-dev01-aks-azure-devops-sa-token"].value),
-    tf_aks_dev_name                    = var.aks_dev_platform_name
-    tf_dev_azure_service_connection    = data.azuredevops_serviceendpoint_azurerm.azure_dev.service_endpoint_name
+    tf_aks_dev_name                  = var.aks_dev_platform_name
+    tf_dev_azure_service_connection  = data.azuredevops_serviceendpoint_azurerm.azure_dev.service_endpoint_name
 
     tf_uat_aks_apiserver_url         = module.selfcare_uat_secrets.values["selc-u-weu-uat01-aks-apiserver-url"].value,
     tf_uat_aks_azure_devops_sa_cacrt = module.selfcare_uat_secrets.values["selc-u-weu-uat01-aks-azure-devops-sa-cacrt"].value,
     tf_uat_aks_azure_devops_sa_token = base64decode(module.selfcare_uat_secrets.values["selc-u-weu-uat01-aks-azure-devops-sa-token"].value),
-    tf_aks_uat_name                    = var.aks_uat_platform_name
-    tf_uat_azure_service_connection    = data.azuredevops_serviceendpoint_azurerm.azure_uat.service_endpoint_name
+    tf_aks_uat_name                  = var.aks_uat_platform_name
+    tf_uat_azure_service_connection  = data.azuredevops_serviceendpoint_azurerm.azure_uat.service_endpoint_name
 
     tf_prod_aks_apiserver_url         = module.selfcare_prod_secrets.values["selc-p-weu-prod01-aks-apiserver-url"].value,
     tf_prod_aks_azure_devops_sa_cacrt = module.selfcare_prod_secrets.values["selc-p-weu-prod01-aks-azure-devops-sa-cacrt"].value,
     tf_prod_aks_azure_devops_sa_token = base64decode(module.selfcare_prod_secrets.values["selc-p-weu-prod01-aks-azure-devops-sa-token"].value),
-    tf_aks_prod_name                    = var.aks_prod_platform_name
-    tf_prod_azure_service_connection    = data.azuredevops_serviceendpoint_azurerm.azure_prod.service_endpoint_name
+    tf_aks_prod_name                  = var.aks_prod_platform_name
+    tf_prod_azure_service_connection  = data.azuredevops_serviceendpoint_azurerm.azure_prod.service_endpoint_name
   }
 
   # global secrets

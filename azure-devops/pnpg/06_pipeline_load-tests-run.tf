@@ -25,14 +25,14 @@ module "selfcare-load-tests_run" {
   pipeline_yml_filename        = "run-load-tests.yml"
   ci_trigger_use_yaml          = true
 
-  variables        = {
+  variables = {
     dev_azure_service_name  = data.azuredevops_serviceendpoint_azurerm.azure_dev.service_endpoint_name
     uat_azure_service_name  = data.azuredevops_serviceendpoint_azurerm.azure_uat.service_endpoint_name
     prod_azure_service_name = data.azuredevops_serviceendpoint_azurerm.azure_prod.service_endpoint_name
 
-    DEV_AGENT_POOL                      = local.azdo_agent_pool_dev
-    UAT_AGENT_POOL                      = local.azdo_agent_pool_uat
-    PROD_AGENT_POOL                      = local.azdo_agent_pool_prod
+    DEV_AGENT_POOL  = local.azdo_agent_pool_dev
+    UAT_AGENT_POOL  = local.azdo_agent_pool_uat
+    PROD_AGENT_POOL = local.azdo_agent_pool_prod
   }
   variables_secret = {}
 
