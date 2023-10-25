@@ -77,7 +77,7 @@ locals {
     prod_mixpanel_token            = "1d1b09b008638080ab34fe9b75db84fd"
     prod_onetrust_domain_id        = "084d5de2-d423-458a-9b28-0f8db3e55e71"
     prod_react_app_url_geotaxonomy = "https://api.pdnd.pagopa.it/geo-tax/geotaxonomy"
-    prod_aoo_uo_enabled            = "false"
+    prod_aoo_uo_enabled            = "true"
     prod_pt_enabled                = "false"
     prod_delegations_enabled       = "false"
 
