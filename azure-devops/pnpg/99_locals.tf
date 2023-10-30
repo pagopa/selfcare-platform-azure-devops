@@ -62,6 +62,7 @@ locals {
     dev_react_app_url_storage                  = "https://selcdweupnpgcheckoutsa.z6.web.core.windows.net"
     dev_react_app_products_asset               = "https://pnpg.dev.selfcare.pagopa.it/assets/products.json"
     dev_react_app_login_alert_banner           = "https://pnpg.dev.selfcare.pagopa.it/assets/login-alert-message.json"
+    dev_react_app_login_spid_enabled           = "false"
     dev_react_app_url_privacy_disclaimer       = "https://www.pagopa.it/it/informativa-privacy-area-riservata"
     dev_react_app_url_terms_and_conditions     = "https://www.pagopa.it/it/termini-condizioni-area-riservata"
     dev_react_app_url_fe_login                 = "https://pnpg.dev.selfcare.pagopa.it/auth"
@@ -75,6 +76,7 @@ locals {
     dev_react_app_url_fe_landing               = "https://pnpg.dev.selfcare.pagopa.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
     dev_react_app_url_fe_token_exchange        = "https://pnpg.dev.selfcare.pagopa.it/token-exchange"
     dev_react_app_url_api_login                = "https://api-pnpg.dev.selfcare.pagopa.it/spid/v1"
+    dev_react_app_url_api_login_spid           = "https://api-pnpg.dev.selfcare.pagopa.it/spid/v1"
     dev_react_app_url_api_party_process        = "https://api-pnpg.dev.selfcare.pagopa.it/party-process/v1"
     dev_react_app_url_api_party_management     = "https://api-pnpg.dev.selfcare.pagopa.it/party-management/v1"
     dev_react_app_url_api_party_registry_proxy = "https://api-pnpg.dev.selfcare.pagopa.it/party-registry-proxy/v1"
@@ -86,6 +88,7 @@ locals {
     uat_react_app_url_storage                  = "https://selcuweupnpgcheckoutsa.z6.web.core.windows.net"
     uat_react_app_products_asset               = "https://imprese.uat.notifichedigitali.it/assets/products.json"
     uat_react_app_login_alert_banner           = "https://pnpg.uat.selfcare.pagopa.it/assets/login-alert-message.json"
+    uat_react_app_login_spid_enabled           = "false"
     uat_react_app_url_privacy_disclaimer       = "https://www.pagopa.it/it/informativa-privacy-area-riservata"
     uat_react_app_url_terms_and_conditions     = "https://www.pagopa.it/it/termini-condizioni-area-riservata"
     uat_react_app_url_fe_login                 = "https://imprese.uat.notifichedigitali.it/auth"
@@ -99,6 +102,7 @@ locals {
     uat_react_app_url_fe_landing               = "https://imprese.uat.notifichedigitali.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
     uat_react_app_url_fe_token_exchange        = "https://imprese.uat.notifichedigitali.it/token-exchange"
     uat_react_app_url_api_login                = "https://api-pnpg.uat.selfcare.pagopa.it/spid/v1"
+    uat_react_app_url_api_login_spid           = "https://api-pnpg.uat.selfcare.pagopa.it/spid/v1"
     uat_react_app_url_api_party_process        = "https://api-pnpg.uat.selfcare.pagopa.it/party-process/v1"
     uat_react_app_url_api_party_management     = "https://api-pnpg.uat.selfcare.pagopa.it/party-management/v1"
     uat_react_app_url_api_party_registry_proxy = "https://api-pnpg.uat.selfcare.pagopa.it/party-registry-proxy/v1"
@@ -110,6 +114,7 @@ locals {
     prod_react_app_url_storage                  = "https://selcpweupnpgcheckoutsa.z6.web.core.windows.net"
     prod_react_app_products_asset               = "https://imprese.notifichedigitali.it/assets/products.json"
     prod_react_app_login_alert_banner           = "https://pnpg.selfcare.pagopa.it/assets/login-alert-message.json"
+    prod_react_app_login_spid_enabled           = "false"
     prod_react_app_url_privacy_disclaimer       = "https://www.pagopa.it/it/informativa-privacy-area-riservata"
     prod_react_app_url_terms_and_conditions     = "https://www.pagopa.it/it/termini-condizioni-area-riservata"
     prod_react_app_url_fe_login                 = "https://imprese.notifichedigitali.it/auth"
@@ -123,6 +128,7 @@ locals {
     prod_react_app_url_fe_landing               = "https://imprese.notifichedigitali.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
     prod_react_app_url_fe_token_exchange        = "https://imprese.notifichedigitali.it/token-exchange"
     prod_react_app_url_api_login                = "https://api-pnpg.selfcare.pagopa.it/spid/v1"
+    prod_react_app_url_api_login_spid           = "https://api-pnpg.selfcare.pagopa.it/spid/v1"
     prod_react_app_url_api_party_process        = "https://api-pnpg.selfcare.pagopa.it/party-process/v1"
     prod_react_app_url_api_party_management     = "https://api-pnpg.selfcare.pagopa.it/party-management/v1"
     prod_react_app_url_api_party_registry_proxy = "https://api-pnpg.selfcare.pagopa.it/party-registry-proxy/v1"
