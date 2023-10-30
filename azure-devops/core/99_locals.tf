@@ -108,7 +108,7 @@ locals {
     dev_react_app_url_api_dashboard            = "https://api.dev.selfcare.pagopa.it/dashboard/v1"
     dev_react_app_url_api_onboarding           = "https://api.dev.selfcare.pagopa.it/onboarding/v1"
     dev_react_app_url_api_notification         = "https://api.dev.selfcare.pagopa.it/ms-notification-manager"
- 
+
     uat_react_app_url_cdn                      = "https://uat.selfcare.pagopa.it"
     uat_react_app_url_storage                  = "https://selcucheckoutsa.z6.web.core.windows.net"
     uat_react_app_products_asset               = "https://uat.selfcare.pagopa.it/assets/products.json"
@@ -126,7 +126,7 @@ locals {
     uat_react_app_url_fe_assistance            = "https://uat.selfcare.pagopa.it/assistenza"
     uat_react_app_url_fe_landing               = "https://uat.selfcare.pagopa.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
     uat_react_app_url_fe_token_exchange        = "https://uat.selfcare.pagopa.it/token-exchange"
-    uat_react_app_url_api_login                = "https://api.uat.selfcare.pagopa.it/spid/v1"           
+    uat_react_app_url_api_login                = "https://api.uat.selfcare.pagopa.it/spid/v1"
     uat_react_app_url_api_login_spid           = "https://api.uat.selfcare.pagopa.it/spid-login/v1"
     uat_react_app_url_api_party_process        = "https://api.uat.selfcare.pagopa.it/ms-core/v1"
     uat_react_app_url_api_party_management     = "https://api.uat.selfcare.pagopa.it/ms-core/v1"
@@ -134,7 +134,7 @@ locals {
     uat_react_app_url_api_dashboard            = "https://api.uat.selfcare.pagopa.it/dashboard/v1"
     uat_react_app_url_api_onboarding           = "https://api.uat.selfcare.pagopa.it/onboarding/v1"
     uat_react_app_url_api_notification         = "https://api.uat.selfcare.pagopa.it/ms-notification-manager"
- 
+
     prod_react_app_url_cdn                      = "https://selfcare.pagopa.it"
     prod_react_app_url_storage                  = "https://selcpcheckoutsa.z6.web.core.windows.net"
     prod_react_app_products_asset               = "https://selfcare.pagopa.it/assets/products.json"
@@ -153,7 +153,7 @@ locals {
     prod_react_app_url_fe_landing               = "https://selfcare.pagopa.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
     prod_react_app_url_fe_token_exchange        = "https://selfcare.pagopa.it/token-exchange"
     prod_react_app_url_api_login                = "https://api.selfcare.pagopa.it/spid/v1"
-    prod_react_app_url_api_login_spid           = "https://api.selfcare.pagopa.it/spid/v1"
+    prod_react_app_url_api_login_spid           = "https://api.selfcare.pagopa.it/spid-login/v1"
     prod_react_app_url_api_party_process        = "https://api.selfcare.pagopa.it/ms-core/v1"
     prod_react_app_url_api_party_management     = "https://api.selfcare.pagopa.it/ms-core/v1"
     prod_react_app_url_api_party_registry_proxy = "https://api.selfcare.pagopa.it/party-registry-proxy/v1"
