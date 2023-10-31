@@ -139,7 +139,7 @@ locals {
     prod_react_app_url_storage                  = "https://selcpcheckoutsa.z6.web.core.windows.net"
     prod_react_app_products_asset               = "https://selfcare.pagopa.it/assets/products.json"
     prod_react_app_login_alert_banner           = "https://selfcare.pagopa.it/assets/login-alert-message.json"
-    prod_react_app_login_spid_enabled           = "false"
+    prod_react_app_login_spid_enabled           = "true"
     prod_react_app_url_privacy_disclaimer       = "https://www.pagopa.it/it/informativa-privacy-area-riservata"
     prod_react_app_url_terms_and_conditions     = "https://www.pagopa.it/it/termini-condizioni-area-riservata"
     prod_react_app_url_fe_login                 = "https://selfcare.pagopa.it/auth"
