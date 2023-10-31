@@ -101,7 +101,7 @@ locals {
     dev_react_app_url_fe_landing               = "https://dev.selfcare.pagopa.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
     dev_react_app_url_fe_token_exchange        = "https://dev.selfcare.pagopa.it/token-exchange"
     dev_react_app_url_api_login                = "https://api.dev.selfcare.pagopa.it/spid-login/v1"
-    dev_react_app_url_api_login_spid           = "https://api.dev.selfcare.pagopa.it/login/v1"
+    dev_react_app_url_api_login_spid           = "https://api.dev.selfcare.pagopa.it/spid/v1"
     dev_react_app_url_api_party_process        = "https://api.dev.selfcare.pagopa.it/ms-core/v1"
     dev_react_app_url_api_party_management     = "https://api.dev.selfcare.pagopa.it/ms-core/v1"
     dev_react_app_url_api_party_registry_proxy = "https://api.dev.selfcare.pagopa.it/party-registry-proxy/v1"
