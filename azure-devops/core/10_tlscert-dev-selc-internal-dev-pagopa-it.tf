@@ -9,8 +9,8 @@ variable "tlscert-dev-selc-internal-dev-pagopa-it" {
     pipeline = {
       enable_tls_cert         = true
       path                    = "TLS-Certificates\\DEV"
-      dns_record_name         = "selc"
-      dns_zone_name           = "internal.dev.pagopa.it"
+      dns_record_name         = "selc.internal"
+      dns_zone_name           = "dev.selfcare.pagopa.it"
       dns_zone_resource_group = "selc-d-vnet-rg"
       # common variables to all pipelines
       variables = {
