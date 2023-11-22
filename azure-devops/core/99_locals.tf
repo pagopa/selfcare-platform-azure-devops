@@ -64,7 +64,7 @@ locals {
     uat_onetrust_domain_id        = "15a1f042-9257-450f-b9e8-38d019191729"
     uat_react_app_url_geotaxonomy = "https://api.pdnd.pagopa.it/geo-tax/geotaxonomy"
     uat_aoo_uo_enabled            = "true"
-    uat_pt_enabled                = "true"
+    uat_pt_enabled                = "false"
     uat_delegations_enabled       = "true"
 
     prod_azure_subscription        = azuredevops_serviceendpoint_azurerm.PROD-SELFCARE.service_endpoint_name
