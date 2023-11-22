@@ -79,7 +79,7 @@ locals {
     prod_react_app_url_geotaxonomy = "https://api.pdnd.pagopa.it/geo-tax/geotaxonomy"
     prod_aoo_uo_enabled            = "true"
     prod_pt_enabled                = "false"
-    prod_delegations_enabled       = "false"
+    prod_delegations_enabled       = "true"
 
     react_app_assistance_email = "areariservata@assistenza.pagopa.it"
 
