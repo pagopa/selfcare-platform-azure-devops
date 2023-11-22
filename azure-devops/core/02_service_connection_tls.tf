@@ -1,7 +1,7 @@
 
 module "DEV-SELFCARE-TLS-CERT-SERVICE-CONN" {
   depends_on = [data.azuredevops_project.project]
-  source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v2.6.5"
+  source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v4.1.1"
 
   project_id        = data.azuredevops_project.project.id
   name              = "selc-d-tls-cert"
@@ -35,7 +35,7 @@ module "letsencrypt_dev" {
 
 module "UAT-SELFCARE-TLS-CERT-SERVICE-CONN" {
   depends_on = [data.azuredevops_project.project]
-  source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v2.6.5"
+  source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v4.1.1"
 
   project_id        = data.azuredevops_project.project.id
   name              = "selc-u-tls-cert"
@@ -68,7 +68,7 @@ module "letsencrypt_uat" {
 
 module "PROD-SELFCARE-TLS-CERT-SERVICE-CONN" {
   depends_on = [data.azuredevops_project.project]
-  source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v2.6.5"
+  source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v4.1.1"
 
   project_id        = data.azuredevops_project.project.id
   name              = "selc-p-tls-cert"

@@ -10,7 +10,7 @@ variable "selfcare-load-tests" {
 }
 
 module "selfcare-load-tests_run" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_generic?ref=v2.6.5"
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_generic?ref=v4.1.1"
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.selfcare-load-tests.repository
