@@ -39,16 +39,14 @@ locals {
 }
 
 module "tlscert-api-pnpg-dev-selfcare-pagopa-it-cert_az" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert?ref=v4.1.1"
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert_federated?ref=v4.1.3"
   count  = var.tlscert-api-pnpg-dev-selfcare-pagopa-it.pipeline.enable_tls_cert == true ? 1 : 0
 
+  location                     = local.location
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.tlscert-api-pnpg-dev-selfcare-pagopa-it.repository
-  name                         = "${var.tlscert-api-pnpg-dev-selfcare-pagopa-it.pipeline.dns_record_name}.${var.tlscert-api-pnpg-dev-selfcare-pagopa-it.pipeline.dns_zone_name}"
   path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.tlscert-api-pnpg-dev-selfcare-pagopa-it.pipeline.path}"
   github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-rw.id
-  #tfsec:ignore:GEN003
-  renew_token = local.tlscert_renew_token
 
   dns_record_name         = var.tlscert-api-pnpg-dev-selfcare-pagopa-it.pipeline.dns_record_name
   dns_zone_name           = var.tlscert-api-pnpg-dev-selfcare-pagopa-it.pipeline.dns_zone_name
@@ -57,7 +55,6 @@ module "tlscert-api-pnpg-dev-selfcare-pagopa-it-cert_az" {
   subscription_name       = local.tlscert-api-pnpg-dev-selfcare-pagopa-it.subscription_name
   subscription_id         = local.tlscert-api-pnpg-dev-selfcare-pagopa-it.subscription_id
 
-  credential_subcription              = local.core_key_vault_subscription_name
   credential_key_vault_name           = local.core_key_vault_name
   credential_key_vault_resource_group = local.core_key_vault_resource_group
 

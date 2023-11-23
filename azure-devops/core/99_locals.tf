@@ -1,5 +1,12 @@
 locals {
-  prefix = "selc"
+  prefix   = "selc"
+  location = "westeurope"
+
+  #RG
+  dev_resource_group_name  = "${local.prefix}-d-identity-rg"
+  uat_resource_group_name  = "${local.prefix}-u-identity-rg"
+  prod_resource_group_name = "${local.prefix}-p-identity-rg"
+
   #CORE
   core_key_vault_name              = "selc-p-kv"
   core_key_vault_resource_group    = "selc-p-sec-rg"
