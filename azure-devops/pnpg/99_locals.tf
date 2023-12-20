@@ -56,7 +56,7 @@ locals {
     prod_mixpanel_token     = "1d1b09b008638080ab34fe9b75db84fd"
     prod_onetrust_domain_id = "084d5de2-d423-458a-9b28-0f8db3e55e71"
 
-    react_app_assistance_email = "areariservata@assistenza.pagopa.it"
+    react_app_assistance_email = "destinatari-send@assistenza.pagopa.it"
 
     dev_react_app_url_cdn                      = "https://pnpg.dev.selfcare.pagopa.it"
     dev_react_app_url_storage                  = "https://selcdweupnpgcheckoutsa.z6.web.core.windows.net"
