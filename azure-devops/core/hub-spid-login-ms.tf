@@ -34,8 +34,8 @@ locals {
   hub-spid-login-ms-variables_deploy = {
     k8s_image_repository_name = replace(var.hub-spid-login-ms.repository.name, "-", "")
     deploy_namespace          = "selc"
-    dev_replicas              = 1
-    uat_replicas              = 1
+    dev_replicas              = 2
+    uat_replicas              = 2
     prod_replicas             = 2
   }
   # deploy secrets
@@ -45,7 +45,7 @@ locals {
 }
 
 module "hub-spid-login-ms_deploy" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.6.5"
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v4.1.1"
   count  = var.hub-spid-login-ms.pipeline.enable_deploy == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id
