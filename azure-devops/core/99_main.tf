@@ -1,12 +1,14 @@
 terraform {
   required_version = ">= 1.3.0"
+
   required_providers {
     azuredevops = {
       source  = "microsoft/azuredevops"
-      version = "<= 0.5.0"
+      version = "<= 0.10.0"
     }
     azurerm = {
-      version = ">= 2.99.0"
+      source  = "hashicorp/azurerm"
+      version = "<= 3.71.0"
     }
     null = {
       source  = "hashicorp/null"
