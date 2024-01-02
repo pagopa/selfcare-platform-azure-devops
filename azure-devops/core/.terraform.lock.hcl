@@ -3,7 +3,7 @@
 
 provider "registry.terraform.io/hashicorp/azuread" {
   version     = "2.47.0"
-  constraints = ">= 2.10.0, >= 2.36.0"
+  constraints = ">= 2.36.0"
   hashes = [
     "h1:KB9BNRNStbdsfdRmVXUwXtN77qgX5VjBy2UALcqp218=",
     "h1:g8+gBFM4QVOEQFqAEs5pR6iXpbGvgPvcEi1evHwziyw=",
@@ -95,7 +95,7 @@ provider "registry.terraform.io/hashicorp/time" {
 
 provider "registry.terraform.io/microsoft/azuredevops" {
   version     = "0.10.0"
-  constraints = "<= 0.10.0"
+  constraints = "~> 0.10.0, <= 0.10.0"
   hashes = [
     "h1:GazdScTk4i4y9aIsvsO7GYkHYPYJBfaddaU+VlkLnZg=",
     "h1:GwFmEDohB4JeBGMMvSOdSw7SHxh1xZqQUfko7eaW+l4=",
