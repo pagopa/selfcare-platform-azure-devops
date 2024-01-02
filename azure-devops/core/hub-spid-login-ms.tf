@@ -34,8 +34,8 @@ locals {
   hub-spid-login-ms-variables_deploy = {
     k8s_image_repository_name = replace(var.hub-spid-login-ms.repository.name, "-", "")
     deploy_namespace          = "selc"
-    dev_replicas              = 1
-    uat_replicas              = 1
+    dev_replicas              = 2
+    uat_replicas              = 2
     prod_replicas             = 2
   }
   # deploy secrets
