@@ -89,7 +89,7 @@ locals {
     dev_react_app_login_alert_banner           = "https://dev.selfcare.pagopa.it/assets/login-alert-message.json"
     dev_react_app_login_spid_idp_status        = "https://dev.selfcare.pagopa.it/assets/spid_idp_status.json"
     dev_react_app_plans_prices                 = "https://dev.selfcare.pagopa.it/assets/app-io-premium-plans.json"
-    dev_react_app_login_spid_enabled           = "true"
+    dev_react_app_login_spid_enabled           = "false"
     dev_react_app_url_privacy_disclaimer       = "https://www.pagopa.it/it/informativa-privacy-area-riservata"
     dev_react_app_url_terms_and_conditions     = "https://www.pagopa.it/it/termini-condizioni-area-riservata"
     dev_react_app_url_fe_login                 = "https://dev.selfcare.pagopa.it/auth"
@@ -109,6 +109,7 @@ locals {
     dev_react_app_url_api_party_registry_proxy = "https://api.dev.selfcare.pagopa.it/party-registry-proxy/v1"
     dev_react_app_url_api_dashboard            = "https://api.dev.selfcare.pagopa.it/dashboard/v1"
     dev_react_app_url_api_onboarding           = "https://api.dev.selfcare.pagopa.it/onboarding/v1"
+    dev_react_app_url_api_onboarding_v2        = "https://api.dev.selfcare.pagopa.it/onboarding/v2"
     dev_react_app_url_api_notification         = "https://api.dev.selfcare.pagopa.it/ms-notification-manager"
 
     uat_react_app_url_cdn                      = "https://uat.selfcare.pagopa.it"
@@ -117,7 +118,7 @@ locals {
     uat_react_app_login_alert_banner           = "https://uat.selfcare.pagopa.it/assets/login-alert-message.json"
     uat_react_app_login_spid_idp_status        = "https://uat.selfcare.pagopa.it/assets/spid_idp_status.json"
     uat_react_app_plans_prices                 = "https://uat.selfcare.pagopa.it/assets/app-io-premium-plans.json"
-    uat_react_app_login_spid_enabled           = "true"
+    uat_react_app_login_spid_enabled           = "false"
     uat_react_app_url_privacy_disclaimer       = "https://www.pagopa.it/it/informativa-privacy-area-riservata"
     uat_react_app_url_terms_and_conditions     = "https://www.pagopa.it/it/termini-condizioni-area-riservata"
     uat_react_app_url_fe_login                 = "https://uat.selfcare.pagopa.it/auth"
@@ -137,6 +138,7 @@ locals {
     uat_react_app_url_api_party_registry_proxy = "https://api.uat.selfcare.pagopa.it/party-registry-proxy/v1"
     uat_react_app_url_api_dashboard            = "https://api.uat.selfcare.pagopa.it/dashboard/v1"
     uat_react_app_url_api_onboarding           = "https://api.uat.selfcare.pagopa.it/onboarding/v1"
+    uat_react_app_url_api_onboarding_v2        = "https://api.uat.selfcare.pagopa.it/onboarding/v2"
     uat_react_app_url_api_notification         = "https://api.uat.selfcare.pagopa.it/ms-notification-manager"
 
     prod_react_app_url_cdn                      = "https://selfcare.pagopa.it"
@@ -165,6 +167,7 @@ locals {
     prod_react_app_url_api_party_registry_proxy = "https://api.selfcare.pagopa.it/party-registry-proxy/v1"
     prod_react_app_url_api_dashboard            = "https://api.selfcare.pagopa.it/dashboard/v1"
     prod_react_app_url_api_onboarding           = "https://api.selfcare.pagopa.it/onboarding/v1"
+    prod_react_app_url_api_onboarding_v2        = "https://api.selfcare.pagopa.it/onboarding/v2"
     prod_react_app_url_api_notification         = "https://api.selfcare.pagopa.it/ms-notification-manager"
   }
 

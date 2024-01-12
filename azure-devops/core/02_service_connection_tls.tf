@@ -1,7 +1,7 @@
 
 module "DEV-SELFCARE-TLS-CERT-SERVICE-CONN" {
   depends_on = [data.azuredevops_project.project]
-  source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v2.6.5"
+  source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v4.1.1"
 
   project_id        = data.azuredevops_project.project.id
   name              = "selc-d-tls-cert"
@@ -18,7 +18,7 @@ module "DEV-SELFCARE-TLS-CERT-SERVICE-CONN" {
 
 # create let's encrypt credential used to create SSL certificates
 module "letsencrypt_dev" {
-  source = "git::https://github.com/pagopa/azurerm.git//letsencrypt_credential?ref=v4.3.2"
+  source = "git::https://github.com/pagopa/terraform-azurerm-v3.git//letsencrypt_credential?ref=v7.35.0"
 
   providers = {
     azurerm = azurerm.dev
@@ -35,7 +35,7 @@ module "letsencrypt_dev" {
 
 module "UAT-SELFCARE-TLS-CERT-SERVICE-CONN" {
   depends_on = [data.azuredevops_project.project]
-  source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v2.6.5"
+  source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v4.1.1"
 
   project_id        = data.azuredevops_project.project.id
   name              = "selc-u-tls-cert"
@@ -51,7 +51,7 @@ module "UAT-SELFCARE-TLS-CERT-SERVICE-CONN" {
 }
 
 module "letsencrypt_uat" {
-  source = "git::https://github.com/pagopa/azurerm.git//letsencrypt_credential?ref=v4.3.2"
+  source = "git::https://github.com/pagopa/terraform-azurerm-v3.git//letsencrypt_credential?ref=v7.35.0"
 
   providers = {
     azurerm = azurerm.uat
@@ -68,7 +68,7 @@ module "letsencrypt_uat" {
 
 module "PROD-SELFCARE-TLS-CERT-SERVICE-CONN" {
   depends_on = [data.azuredevops_project.project]
-  source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v2.6.5"
+  source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v4.1.1"
 
   project_id        = data.azuredevops_project.project.id
   name              = "selc-p-tls-cert"
@@ -85,7 +85,7 @@ module "PROD-SELFCARE-TLS-CERT-SERVICE-CONN" {
 
 # create let's encrypt credential used to create SSL certificates
 module "letsencrypt_prod" {
-  source = "git::https://github.com/pagopa/azurerm.git//letsencrypt_credential?ref=v4.3.2"
+  source = "git::https://github.com/pagopa/terraform-azurerm-v3.git//letsencrypt_credential?ref=v7.35.0"
 
   providers = {
     azurerm = azurerm.prod
