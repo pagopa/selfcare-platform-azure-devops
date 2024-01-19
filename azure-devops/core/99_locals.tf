@@ -109,7 +109,7 @@ locals {
     dev_react_app_url_api_party_registry_proxy = "https://api.dev.selfcare.pagopa.it/party-registry-proxy/v1"
     dev_react_app_url_api_dashboard            = "https://api.dev.selfcare.pagopa.it/dashboard/v1"
     dev_react_app_url_api_onboarding           = "https://api.dev.selfcare.pagopa.it/onboarding/v1"
-    dev_react_app_url_api_onboarding_v2        = "https://api.dev.selfcare.pagopa.it/onboarding/v2"
+    dev_react_app_url_api_onboarding_v2        = "https://api.dev.selfcare.pagopa.it/onboarding"
     dev_react_app_url_api_notification         = "https://api.dev.selfcare.pagopa.it/ms-notification-manager"
 
     uat_react_app_url_cdn                      = "https://uat.selfcare.pagopa.it"
@@ -138,7 +138,7 @@ locals {
     uat_react_app_url_api_party_registry_proxy = "https://api.uat.selfcare.pagopa.it/party-registry-proxy/v1"
     uat_react_app_url_api_dashboard            = "https://api.uat.selfcare.pagopa.it/dashboard/v1"
     uat_react_app_url_api_onboarding           = "https://api.uat.selfcare.pagopa.it/onboarding/v1"
-    uat_react_app_url_api_onboarding_v2        = "https://api.uat.selfcare.pagopa.it/onboarding/v2"
+    uat_react_app_url_api_onboarding_v2        = "https://api.uat.selfcare.pagopa.it/onboarding/v1"
     uat_react_app_url_api_notification         = "https://api.uat.selfcare.pagopa.it/ms-notification-manager"
 
     prod_react_app_url_cdn                      = "https://selfcare.pagopa.it"
@@ -167,7 +167,7 @@ locals {
     prod_react_app_url_api_party_registry_proxy = "https://api.selfcare.pagopa.it/party-registry-proxy/v1"
     prod_react_app_url_api_dashboard            = "https://api.selfcare.pagopa.it/dashboard/v1"
     prod_react_app_url_api_onboarding           = "https://api.selfcare.pagopa.it/onboarding/v1"
-    prod_react_app_url_api_onboarding_v2        = "https://api.selfcare.pagopa.it/onboarding/v2"
+    prod_react_app_url_api_onboarding_v2        = "https://api.selfcare.pagopa.it/onboarding/v1"
     prod_react_app_url_api_notification         = "https://api.selfcare.pagopa.it/ms-notification-manager"
   }
 
