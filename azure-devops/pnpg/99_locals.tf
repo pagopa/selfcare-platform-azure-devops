@@ -83,6 +83,7 @@ locals {
     dev_react_app_url_api_party_registry_proxy = "https://api-pnpg.dev.selfcare.pagopa.it/party-registry-proxy/v1"
     dev_react_app_url_api_dashboard            = "https://api-pnpg.dev.selfcare.pagopa.it/dashboard/v1"
     dev_react_app_url_api_onboarding           = "https://api-pnpg.dev.selfcare.pagopa.it/onboarding/v1"
+    dev_react_app_url_api_onboarding_v2        = "https://api-pnpg.dev.selfcare.pagopa.it/onboarding"
     dev_react_app_url_api_notification         = "https://api-pnpg.dev.selfcare.pagopa.it/ms-notification-manager"
 
     uat_react_app_url_cdn                      = "https://imprese.uat.notifichedigitali.it"
@@ -110,6 +111,7 @@ locals {
     uat_react_app_url_api_party_registry_proxy = "https://api-pnpg.uat.selfcare.pagopa.it/party-registry-proxy/v1"
     uat_react_app_url_api_dashboard            = "https://api-pnpg.uat.selfcare.pagopa.it/dashboard/v1"
     uat_react_app_url_api_onboarding           = "https://api-pnpg.uat.selfcare.pagopa.it/onboarding/v1"
+    uat_react_app_url_api_onboarding_v2        = "https://api-pnpg.uat.selfcare.pagopa.it/onboarding"
     uat_react_app_url_api_notification         = "https://api-pnpg.uat.selfcare.pagopa.it/ms-notification-manager"
 
     prod_react_app_url_cdn                      = "https://imprese.notifichedigitali.it"
@@ -137,6 +139,7 @@ locals {
     prod_react_app_url_api_party_registry_proxy = "https://api-pnpg.selfcare.pagopa.it/party-registry-proxy/v1"
     prod_react_app_url_api_dashboard            = "https://api-pnpg.selfcare.pagopa.it/dashboard/v1"
     prod_react_app_url_api_onboarding           = "https://api-pnpg.selfcare.pagopa.it/onboarding/v1"
+    prod_react_app_url_api_onboarding_v2        = "https://api-pnpg.selfcare.pagopa.it/onboarding"
     prod_react_app_url_api_notification         = "https://api-pnpg.selfcare.pagopa.it/ms-notification-manager"
   }
 
