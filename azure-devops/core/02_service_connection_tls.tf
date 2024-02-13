@@ -1,16 +1,19 @@
 
 module "DEV-SELFCARE-TLS-CERT-SERVICE-CONN" {
+  providers = {
+    azurerm = azurerm.dev
+  }
+
   depends_on = [data.azuredevops_project.project]
-  source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_federated?ref=v4.1.3"
+  source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_federated?ref=v6.0.0"
 
   resource_group_name = local.dev_resource_group_name
   location            = local.location
   project_id          = data.azuredevops_project.project.id
   name                = "selc-d-tls-cert"
-  tenant_id           = module.secrets.values["PAGOPAIT-TENANTID"].value
-  subscription_id     = module.secrets.values["PAGOPAIT-DEV-SELFCARE-SUBSCRIPTION-ID"].value
+  tenant_id           = data.azurerm_client_config.current.tenant_id
+  subscription_id     = data.azurerm_subscriptions.dev.subscriptions[0].subscription_id
   subscription_name   = "DEV-SelfCare"
-
 }
 
 # create let's encrypt credential used to create SSL certificates
@@ -31,6 +34,9 @@ module "letsencrypt_dev" {
 #
 
 module "UAT-SELFCARE-TLS-CERT-SERVICE-CONN" {
+  providers = {
+    azurerm = azurerm.uat
+  }
   depends_on = [data.azuredevops_project.project]
   source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_federated?ref=v4.1.3"
 
@@ -60,6 +66,9 @@ module "letsencrypt_uat" {
 #
 
 module "PROD-SELFCARE-TLS-CERT-SERVICE-CONN" {
+  providers = {
+    azurerm = azurerm.prod
+  }
   depends_on = [data.azuredevops_project.project]
   source     = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_federated?ref=v4.1.3"
 
