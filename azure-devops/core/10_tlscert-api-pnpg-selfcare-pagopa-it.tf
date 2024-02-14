@@ -1,90 +1,43 @@
-variable "tlscert-api-pnpg-selfcare-pagopa-it" {
-  default = {
-    repository = {
-      organization   = "pagopa"
-      name           = "le-azure-acme-tiny"
-      branch_name    = "refs/heads/master"
-      pipelines_path = "."
-    }
-    pipeline = {
-      enable_tls_cert         = true
-      path                    = "TLS-Certificates\\PROD"
-      dns_record_name         = "api-pnpg"
-      dns_zone_name           = "selfcare.pagopa.it"
-      dns_zone_resource_group = "selc-p-vnet-rg"
-      # common variables to all pipelines
-      variables = {
-        CERT_NAME_EXPIRE_SECONDS = "2592000" #30 days
-        KEY_VAULT_NAME           = "selc-p-kv"
-      }
-      # common secret variables to all pipelines
-      variables_secret = {
-      }
-    }
+module "tlscert-api-pnpg-selfcare-pagopa-it-cert_az" {
+  providers = {
+    azurerm = azurerm.prod
   }
-}
 
-locals {
-  tlscert-api-pnpg-selfcare-pagopa-it = {
-    tenant_id         = module.secrets.values["PAGOPAIT-TENANTID"].value
-    subscription_name = "PROD-SelfCare"
-    subscription_id   = module.secrets.values["PAGOPAIT-PROD-SELFCARE-SUBSCRIPTION-ID"].value
+  source = "github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_tls_cert_federated?ref=v6.0.0"
+
+  location   = local.location
+  project_id = data.azuredevops_project.project.id
+
+  repository = {
+    organization   = local.organization
+    name           = local.acme_repository_name
+    branch_name    = local.master_branch_ref
+    pipelines_path = "."
   }
-  tlscert-api-pnpg-selfcare-pagopa-it-variables = {
-    KEY_VAULT_CERT_NAME          = "${replace(var.tlscert-api-pnpg-selfcare-pagopa-it.pipeline.dns_record_name, ".", "-")}-${replace(var.tlscert-api-pnpg-selfcare-pagopa-it.pipeline.dns_zone_name, ".", "-")}"
+
+  path                                 = "${local.selfcare_legacy.pipelines_folder_name}\\TLS-Certificates\\PROD"
+  github_service_connection_id         = azuredevops_serviceendpoint_github.io-azure-devops-github-rw.id
+  managed_identity_resource_group_name = local.prod_resource_group_name
+
+  dns_record_name         = "api-pnpg"
+  dns_zone_name           = "selfcare.pagopa.it"
+  dns_zone_resource_group = local.prod_vnet_resource_group_name
+  tenant_id               = module.secrets.values["PAGOPAIT-TENANTID"].value
+  subscription_name       = local.prod_selfcare_subscription_name
+  subscription_id         = module.secrets.values["PAGOPAIT-PROD-SELFCARE-SUBSCRIPTION-ID"].value
+
+  credential_key_vault_name           = data.azurerm_key_vault.key_vault_prod.name
+  credential_key_vault_resource_group = data.azurerm_key_vault.key_vault_prod.resource_group_name
+
+  variables = {
+    CERT_NAME_EXPIRE_SECONDS     = "2592000" #30 days
+    KEY_VAULT_NAME               = data.azurerm_key_vault.key_vault_prod.name
     KEY_VAULT_SERVICE_CONNECTION = module.PROD-SELFCARE-TLS-CERT-SERVICE-CONN.service_endpoint_name
   }
-  tlscert-api-pnpg-selfcare-pagopa-it-variables_secret = {
-  }
-}
 
-module "tlscert-api-pnpg-selfcare-pagopa-it-cert_az" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert?ref=v4.1.1"
-  count  = var.tlscert-api-pnpg-selfcare-pagopa-it.pipeline.enable_tls_cert == true ? 1 : 0
-
-  project_id                   = data.azuredevops_project.project.id
-  repository                   = var.tlscert-api-pnpg-selfcare-pagopa-it.repository
-  name                         = "${var.tlscert-api-pnpg-selfcare-pagopa-it.pipeline.dns_record_name}.${var.tlscert-api-pnpg-selfcare-pagopa-it.pipeline.dns_zone_name}"
-  path                         = "${local.selfcare_legacy.pipelines_folder_name}\\${var.tlscert-api-pnpg-selfcare-pagopa-it.pipeline.path}"
-  github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-rw.id
-  #tfsec:ignore:GEN003
-  renew_token = local.tlscert_renew_token
-
-  dns_record_name         = var.tlscert-api-pnpg-selfcare-pagopa-it.pipeline.dns_record_name
-  dns_zone_name           = var.tlscert-api-pnpg-selfcare-pagopa-it.pipeline.dns_zone_name
-  dns_zone_resource_group = var.tlscert-api-pnpg-selfcare-pagopa-it.pipeline.dns_zone_resource_group
-  tenant_id               = local.tlscert-api-pnpg-selfcare-pagopa-it.tenant_id
-  subscription_name       = local.tlscert-api-pnpg-selfcare-pagopa-it.subscription_name
-  subscription_id         = local.tlscert-api-pnpg-selfcare-pagopa-it.subscription_id
-
-  credential_subcription              = local.core_key_vault_subscription_name
-  credential_key_vault_name           = local.core_key_vault_name
-  credential_key_vault_resource_group = local.core_key_vault_resource_group
-
-  variables = merge(
-    var.tlscert-api-pnpg-selfcare-pagopa-it.pipeline.variables,
-    local.tlscert-api-pnpg-selfcare-pagopa-it-variables,
-  )
-
-  variables_secret = merge(
-    var.tlscert-api-pnpg-selfcare-pagopa-it.pipeline.variables_secret,
-    local.tlscert-api-pnpg-selfcare-pagopa-it-variables_secret,
-  )
+  variables_secret = {}
 
   service_connection_ids_authorization = [
     module.PROD-SELFCARE-TLS-CERT-SERVICE-CONN.service_endpoint_id,
   ]
-
-
-  schedules = {
-    days_to_build              = ["Fri"]
-    schedule_only_with_changes = false
-    start_hours                = 5
-    start_minutes              = 0
-    time_zone                  = "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna"
-    branch_filter = {
-      include = ["master"]
-      exclude = []
-    }
-  }
 }

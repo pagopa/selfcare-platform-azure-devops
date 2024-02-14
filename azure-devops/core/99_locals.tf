@@ -1,9 +1,30 @@
 locals {
-  prefix = "selc"
+  prefix   = "selc"
+  location = "westeurope"
+
+  organization         = "pagopa"
+  acme_repository_name = "le-azure-acme-tiny"
+  master_branch_ref    = "refs/heads/master"
+
+  #RG
+  dev_resource_group_name  = "${local.prefix}-d-identity-rg"
+  uat_resource_group_name  = "${local.prefix}-u-identity-rg"
+  prod_resource_group_name = "${local.prefix}-p-identity-rg"
+
   #CORE
   core_key_vault_name              = "selc-p-kv"
   core_key_vault_resource_group    = "selc-p-sec-rg"
   core_key_vault_subscription_name = "PROD-SELFCARE"
+
+  #VNET
+  dev_vnet_name                = "selc-d-vnet"
+  dev_vnet_resource_group_name = "selc-d-vnet-rg"
+
+  uat_vnet_name                = "selc-u-vnet"
+  uat_vnet_resource_group_name = "selc-u-vnet-rg"
+
+  prod_vnet_name                = "selc-p-vnet"
+  prod_vnet_resource_group_name = "selc-p-vnet-rg"
 
   #KV
   dev_key_vault_name           = "selc-d-kv"
