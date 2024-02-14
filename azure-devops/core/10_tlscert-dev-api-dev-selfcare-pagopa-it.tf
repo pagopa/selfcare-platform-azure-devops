@@ -32,7 +32,6 @@ module "tlscert-dev-api-dev-selfcare-pagopa-it-cert_az" {
   variables = {
     CERT_NAME_EXPIRE_SECONDS     = "2592000" #30 days
     KEY_VAULT_NAME               = data.azurerm_key_vault.key_vault_dev.name
-    KEY_VAULT_CERT_NAME          = "api-dev-selfcare-pagopa-it"
     KEY_VAULT_SERVICE_CONNECTION = module.DEV-SELFCARE-TLS-CERT-SERVICE-CONN.service_endpoint_name
   }
 
@@ -41,14 +40,4 @@ module "tlscert-dev-api-dev-selfcare-pagopa-it-cert_az" {
   service_connection_ids_authorization = [
     module.DEV-SELFCARE-TLS-CERT-SERVICE-CONN.service_endpoint_id,
   ]
-}
-
-resource "azurerm_key_vault_access_policy" "DEV-TLS-CERT-SERVICE-CONN_kv_dev" {
-  provider = azurerm.dev
-
-  key_vault_id = data.azurerm_key_vault.key_vault_dev.id
-  tenant_id    = module.secrets.values["PAGOPAIT-TENANTID"].value
-  object_id    = module.DEV-SELFCARE-TLS-CERT-SERVICE-CONN.service_principal_object_id
-
-  certificate_permissions = ["Get", "Import"]
 }

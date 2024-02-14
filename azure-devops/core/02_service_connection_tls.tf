@@ -32,6 +32,16 @@ module "letsencrypt_dev" {
   subscription_name = local.dev_selfcare_subscription_name
 }
 
+resource "azurerm_key_vault_access_policy" "DEV-TLS-CERT-SERVICE-CONN_kv_dev" {
+  provider = azurerm.dev
+
+  key_vault_id = data.azurerm_key_vault.key_vault_dev.id
+  tenant_id    = module.secrets.values["PAGOPAIT-TENANTID"].value
+  object_id    = module.DEV-SELFCARE-TLS-CERT-SERVICE-CONN.service_principal_object_id
+
+  certificate_permissions = ["Get", "Import"]
+}
+
 #
 # UAT
 #
@@ -63,6 +73,16 @@ module "letsencrypt_uat" {
   env               = "u"
   key_vault_name    = local.uat_key_vault_name
   subscription_name = local.uat_selfcare_subscription_name
+}
+
+resource "azurerm_key_vault_access_policy" "UAT-TLS-CERT-SERVICE-CONN_kv_uat" {
+  provider = azurerm.uat
+
+  key_vault_id = data.azurerm_key_vault.key_vault_uat.id
+  tenant_id    = module.secrets.values["PAGOPAIT-TENANTID"].value
+  object_id    = module.UAT-SELFCARE-TLS-CERT-SERVICE-CONN.service_principal_object_id
+
+  certificate_permissions = ["Get", "Import"]
 }
 
 #
@@ -97,4 +117,14 @@ module "letsencrypt_prod" {
   env               = "p"
   key_vault_name    = local.prod_key_vault_name
   subscription_name = local.prod_selfcare_subscription_name
+}
+
+resource "azurerm_key_vault_access_policy" "PROD-TLS-CERT-SERVICE-CONN_kv_prod" {
+  provider = azurerm.prod
+
+  key_vault_id = data.azurerm_key_vault.key_vault_uat.id
+  tenant_id    = module.secrets.values["PAGOPAIT-TENANTID"].value
+  object_id    = module.PROD-SELFCARE-TLS-CERT-SERVICE-CONN.service_principal_object_id
+
+  certificate_permissions = ["Get", "Import"]
 }
