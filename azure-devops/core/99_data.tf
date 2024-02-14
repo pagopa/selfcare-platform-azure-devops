@@ -13,7 +13,7 @@ data "azurerm_key_vault" "key_vault_uat" {
 }
 
 data "azurerm_key_vault" "key_vault_prod" {
-  provider = azurerm.dev
+  provider = azurerm.prod
 
   name                = local.prod_key_vault_name
   resource_group_name = local.prod_key_vault_resource_group

@@ -122,7 +122,7 @@ module "letsencrypt_prod" {
 resource "azurerm_key_vault_access_policy" "PROD-TLS-CERT-SERVICE-CONN_kv_prod" {
   provider = azurerm.prod
 
-  key_vault_id = data.azurerm_key_vault.key_vault_uat.id
+  key_vault_id = data.azurerm_key_vault.key_vault_prod.id
   tenant_id    = module.secrets.values["PAGOPAIT-TENANTID"].value
   object_id    = module.PROD-SELFCARE-TLS-CERT-SERVICE-CONN.service_principal_object_id
 
