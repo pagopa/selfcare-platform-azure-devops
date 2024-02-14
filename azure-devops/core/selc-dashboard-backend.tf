@@ -77,7 +77,7 @@ module "selc-dashboard-backend_code_review" {
 }
 
 module "selc-dashboard-backend_deploy" {
-  source = "github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v4.1.3"
+  source = "github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_deploy?ref=v4.1.3"
   count  = var.selc-dashboard-backend.pipeline.enable_deploy == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id

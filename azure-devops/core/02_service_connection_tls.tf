@@ -24,7 +24,7 @@ module "letsencrypt_dev" {
     azurerm = azurerm.dev
   }
 
-  source = "github.com/pagopa/terraform-azurerm-v3.git//letsencrypt_credential?ref=v7.57.0"
+  source = "github.com/pagopa/terraform-azurerm-v3//letsencrypt_credential?ref=v7.57.0"
 
   prefix            = local.prefix
   env               = "d"

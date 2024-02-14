@@ -45,7 +45,7 @@ locals {
 }
 
 module "selc-proxy-mockserver_deploy" {
-  source = "github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v6.0.0"
+  source = "github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_deploy?ref=v6.0.0"
   count  = var.selc-proxy-mockserver.pipeline.enable_deploy == true ? 1 : 0
 
   project_id                   = data.azuredevops_project.project.id
