@@ -128,7 +128,7 @@ locals {
     dev_react_app_url_api_party_process        = "https://api.dev.selfcare.pagopa.it/ms-core/v1"
     dev_react_app_url_api_party_management     = "https://api.dev.selfcare.pagopa.it/ms-core/v1"
     dev_react_app_url_api_party_registry_proxy = "https://api.dev.selfcare.pagopa.it/party-registry-proxy/v1"
-    dev_react_app_url_api_dashboard            = "https://api.dev.selfcare.pagopa.it/dashboard/v1"
+    dev_react_app_url_api_dashboard            = "https://api.dev.selfcare.pagopa.it/dashboard"
     dev_react_app_url_api_onboarding           = "https://api.dev.selfcare.pagopa.it/onboarding/v1"
     dev_react_app_url_api_onboarding_v2        = "https://api.dev.selfcare.pagopa.it/onboarding"
     dev_react_app_url_api_notification         = "https://api.dev.selfcare.pagopa.it/ms-notification-manager"
