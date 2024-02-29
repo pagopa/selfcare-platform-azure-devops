@@ -109,7 +109,7 @@ locals {
     uat_react_app_url_api_party_process        = "https://api-pnpg.uat.selfcare.pagopa.it/party-process/v1"
     uat_react_app_url_api_party_management     = "https://api-pnpg.uat.selfcare.pagopa.it/party-management/v1"
     uat_react_app_url_api_party_registry_proxy = "https://api-pnpg.uat.selfcare.pagopa.it/party-registry-proxy/v1"
-    uat_react_app_url_api_dashboard            = "https://api-pnpg.uat.selfcare.pagopa.it/dashboard/v1"
+    uat_react_app_url_api_dashboard            = "https://api-pnpg.uat.selfcare.pagopa.it/dashboard"
     uat_react_app_url_api_onboarding           = "https://api-pnpg.uat.selfcare.pagopa.it/onboarding/v1"
     uat_react_app_url_api_onboarding_v2        = "https://api-pnpg.uat.selfcare.pagopa.it/onboarding"
     uat_react_app_url_api_notification         = "https://api-pnpg.uat.selfcare.pagopa.it/ms-notification-manager"
