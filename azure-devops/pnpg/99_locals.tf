@@ -77,15 +77,12 @@ locals {
     dev_react_app_url_fe_assistance            = "https://pnpg.dev.selfcare.pagopa.it/assistenza"
     dev_react_app_url_fe_landing               = "https://pnpg.dev.selfcare.pagopa.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
     dev_react_app_url_fe_token_exchange        = "https://pnpg.dev.selfcare.pagopa.it/token-exchange"
+    
     dev_react_app_url_api_login                = "https://api-pnpg.dev.selfcare.pagopa.it/spid/v1"
     dev_react_app_url_api_login_spid           = "https://api-pnpg.dev.selfcare.pagopa.it/spid/v1"
-    dev_react_app_url_api_party_process        = "https://api-pnpg.dev.selfcare.pagopa.it/party-process/v1"
-    dev_react_app_url_api_party_management     = "https://api-pnpg.dev.selfcare.pagopa.it/party-management/v1"
-    dev_react_app_url_api_party_registry_proxy = "https://api-pnpg.dev.selfcare.pagopa.it/party-registry-proxy/v1"
-    dev_react_app_url_api_dashboard            = "https://api-pnpg.dev.selfcare.pagopa.it/dashboard"
-    dev_react_app_url_api_onboarding           = "https://api-pnpg.dev.selfcare.pagopa.it/onboarding/v1"
-    dev_react_app_url_api_onboarding_v2        = "https://api-pnpg.dev.selfcare.pagopa.it/onboarding"
-    dev_react_app_url_api_notification         = "https://api-pnpg.dev.selfcare.pagopa.it/ms-notification-manager"
+    dev_react_app_url_api_party_registry_proxy = "https://api-pnpg.dev.selfcare.pagopa.it/imprese/party-registry-proxy/v1"
+    dev_react_app_url_api_dashboard            = "https://api-pnpg.dev.selfcare.pagopa.it/imprese/dashboard"
+    dev_react_app_url_api_onboarding_v2        = "https://api-pnpg.dev.selfcare.pagopa.it/imprese/onboarding"
 
     uat_react_app_url_cdn                      = "https://imprese.uat.notifichedigitali.it"
     uat_react_app_url_storage                  = "https://selcuweupnpgcheckoutsa.z6.web.core.windows.net"
