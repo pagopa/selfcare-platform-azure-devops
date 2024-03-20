@@ -129,6 +129,7 @@ locals {
     dev_react_app_url_api_login_spid           = "https://api.dev.selfcare.pagopa.it/spid/v1"
     dev_react_app_url_api_party_registry_proxy = "https://api.dev.selfcare.pagopa.it/party-registry-proxy/v1"
     dev_react_app_url_api_dashboard            = "https://api.dev.selfcare.pagopa.it/dashboard"
+    dev_react_app_url_api_onboarding           = "https://api.dev.selfcare.pagopa.it/onboarding/v1"
     dev_react_app_url_api_onboarding_v2        = "https://api.dev.selfcare.pagopa.it/onboarding"
 
     uat_react_app_url_cdn                      = "https://uat.selfcare.pagopa.it"
