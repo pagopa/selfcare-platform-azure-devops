@@ -181,13 +181,10 @@ locals {
     prod_react_app_url_fe_token_exchange        = "https://selfcare.pagopa.it/token-exchange"
     prod_react_app_url_api_login                = "https://api.selfcare.pagopa.it/spid-login/v1"
     prod_react_app_url_api_login_spid           = "https://api.selfcare.pagopa.it/spid/v1"
-    prod_react_app_url_api_party_process        = "https://api.selfcare.pagopa.it/ms-core/v1"
-    prod_react_app_url_api_party_management     = "https://api.selfcare.pagopa.it/ms-core/v1"
     prod_react_app_url_api_party_registry_proxy = "https://api.selfcare.pagopa.it/party-registry-proxy/v1"
     prod_react_app_url_api_dashboard            = "https://api.selfcare.pagopa.it/dashboard"
     prod_react_app_url_api_onboarding           = "https://api.selfcare.pagopa.it/onboarding/v1"
     prod_react_app_url_api_onboarding_v2        = "https://api.selfcare.pagopa.it/onboarding"
-    prod_react_app_url_api_notification         = "https://api.selfcare.pagopa.it/ms-notification-manager"
   }
 
   selc-be-common-variables_deploy = {

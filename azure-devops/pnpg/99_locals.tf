@@ -132,13 +132,10 @@ locals {
     prod_react_app_url_fe_token_exchange        = "https://imprese.notifichedigitali.it/token-exchange"
     prod_react_app_url_api_login                = "https://api-pnpg.selfcare.pagopa.it/spid/v1"
     prod_react_app_url_api_login_spid           = "https://api-pnpg.selfcare.pagopa.it/spid/v1"
-    prod_react_app_url_api_party_process        = "https://api-pnpg.selfcare.pagopa.it/party-process/v1"
-    prod_react_app_url_api_party_management     = "https://api-pnpg.selfcare.pagopa.it/party-management/v1"
-    prod_react_app_url_api_party_registry_proxy = "https://api-pnpg.selfcare.pagopa.it/party-registry-proxy/v1"
-    prod_react_app_url_api_dashboard            = "https://api-pnpg.selfcare.pagopa.it/dashboard"
-    prod_react_app_url_api_onboarding           = "https://api-pnpg.selfcare.pagopa.it/onboarding/v1"
-    prod_react_app_url_api_onboarding_v2        = "https://api-pnpg.selfcare.pagopa.it/onboarding"
-    prod_react_app_url_api_notification         = "https://api-pnpg.selfcare.pagopa.it/ms-notification-manager"
+    prod_react_app_url_api_party_registry_proxy = "https://api-pnpg.selfcare.pagopa.it/imprese/party-registry-proxy/v1"
+    prod_react_app_url_api_dashboard            = "https://api-pnpg.selfcare.pagopa.it/imprese/dashboard"
+    prod_react_app_url_api_onboarding           = "https://api-pnpg.selfcare.pagopa.it/imprese/onboarding/v1"
+    prod_react_app_url_api_onboarding_v2        = "https://api-pnpg.selfcare.pagopa.it/imprese/onboarding"
   }
 
   pnpg-be-common-variables_deploy = {
