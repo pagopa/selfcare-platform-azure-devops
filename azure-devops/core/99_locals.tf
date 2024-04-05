@@ -119,7 +119,7 @@ locals {
     dev_react_app_url_fe_dashboard             = "https://dev.selfcare.pagopa.it/dashboard"
     dev_react_app_url_fe_dashboard_admin       = "https://dev.selfcare.pagopa.it/microcomponents/dashboard/admin"
     dev_react_app_url_fe_dashboard_users       = "https://dev.selfcare.pagopa.it/microcomponents/dashboard/users"
-    dev_react_app_enable_user_v2               = "false"
+    dev_react_app_enable_user_v2               = "true"
     dev_react_app_url_fe_dashboard_groups      = "https://dev.selfcare.pagopa.it/microcomponents/dashboard/groups"
     dev_react_app_url_fe_assistance            = "https://dev.selfcare.pagopa.it/assistenza"
     dev_react_app_url_fe_landing               = "https://dev.selfcare.pagopa.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
