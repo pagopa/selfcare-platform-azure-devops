@@ -72,7 +72,7 @@ locals {
     dev_react_app_url_fe_dashboard             = "https://pnpg.dev.selfcare.pagopa.it/dashboard"
     dev_react_app_url_fe_dashboard_admin       = "https://pnpg.dev.selfcare.pagopa.it/microcomponents/dashboard/admin"
     dev_react_app_url_fe_dashboard_users       = "https://pnpg.dev.selfcare.pagopa.it/microcomponents/dashboard/users"
-    dev_react_app_enable_user_v2               = "false"
+    dev_react_app_enable_user_v2               = "true"
     dev_react_app_url_fe_dashboard_groups      = "https://pnpg.dev.selfcare.pagopa.it/microcomponents/dashboard/groups"
     dev_react_app_url_fe_assistance            = "https://pnpg.dev.selfcare.pagopa.it/assistenza"
     dev_react_app_url_fe_landing               = "https://pnpg.dev.selfcare.pagopa.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
@@ -99,7 +99,7 @@ locals {
     uat_react_app_url_fe_onboarding-pnpg       = "https://imprese.uat.notifichedigitali.it/onboarding-pnpg"
     uat_react_app_url_fe_dashboard_admin       = "https://imprese.uat.notifichedigitali.it/microcomponents/dashboard/admin"
     uat_react_app_url_fe_dashboard_users       = "https://imprese.uat.notifichedigitali.it/microcomponents/dashboard/users"
-    uat_react_app_enable_user_v2               = "false"
+    uat_react_app_enable_user_v2               = "true"
     uat_react_app_url_fe_dashboard_groups      = "https://imprese.uat.notifichedigitali.it/microcomponents/dashboard/groups"
     uat_react_app_url_fe_assistance            = "https://imprese.uat.notifichedigitali.it/assistenza"
     uat_react_app_url_fe_landing               = "https://imprese.uat.notifichedigitali.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
