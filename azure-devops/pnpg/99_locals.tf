@@ -78,8 +78,7 @@ locals {
     dev_react_app_url_fe_landing               = "https://pnpg.dev.selfcare.pagopa.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
     dev_react_app_url_fe_token_exchange        = "https://pnpg.dev.selfcare.pagopa.it/token-exchange"
     
-    dev_react_app_url_api_login                = "https://api-pnpg.dev.selfcare.pagopa.it/spid/v1"
-    dev_react_app_url_api_login_spid           = "https://api-pnpg.dev.selfcare.pagopa.it/spid/v1"
+    dev_react_app_url_api_login                = "https://api-pnpg.dev.selfcare.pagopa.it/spid-login/v1"
     dev_react_app_url_api_party_registry_proxy = "https://api-pnpg.dev.selfcare.pagopa.it/imprese/party-registry-proxy/v1"
     dev_react_app_url_api_dashboard            = "https://api-pnpg.dev.selfcare.pagopa.it/imprese/dashboard"
     dev_react_app_url_api_onboarding           = "https://api-pnpg.dev.selfcare.pagopa.it/imprese/onboarding/v1"
@@ -104,8 +103,7 @@ locals {
     uat_react_app_url_fe_assistance            = "https://imprese.uat.notifichedigitali.it/assistenza"
     uat_react_app_url_fe_landing               = "https://imprese.uat.notifichedigitali.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
     uat_react_app_url_fe_token_exchange        = "https://imprese.uat.notifichedigitali.it/token-exchange"
-    uat_react_app_url_api_login                = "https://api-pnpg.uat.selfcare.pagopa.it/spid/v1"
-    uat_react_app_url_api_login_spid           = "https://api-pnpg.uat.selfcare.pagopa.it/spid/v1"
+    uat_react_app_url_api_login                = "https://api-pnpg.uat.selfcare.pagopa.it/spid-login/v1"
     uat_react_app_url_api_party_registry_proxy = "https://api-pnpg.uat.selfcare.pagopa.it/imprese/party-registry-proxy/v1"
     uat_react_app_url_api_dashboard            = "https://api-pnpg.uat.selfcare.pagopa.it/imprese/dashboard"
     uat_react_app_url_api_onboarding           = "https://api-pnpg.uat.selfcare.pagopa.it/imprese/onboarding/v1"
@@ -130,8 +128,7 @@ locals {
     prod_react_app_url_fe_assistance            = "https://imprese.notifichedigitali.it/assistenza"
     prod_react_app_url_fe_landing               = "https://imprese.notifichedigitali.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
     prod_react_app_url_fe_token_exchange        = "https://imprese.notifichedigitali.it/token-exchange"
-    prod_react_app_url_api_login                = "https://api-pnpg.selfcare.pagopa.it/spid/v1"
-    prod_react_app_url_api_login_spid           = "https://api-pnpg.selfcare.pagopa.it/spid/v1"
+    prod_react_app_url_api_login                = "https://api-pnpg.selfcare.pagopa.it/spid-login/v1"
     prod_react_app_url_api_party_registry_proxy = "https://api-pnpg.selfcare.pagopa.it/imprese/party-registry-proxy/v1"
     prod_react_app_url_api_dashboard            = "https://api-pnpg.selfcare.pagopa.it/imprese/dashboard"
     prod_react_app_url_api_onboarding           = "https://api-pnpg.selfcare.pagopa.it/imprese/onboarding/v1"
