@@ -17,5 +17,6 @@ module "secrets" {
     "PAGOPAIT-PROD-SELFCARE-SUBSCRIPTION-ID",
     "SELC-DOCKER-REGISTRY-PAGOPA-USER",
     "SELC-DOCKER-REGISTRY-PAGOPA-TOKEN-RO",
+    "sonar-token",
   ]
 }
