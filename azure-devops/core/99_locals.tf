@@ -73,6 +73,7 @@ locals {
     dev_aoo_uo_enabled            = "true"
     dev_pt_enabled                = "true"
     dev_delegations_enabled       = "true"
+    dev_aggregator_enabled        = "true"
 
     uat_azure_subscription        = azuredevops_serviceendpoint_azurerm.UAT-SELFCARE.service_endpoint_name
     uat_cdn_endpoint              = "selc-u-checkout-cdn-endpoint"
@@ -87,6 +88,7 @@ locals {
     uat_aoo_uo_enabled            = "true"
     uat_pt_enabled                = "false"
     uat_delegations_enabled       = "true"
+    uat_aggregator_enabled        = "true"
 
     prod_azure_subscription        = azuredevops_serviceendpoint_azurerm.PROD-SELFCARE.service_endpoint_name
     prod_cdn_endpoint              = "selc-p-checkout-cdn-endpoint"
@@ -101,6 +103,7 @@ locals {
     prod_aoo_uo_enabled            = "true"
     prod_pt_enabled                = "false"
     prod_delegations_enabled       = "true"
+    prod_aggregator_enabled        = "false"
 
     react_app_assistance_email = "areariservata@assistenza.pagopa.it"
 
