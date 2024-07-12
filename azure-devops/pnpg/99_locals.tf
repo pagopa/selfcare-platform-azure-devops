@@ -58,6 +58,11 @@ locals {
 
     react_app_assistance_email = "destinatari-send@assistenza.pagopa.it"
 
+    react_app_ot_src = "https://privacyportalde-cdn.onetrust.com/privacy-notice-scripts/otnotice-1.0.min.js"
+    react_app_ot_token = "eyJjYWxsYmFja1VybCI6Imh0dHBzOi8vcHJpdmFjeXBvcnRhbC1kZS5vbmV0cnVzdC5jb20vcmVxdWVzdC92MS9wcml2YWN5Tm90aWNlcy9zdGF0cy92aWV3cyJ9"
+    react_app_ot_terms_condition_resource = "https://privacyportalde-cdn.onetrust.com/77f17844-04c3-4969-a11d-462ee77acbe1/privacy-notices/6f92cced-3bd1-4859-9295-baecfc74c64a.json"
+    react_app_ot_tos_resource = "https://privacyportalde-cdn.onetrust.com/77f17844-04c3-4969-a11d-462ee77acbe1/privacy-notices/26403d01-dc46-4c89-be70-4894839cf639.json"
+
     dev_react_app_url_cdn                      = "https://pnpg.dev.selfcare.pagopa.it"
     dev_react_app_url_storage                  = "https://selcdweupnpgcheckoutsa.z6.web.core.windows.net"
     dev_react_app_products_asset               = "https://pnpg.dev.selfcare.pagopa.it/assets/products.json"
