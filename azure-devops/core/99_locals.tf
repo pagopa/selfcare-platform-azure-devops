@@ -94,7 +94,7 @@ locals {
     uat_aggregator_enabled        = "true"
     uat_scp_infocamere_enabled    = "true"
     uat_prv_enabled               = "true"
-    dev_pure_prv_enabled          = "true"
+    uat_pure_prv_enabled          = "true"
 
     prod_azure_subscription        = azuredevops_serviceendpoint_azurerm.PROD-SELFCARE.service_endpoint_name
     prod_cdn_endpoint              = "selc-p-checkout-cdn-endpoint"
