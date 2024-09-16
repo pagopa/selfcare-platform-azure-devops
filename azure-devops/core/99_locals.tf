@@ -76,6 +76,7 @@ locals {
     dev_aggregator_enabled        = "true"
     dev_scp_infocamere_enabled    = "true"
     dev_prv_enabled               = "true"
+    dev_pure_prv_enabled          = "true"
 
     uat_azure_subscription        = azuredevops_serviceendpoint_azurerm.UAT-SELFCARE.service_endpoint_name
     uat_cdn_endpoint              = "selc-u-checkout-cdn-endpoint"
@@ -93,6 +94,7 @@ locals {
     uat_aggregator_enabled        = "true"
     uat_scp_infocamere_enabled    = "true"
     uat_prv_enabled               = "true"
+    dev_pure_prv_enabled          = "true"
 
     prod_azure_subscription        = azuredevops_serviceendpoint_azurerm.PROD-SELFCARE.service_endpoint_name
     prod_cdn_endpoint              = "selc-p-checkout-cdn-endpoint"
@@ -110,6 +112,7 @@ locals {
     prod_aggregator_enabled        = "false"
     prod_scp_infocamere_enabled    = "false"
     prod_prv_enabled               = "false"
+    prod_pure_prv_enabled          = "false"
 
     react_app_assistance_email = "areariservata@assistenza.pagopa.it"
 
