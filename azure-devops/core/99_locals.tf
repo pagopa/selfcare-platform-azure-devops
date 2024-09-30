@@ -110,7 +110,7 @@ locals {
     prod_pt_enabled                = "false"
     prod_delegations_enabled       = "true"
     prod_aggregator_enabled        = "false"
-    prod_scp_infocamere_enabled    = "false"
+    prod_scp_infocamere_enabled    = "true"
     prod_prv_enabled               = "false"
     prod_pure_prv_enabled          = "false"
 
