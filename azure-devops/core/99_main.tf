@@ -32,6 +32,7 @@ provider "azurerm" {
       purge_soft_delete_on_destroy = false
     }
   }
+  skip_provider_registration = true
 }
 
 provider "azurerm" {
@@ -42,6 +43,8 @@ provider "azurerm" {
     }
   }
   subscription_id = module.secrets.values["PAGOPAIT-DEV-SELFCARE-SUBSCRIPTION-ID"].value
+  
+  skip_provider_registration = true
 }
 
 provider "azurerm" {
@@ -52,6 +55,8 @@ provider "azurerm" {
     }
   }
   subscription_id = module.secrets.values["PAGOPAIT-UAT-SELFCARE-SUBSCRIPTION-ID"].value
+  
+  skip_provider_registration = true
 }
 
 provider "azurerm" {
@@ -62,4 +67,6 @@ provider "azurerm" {
     }
   }
   subscription_id = module.secrets.values["PAGOPAIT-PROD-SELFCARE-SUBSCRIPTION-ID"].value
+
+  skip_provider_registration = true
 }
