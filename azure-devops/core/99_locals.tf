@@ -111,7 +111,7 @@ locals {
     prod_delegations_enabled       = "true"
     prod_aggregator_enabled        = "false"
     prod_scp_infocamere_enabled    = "true"
-    prod_prv_enabled               = "false"
+    prod_prv_enabled               = "true"
     prod_pure_prv_enabled          = "false"
 
     react_app_assistance_email = "areariservata@assistenza.pagopa.it"
