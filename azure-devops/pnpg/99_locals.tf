@@ -128,7 +128,7 @@ locals {
     prod_react_app_url_fe_dashboard_admin       = "https://imprese.notifichedigitali.it/microcomponents/dashboard/admin"
     prod_react_app_url_fe_dashboard_users       = "https://imprese.notifichedigitali.it/microcomponents/dashboard/users"
     prod_react_app_enable_user_v2               = "true"
-    prod_react_app_enable_mobile_phone          = "false"
+    prod_react_app_enable_mobile_phone          = "true"
     prod_react_app_url_fe_dashboard_groups      = "https://imprese.notifichedigitali.it/microcomponents/dashboard/groups"
     prod_react_app_url_fe_assistance            = "https://imprese.notifichedigitali.it/assistenza"
     prod_react_app_url_fe_landing               = "https://imprese.notifichedigitali.it/auth/logout" // TODO when the landing will exists, replace this with the correct URL
