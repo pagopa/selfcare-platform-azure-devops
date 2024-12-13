@@ -86,8 +86,7 @@ locals {
     dev_react_app_url_api_login                = "https://api-pnpg.dev.selfcare.pagopa.it/spid/v1"
     dev_react_app_url_api_party_registry_proxy = "https://api-pnpg.dev.selfcare.pagopa.it/imprese/party-registry-proxy/v1"
     dev_react_app_url_api_dashboard            = "https://api-pnpg.dev.selfcare.pagopa.it/imprese/dashboard"
-    dev_react_app_url_api_onboarding           = "https://api-pnpg.dev.selfcare.pagopa.it/imprese/onboarding/v1"
-    dev_react_app_url_api_onboarding_v2        = "https://api-pnpg.dev.selfcare.pagopa.it/imprese/onboarding"
+    dev_react_app_url_api_onboarding           = "https://api-pnpg.dev.selfcare.pagopa.it/imprese/onboarding"
 
     uat_react_app_url_cdn                      = "https://imprese.uat.notifichedigitali.it"
     uat_react_app_url_storage                  = "https://selcuweupnpgcheckoutsa.z6.web.core.windows.net"
@@ -111,8 +110,7 @@ locals {
     uat_react_app_url_api_login                = "https://api-pnpg.uat.selfcare.pagopa.it/spid/v1"
     uat_react_app_url_api_party_registry_proxy = "https://api-pnpg.uat.selfcare.pagopa.it/imprese/party-registry-proxy/v1"
     uat_react_app_url_api_dashboard            = "https://api-pnpg.uat.selfcare.pagopa.it/imprese/dashboard"
-    uat_react_app_url_api_onboarding           = "https://api-pnpg.uat.selfcare.pagopa.it/imprese/onboarding/v1"
-    uat_react_app_url_api_onboarding_v2        = "https://api-pnpg.uat.selfcare.pagopa.it/imprese/onboarding"
+    uat_react_app_url_api_onboarding           = "https://api-pnpg.uat.selfcare.pagopa.it/imprese/onboarding"
 
     prod_react_app_url_cdn                      = "https://imprese.notifichedigitali.it"
     prod_react_app_url_storage                  = "https://selcpweupnpgcheckoutsa.z6.web.core.windows.net"
@@ -137,7 +135,6 @@ locals {
     prod_react_app_url_api_party_registry_proxy = "https://api-pnpg.selfcare.pagopa.it/imprese/party-registry-proxy/v1"
     prod_react_app_url_api_dashboard            = "https://api-pnpg.selfcare.pagopa.it/imprese/dashboard"
     prod_react_app_url_api_onboarding           = "https://api-pnpg.selfcare.pagopa.it/imprese/onboarding/v1"
-    prod_react_app_url_api_onboarding_v2        = "https://api-pnpg.selfcare.pagopa.it/imprese/onboarding"
   }
 
   pnpg-be-common-variables_deploy = {
